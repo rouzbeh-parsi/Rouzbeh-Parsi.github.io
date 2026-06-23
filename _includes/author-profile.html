@@ -171,16 +171,6 @@
       {% if author.zhihu %}
       <li><a href="https://www.zhihu.com/people/{{ author.zhihu }}"><i class="fab fa-fw fa-zhihu icon-pad-right" aria-hidden="true"></i>Zhihu</a></li>
       {% endif %}     
-      {% if site.data.navigation.main %}
-<nav class="author__urls-wrapper">
-  <ul class="author__urls social-icons">
-    {% for link in site.data.navigation.main %}
-      <li>
-        <a href="{{ link.url | relative_url }}">
-          {{ link.title }}
-        </a>
-      </li>
-    {% endfor %}
   </ul>
 </nav>
 {% endif %}
