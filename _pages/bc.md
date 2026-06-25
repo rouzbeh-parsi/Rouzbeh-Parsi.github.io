@@ -36,12 +36,10 @@ ETS models capture patterns in time series data by decomposing it into:
 
 The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS .
 
-<h2>Forecast Results</h2>
-
-<div id="chart" style="width:100%;height:600px;"></div>
+##Forecast Results
 
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-<script src="/assets/js/bc_forecast.js"></script>
+<script defer src="/assets/js/bc_forecast.js"></script>
 
 ---
 
