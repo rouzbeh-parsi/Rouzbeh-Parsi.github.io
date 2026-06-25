@@ -1,7 +1,8 @@
 ---
-layout: single
-title: "BC Personal Income Tax Forecast"
-permalink: /bc-tax/
+layout: archive
+title: "BC "
+permalink: /bc/
+author_profile: true
 ---
 
 ## Overview
