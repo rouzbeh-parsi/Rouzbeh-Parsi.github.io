@@ -49,15 +49,12 @@ In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving 
 Before fitting the ARIMA model, the time series should be tested for stationarity, I'm using the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time.
 
 ```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-from statsmodels.tsa.arima.model import ARIMA
+# ADF test
 from statsmodels.tsa.stattools import adfuller
-from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+result = adfuller(y)
+print("ADF Statistic:", result[0])
+print("p-value:", result[1])
 ```
 ---
 
