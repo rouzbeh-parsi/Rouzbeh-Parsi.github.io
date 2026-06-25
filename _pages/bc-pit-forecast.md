@@ -1,9 +1,7 @@
 
 ---
 title: "BC Personal Income Tax Forecast"
-permalink: /forecasting/
-layout: single
-author_profile: true
+
 ---
 
 ## Overview
@@ -25,3 +23,7 @@ These prediction intervals represent the uncertainty surrounding future estimate
 ---
 
 ## Forecast
+
+<p align="center">
+<img src="/images/bc_pit_forecast.png" width="900">
+</p>
