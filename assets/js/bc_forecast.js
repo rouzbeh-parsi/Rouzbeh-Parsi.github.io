@@ -12,15 +12,15 @@ function drawChart() {
 
     const forecast = [null,null,null,null,null,null,null,null,null,null,
                       null,null,null,null,null,null,null,null,null,null,
-                      null,null,null,null,null,17026,17445.31136,17864.62271,18283.93407];
+                      null,null,null,null,null,null,17026,17445.31136,17864.62271,18283.93407];
 
     const lower = [null,null,null,null,null,null,null,null,null,null,
                    null,null,null,null,null,null,null,null,null,null,
-                   null,null,null,null,null,17026,14752.88,14358.14,14118.15];
+                   null,null,null,null,null,null,17026,14752.88,14358.14,14118.15];
 
     const upper = [null,null,null,null,null,null,null,null,null,null,
                    null,null,null,null,null,null,null,null,null,null,
-                   null,null,null,null,null,17026,20137.74,21371.10,22449.72];
+                   null,null,null,null,null,null,17026,20137.74,21371.10,22449.72];
 
     function render() {
         Plotly.newPlot(chartDiv, [
