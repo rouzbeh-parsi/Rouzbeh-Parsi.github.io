@@ -34,9 +34,9 @@ ETS models capture patterns in time series data by decomposing it into:
 - Trend (long-term direction)
 - Seasonality (repeating patterns, if present)
 
-The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS .
+The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS . 
 
-## Forecast Results
+#### ETS Forecast Results
 <div id="chart" style="width:120%;height:450px;"></div>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <script src="{{ '/assets/js/bc.js' | relative_url }}"></script>
@@ -45,13 +45,18 @@ The model assigns exponentially decreasing weights to older observations, making
 
 ### ARIMA (Autoregressive Integrated Moving Average)
 
-ARIMA is a statistical forecasting method that models:
-- Autoregression (AR): relationship with past values  
-- Integration (I): differencing to achieve stationarity  
-- Moving Average (MA): relationship with past errors  
+In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving Average) model to forecast British Columbia’s Personal Income Tax revenue. The modeling process was implemented in Python using the "statsmodels" library.
+Before fitting the ARIMA model, the time series should be tested for stationarity, I'm using the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time.
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
-It is widely used for non-seasonal time series forecasting.
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 ---
 
 ### SARIMA (Seasonal ARIMA)
