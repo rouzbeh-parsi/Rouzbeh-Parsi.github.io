@@ -56,6 +56,24 @@ result = adfuller(y)
 print("ADF Statistic:", result[0])
 print("p-value:", result[1])
 ```
+p-value is almost 1 so the series is non-stationary and we're gonna apply first-order differencing to stabilize the mean. 
+to find the suitable AR and MA terms for the model i'm using the Autocorrelation (ACF) and Partial Autocorrelation (PACF) plots.
+```python
+import matplotlib.pyplot as plt
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+plot_acf(y_diff, lags=10, ax=axes[0])
+axes[0].set_title("ACF (Autocorrelation Function)")
+
+plot_pacf(y_diff, lags=10, ax=axes[1], method="ywm")
+axes[1].set_title("PACF (Partial Autocorrelation Function)")
+
+plt.tight_layout()
+plt.show()
+```
+
 ---
 
 ### SARIMA (Seasonal ARIMA)
