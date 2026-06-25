@@ -38,7 +38,7 @@ The model assigns exponentially decreasing weights to older observations, making
 
 ## Forecast Results
 
-{% include_relative src=/assets/js/BC_forecast.html %}
+{% include assets/js/bc_forecast.html %}
 ---
 
 ### ARIMA (Autoregressive Integrated Moving Average)
