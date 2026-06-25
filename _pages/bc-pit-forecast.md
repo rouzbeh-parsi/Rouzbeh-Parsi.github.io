@@ -25,5 +25,5 @@ These prediction intervals represent the uncertainty surrounding future estimate
 ## Forecast
 
 <p align="center">
-<img src="/images/bc_pit_forecast.png" width="900">
+<img src="/images/BC PIT forecast ETS.png" width="900">
 </p>
