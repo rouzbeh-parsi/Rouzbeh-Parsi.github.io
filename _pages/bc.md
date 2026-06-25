@@ -73,7 +73,10 @@ axes[1].set_title("PACF (Partial Autocorrelation Function)")
 plt.tight_layout()
 plt.show()
 ```
-
+figure below shows the ACF and PACF plots for our data.
+<p align="center">
+<img src="/images/test.png" width="900">
+</p>
 ---
 
 ### SARIMA (Seasonal ARIMA)
