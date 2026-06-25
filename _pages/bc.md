@@ -47,6 +47,7 @@ The model assigns exponentially decreasing weights to older observations, making
 
 In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving Average) model to forecast British Columbia’s Personal Income Tax revenue. The modeling process was implemented in Python using the "statsmodels" library.
 Before fitting the ARIMA model, the time series should be tested for stationarity, I'm using the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time.
+
 ```python
 import pandas as pd
 import numpy as np
@@ -56,7 +57,8 @@ from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
-from sklearn.metrics import mean_absolute_error, mean_squared_error```
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
 
 ---
 
