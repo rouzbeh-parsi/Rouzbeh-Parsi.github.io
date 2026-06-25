@@ -16,6 +16,9 @@ main:
     
   - title: "Publications"
     url: /publications/
+        
+  - title: "Publications123"
+    url: /publications/
     
   - title: "BC"
     url: /bc-pit-forecast/
