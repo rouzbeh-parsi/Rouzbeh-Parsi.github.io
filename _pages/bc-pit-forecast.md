@@ -36,43 +36,9 @@ ETS models capture patterns in time series data by decomposing it into:
 
 The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS .
 
-<div id="chart"></div>
+## Forecast Results
 
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-
-<script>
-var historical = {
-    x: [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
-    y: [/* historical values */],
-    mode: 'lines+markers',
-    name: 'Historical'
-};
-
-var forecast = {
-    x: [2026,2027,2028],
-    y: [/* forecast values */],
-    mode: 'lines+markers',
-    name: 'Forecast'
-};
-
-var upper = {
-    x: [2026,2027,2028],
-    y: [/* upper bound */],
-    mode: 'lines',
-    line: {dash:'dot'},
-    name: 'Upper Bound'
-};
-
-var lower = {
-    x: [2026,2027,2028],
-    y: [/* lower bound */],
-    mode: 'lines',
-    line: {dash:'dot'},
-    name: 'Lower Bound'
-};
-
-Plotly.newPlot('chart',[historical,forecast,upper,lower]);
-</script>
+{% include_relative ../assets/js/bc_forecast.html %}
 ---
 
 ### ARIMA (Autoregressive Integrated Moving Average)
