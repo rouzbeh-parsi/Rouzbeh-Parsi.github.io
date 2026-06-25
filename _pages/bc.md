@@ -39,7 +39,7 @@ The model assigns exponentially decreasing weights to older observations, making
 ## Forecast Results
 <div id="chart" style="width:100%;height:600px;"></div>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-<script src="assets/js/bc_forecast.js"></script>
+<script src="{{ '/assets/js/bc_forecast.js' | relative_url }}"></script>
 
 ---
 
