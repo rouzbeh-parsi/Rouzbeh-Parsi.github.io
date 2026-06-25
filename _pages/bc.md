@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title: "BC "
 permalink: /bc/
 author_profile: true
