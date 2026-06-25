@@ -1,8 +1,7 @@
 ---
-title: "BC Personal Income Tax Forecast (2026–2028)"
-permalink: /pit-forecast/
 layout: single
-author_profile: true
+title: "BC Personal Income Tax Forecast"
+permalink: /bc-tax/
 ---
 
 ## Overview
@@ -38,51 +37,6 @@ The model assigns exponentially decreasing weights to older observations, making
 
 ## Forecast Results
 
-<div id="chart" style="width:100%;height:600px;"></div>
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-<script>
-
-var historical = {
-    x: [2018,2019,2020,2021,2022,2023,2024,2025],
-    y: [/* historical values */],
-    mode: 'lines+markers',
-    name: 'Historical'
-};
-
-var forecast = {
-    x: [2026,2027,2028],
-    y: [/* forecast values */],
-    mode: 'lines+markers',
-    name: 'Forecast'
-};
-
-var upper = {
-    x: [2026,2027,2028],
-    y: [/* upper bound */],
-    mode: 'lines',
-    line:{dash:'dot'},
-    name:'Upper Bound'
-};
-
-var lower = {
-    x: [2026,2027,2028],
-    y: [/* lower bound */],
-    mode:'lines',
-    line:{dash:'dot'},
-    name:'Lower Bound'
-};
-
-Plotly.newPlot('chart',
-    [historical,forecast,upper,lower],
-    {
-        title:'BC Personal Income Tax Forecast',
-        xaxis:{title:'Fiscal Year'},
-        yaxis:{title:'Revenue ($ millions)'},
-        hovermode:'x unified'
-    }
-);
-
-</script>
 ---
 
 ### ARIMA (Autoregressive Integrated Moving Average)
