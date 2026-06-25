@@ -1,4 +1,11 @@
 function drawChart() {
+    const chartDiv = document.getElementById("chart");
+
+    if (!chartDiv) {
+        console.error("Chart div not found");
+        return;
+    }
+
     var historical = {
         x: [2018,2019,2020,2021,2022,2023,2024,2025],
         y: [17,18,19,20,21,22,23,24],
@@ -29,14 +36,8 @@ function drawChart() {
         name:'Lower Bound'
     };
 
-    Plotly.newPlot('chart', [historical, forecast, upper, lower], {
+    Plotly.newPlot(chartDiv, [historical, forecast, upper, lower], {
         title:'BC Personal Income Tax Forecast',
         hovermode:'x unified'
     });
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", drawChart);
-} else {
-    drawChart();
 }
