@@ -1,24 +1,101 @@
-
 ---
-title: "BC Personal Income Tax Forecast"
-
+title: "BC Personal Income Tax Forecast (2026–2028)"
+permalink: /pit-forecast/
+layout: single
+author_profile: true
 ---
 
 ## Overview
 
-This dashboard presents a three-year forecast of **British Columbia's Personal Income Tax (PIT) revenue** for the period **2026–2028**.
+This exercise presents a three-year forecast of **British Columbia’s Personal Income Tax (PIT) revenue** for the period **2026–2028**. The objective is to analyze historical revenue patterns and generate forward-looking projections using ETS, ARIMA and SARIMAX.
 
-The historical data are obtained from the **British Columbia Public Accounts**.
+The visualization included in this page shows historical PIT revenue trends alongside forecasted values and their associated uncertainty bounds.
 
-The forecast was developed using **Microsoft Excel's Exponential Smoothing (ETS)** forecasting model. ETS is a time series forecasting method that models the underlying level, trend, and seasonality (when present) in historical data. Excel automatically estimates the smoothing parameters to generate forecasts that best fit the observed data.
+---
 
-The chart below shows:
+## Data
 
-- Historical Personal Income Tax revenue
-- Forecasts for 2026–2028
-- Upper and lower prediction intervals
+The dataset is obtained from the **British Columbia Public Accounts**, which provides annual government financial statements and revenue breakdowns.
 
-These prediction intervals represent the uncertainty surrounding future estimates and provide a range within which future tax revenues are expected to fall.
+- Source: BC Public Accounts  
+- Frequency: Annual observations  
+- Variable: Personal Income Tax revenue (BC)
+
+---
+
+## Forcasting
+
+Three time series forecasting models were applied and compared:
+
+### ETS (Exponential Smoothing)
+
+ETS models capture patterns in time series data by decomposing it into:
+- Level (baseline value)
+- Trend (long-term direction)
+- Seasonality (repeating patterns, if present)
+
+The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS .
+
+<div id="chart"></div>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+<script>
+var historical = {
+    x: [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+    y: [/* historical values */],
+    mode: 'lines+markers',
+    name: 'Historical'
+};
+
+var forecast = {
+    x: [2026,2027,2028],
+    y: [/* forecast values */],
+    mode: 'lines+markers',
+    name: 'Forecast'
+};
+
+var upper = {
+    x: [2026,2027,2028],
+    y: [/* upper bound */],
+    mode: 'lines',
+    line: {dash:'dot'},
+    name: 'Upper Bound'
+};
+
+var lower = {
+    x: [2026,2027,2028],
+    y: [/* lower bound */],
+    mode: 'lines',
+    line: {dash:'dot'},
+    name: 'Lower Bound'
+};
+
+Plotly.newPlot('chart',[historical,forecast,upper,lower]);
+</script>
+---
+
+### ARIMA (Autoregressive Integrated Moving Average)
+
+ARIMA is a statistical forecasting method that models:
+- Autoregression (AR): relationship with past values  
+- Integration (I): differencing to achieve stationarity  
+- Moving Average (MA): relationship with past errors  
+
+It is widely used for non-seasonal time series forecasting.
+
+---
+
+### SARIMA (Seasonal ARIMA)
+
+SARIMA extends ARIMA by incorporating seasonal components. It captures:
+- Seasonal autoregression
+- Seasonal differencing
+- Seasonal moving averages
+
+This makes it suitable when revenue data exhibits cyclical or periodic patterns.
+
+---
 
 ---
 
