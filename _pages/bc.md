@@ -91,7 +91,7 @@ forecast = final_results.forecast(steps=3)
 print(forecast)
 ```
 The outpot is:
-
+```python
 SARIMAX Results                                
 ==============================================================================
 Dep. Variable:                    PIT   No. Observations:                   27
@@ -117,10 +117,7 @@ Prob(H) (two-sided):                  0.01   Kurtosis:                         3
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
 [2] Covariance matrix is singular or near-singular, with condition number 8.38e+28. Standard errors may be unstable.
-2026    17420.588161
-2027    17815.163161
-2028    18209.725001
-Name: predicted_mean, dtype: float64
+```
 ---
 
 ### SARIMA (Seasonal ARIMA)
