@@ -91,8 +91,7 @@ forecast = final_results.forecast(steps=3)
 print(forecast)
 ```
 The outpot is:
-<pre>
-SARIMAX Results                                
+<pre>                               
 ==============================================================================
 Dep. Variable:                    PIT   No. Observations:                   27
 Model:                 ARIMA(1, 1, 1)   Log Likelihood                -220.209
@@ -108,15 +107,6 @@ ar.L1          1.0000      0.009    111.109      0.000       0.982       1.018
 ma.L1         -0.9975      0.341     -2.926      0.003      -1.666      -0.329
 sigma2      1.285e+06   2.81e-07   4.58e+12      0.000    1.29e+06    1.29e+06
 ===================================================================================
-Ljung-Box (L1) (Q):                   0.05   Jarque-Bera (JB):                 3.21
-Prob(Q):                              0.82   Prob(JB):                         0.20
-Heteroskedasticity (H):               5.92   Skew:                             0.84
-Prob(H) (two-sided):                  0.01   Kurtosis:                         3.42
-===================================================================================
-
-Warnings:
-[1] Covariance matrix calculated using the outer product of gradients (complex-step).
-[2] Covariance matrix is singular or near-singular, with condition number 8.38e+28. Standard errors may be unstable.
 
 ---
 
