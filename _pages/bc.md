@@ -77,6 +77,50 @@ figure below shows the ACF and PACF plots for our data.
 <p align="center">
 <img src="/images/test.png" width="900">
 </p>
+Based on the ACF and PACF plots, the first lag for both the MA and AR components appears to be a reasonable specification. The next step is to fit the model to the data and generate forecasts for the next three years.
+
+```python
+from statsmodels.tsa.arima.model import ARIMA
+
+final_model = ARIMA(y, order=(1,1,1))
+final_results = final_model.fit()
+print(final_results.summary())
+
+forecast = final_results.forecast(steps=3)
+
+print(forecast)
+```
+The outpot is:
+
+SARIMAX Results                                
+==============================================================================
+Dep. Variable:                    PIT   No. Observations:                   27
+Model:                 ARIMA(1, 1, 1)   Log Likelihood                -220.209
+Date:                Thu, 25 Jun 2026   AIC                            446.418
+Time:                        16:58:32   BIC                            450.192
+Sample:                             0   HQIC                           447.505
+                                 - 27                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ar.L1          1.0000      0.009    111.109      0.000       0.982       1.018
+ma.L1         -0.9975      0.341     -2.926      0.003      -1.666      -0.329
+sigma2      1.285e+06   2.81e-07   4.58e+12      0.000    1.29e+06    1.29e+06
+===================================================================================
+Ljung-Box (L1) (Q):                   0.05   Jarque-Bera (JB):                 3.21
+Prob(Q):                              0.82   Prob(JB):                         0.20
+Heteroskedasticity (H):               5.92   Skew:                             0.84
+Prob(H) (two-sided):                  0.01   Kurtosis:                         3.42
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+[2] Covariance matrix is singular or near-singular, with condition number 8.38e+28. Standard errors may be unstable.
+2026    17420.588161
+2027    17815.163161
+2028    18209.725001
+Name: predicted_mean, dtype: float64
 ---
 
 ### SARIMA (Seasonal ARIMA)
