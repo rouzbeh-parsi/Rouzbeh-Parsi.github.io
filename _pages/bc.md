@@ -56,7 +56,7 @@ This equation represents the **simple exponential smoothing (ETS)** update rule,
 
 In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving Average) model. The modeling process was implemented in Python using the "statsmodels" library. the code and related figures are provided in the appendix.
 Before fitting the ARIMA model, the time series should be tested for stationarity, I used the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time. the test result, showed a p-value to 1 so the series is non-stationary so I applied first-order differencing to stabilize the mean. to find the suitable AR and MA terms for the model I used the Autocorrelation (ACF) and Partial Autocorrelation (PACF) plots. Based on theplots, the first lag for both the MA and AR components appears to be a reasonable specification. in the final step I fit the model to the data and generated forecasts for the next three years.
-After first differencing, the ARIMA model is
+After first differencing, the ARIMA model is:
 
 $$
 \Delta y_t
@@ -67,7 +67,7 @@ c
 +
 \theta_1 \varepsilon_{t-1}
 +
-\varepsilon_t,
+\varepsilon_t
 \tag{2}
 $$
 
