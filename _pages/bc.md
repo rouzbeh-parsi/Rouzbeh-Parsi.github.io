@@ -151,11 +151,12 @@ result1= adfuller(y_diff)
 print("ADF Statistic:", result1[0])
 print("p-value:", result1[1])
 ```
+<pre>
 ADF Statistic: 3.0510245117045023
 p-value: 1.0
 ADF Statistic (y_diff): -4.853524168075111
 p-value (y_diff): 4.291531922202673e-05
-
+</pre>
 ```python
 # ACF & PACF
 fig, axes = plt.subplots(1, 2, figsize=(12, 4))
@@ -172,7 +173,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-figure below shows the ACF and PACF plots for our data.
+
 <p align="center">
 <img src="/images/test.png" width="900">
 </p>
@@ -234,7 +235,7 @@ Name: predicted_mean, dtype: float64
 2026  15171.587536  19669.588786
 2027  14593.088572  21037.237750
 2028  14213.311847  22206.138155
-  
+</pre> 
 ```python
 # SARIMAX MODEL
 
@@ -281,8 +282,7 @@ Prob(Q):                              0.74   Prob(JB):                         0
 Heteroskedasticity (H):               1.67   Skew:                            -0.16
 Prob(H) (two-sided):                  0.46   Kurtosis:                         2.44
 ===================================================================================
-
-
+</pre>
   
 ```python
 forecast = results.get_forecast(
@@ -298,5 +298,4 @@ print(pred)
 2027    17627.008740
 2028    18068.150743
 Name: predicted_mean, dtype: float64
-
-
+</pre>
