@@ -23,6 +23,7 @@ function drawChart() {
             17445.31136,17864.62271,18283.93407],
         mode: 'lines+markers',
         name: 'ETS'
+        line: { dash: 'dot' }
     };
 
     const ARIMA = {
