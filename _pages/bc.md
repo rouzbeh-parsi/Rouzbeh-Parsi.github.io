@@ -58,7 +58,7 @@ In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving 
 Before fitting the ARIMA model, the time series should be tested for stationarity, I used the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time. the test result, showed a p-value to 1 so the series is non-stationary so I applied first-order differencing to stabilize the mean. to find the suitable AR and MA terms for the model I used the Autocorrelation (ACF) and Partial Autocorrelation (PACF) plots. Based on theplots, the first lag for both the MA and AR components appears to be a reasonable specification. in the final step I fit the model to the data and generated forecasts for the next three years.
 After first differencing, the ARIMA model is
 
-\[
+$$
 \Delta y_t
 =
 c
@@ -69,14 +69,14 @@ c
 +
 \varepsilon_t,
 \tag{2}
-\]
+$$
 
 where:
 
-- \(\Delta y_t=y_t-y_{t-1}\) is the first difference,
-- \(\phi_1\) is the autoregressive coefficient,
-- \(\theta_1\) is the moving-average coefficient,
-- \(\varepsilon_t\) is the random error
+- $$\(\Delta y_t=y_t-y_{t-1}\)$$ is the first difference,
+- $$\(\phi_1\)$$ is the autoregressive coefficient,
+- $$\(\theta_1\)$$ is the moving-average coefficient,
+- $$\(\varepsilon_t\)$$ is the random error
 
 ---
 ### SARIMAX (Seasonal ARIMA with Exogenous Variables)
@@ -89,7 +89,7 @@ Although SARIMAX can improve in-sample forecasting when reliable external variab
 
 For this reason, the ETS and ARIMA models were preferred for the primary analysis, as they can generate forecasts directly from the historical PIT time series without requiring forecasts of external variables.
 
-\[
+$$
 \Delta y_t
 =
 c
@@ -104,13 +104,13 @@ c
 +
 \varepsilon_t,
 \tag{3}
-\]
+$$
 
 where:
 
-- \(X_{1,t}\) is the inflation rate,
-- \(X_{2,t}\) is GDP growth,
-- \(\beta_1\) and \(\beta_2\) measure the effects of the exogenous variables.
+- $$\(X_{1,t}\)$$ is the inflation rate,
+- $$\(X_{2,t}\)$$ is GDP growth,
+- $$\(\beta_1\)$$ and $$\(\beta_2\)$$ measure the effects of the exogenous variables.
 ---
 ## Results
 The results can be compared in the graph below. As can be seen, ARIMA and ETS produce very similar outcomes, while SARIMAX yields slightly lower predictions.
