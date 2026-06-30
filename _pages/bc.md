@@ -72,10 +72,10 @@ $$
 
 where:
 
-- $$\(\Delta y_t=y_t-y_{t-1}\)$$ is the first difference,
-- $$\(\phi_1\)$$ is the autoregressive coefficient,
-- $$\(\theta_1\)$$ is the moving-average coefficient,
-- $$\(\varepsilon_t\)$$ is the random error
+- $(\Delta y_t=y_t-y_{t-1})$ is the first difference,
+- $(\phi_1)$ is the autoregressive coefficient,
+- $(\theta_1)$ is the moving-average coefficient,
+- $(\varepsilon_t)$ is the random error
 
 ---
 ### SARIMAX (Seasonal ARIMA with Exogenous Variables)
@@ -107,9 +107,9 @@ $$
 
 where:
 
-- $$\(X_{1,t}\)$$ is the inflation rate,
-- $$\(X_{2,t}\)$$ is GDP growth,
-- $$\(\beta_1\)$$ and $$\(\beta_2\)$$ measure the effects of the exogenous variables.
+- $(X_{1,t})$ is the inflation rate,
+- $(X_{2,t})$ is GDP growth,
+- $(\beta_1)$ and $(\beta_2)$ measure the effects of the exogenous variables.
 ---
 ## Results
 The results can be compared in the graph below. As can be seen, ARIMA and ETS produce very similar outcomes, while SARIMAX yields slightly lower predictions.
