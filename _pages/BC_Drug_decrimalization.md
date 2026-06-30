@@ -9,72 +9,17 @@ author_profile: true
 
 This dashboard visualizes monthly drug-related deaths and highlights the policy intervention period.
 
-<div id="drug_chart" style="width:100%;height:600px;"></div>
-
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<div id="drug_chart"></div>
 
 <script>
 window.addEventListener("load", function () {
 
-    // ✅ SAFE JEKYLL DATA (NO JSON.parse)
+    // Load Jekyll data safely
     const rawData = {{ site.data.drug | jsonify }};
 
-    if (!rawData || rawData.length === 0) {
-        console.error("No data loaded");
-        return;
-    }
+    // Debug checks
+    console.log("Data loaded:", rawData);
+    console.log("First row:", rawData[0]);
 
-    // Convert to time series
-    const x = rawData.map(d =>
-        new Date(Number(d.DeathYear), Number(d.Month) - 1, 1)
-    );
-
-    const y = rawData.map(d => Number(d.Frequency));
-
-    const trace = {
-        x: x,
-        y: y,
-        mode: "lines+markers",
-        name: "Drug-related deaths"
-    };
-
-    // Policy dates
-    const policyStart = new Date(2023, 0, 1);
-    const policyEnd = new Date(2024, 0, 1);
-
-    const layout = {
-        title: "BC Drug Policy Outcomes",
-        hovermode: "x unified",
-        margin: { t: 50 },
-
-        xaxis: {
-            type: "date"
-        },
-
-        shapes: [
-            {
-                type: "line",
-                x0: policyStart,
-                x1: policyStart,
-                y0: 0,
-                y1: 1,
-                xref: "x",
-                yref: "paper",
-                line: { color: "green", width: 2, dash: "dash" }
-            },
-            {
-                type: "line",
-                x0: policyEnd,
-                x1: policyEnd,
-                y0: 0,
-                y1: 1,
-                xref: "x",
-                yref: "paper",
-                line: { color: "red", width: 2, dash: "dot" }
-            }
-        ]
-    };
-
-    Plotly.newPlot("drug_chart", [trace], layout);
 });
 </script>
