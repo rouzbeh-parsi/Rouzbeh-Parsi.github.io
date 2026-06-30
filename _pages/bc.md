@@ -47,17 +47,10 @@ ETS models capture patterns in time series data by decomposing it into:
 The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS . 
 For a simple additive ETS model, the forecast is updated recursively as
 
-\[
-\hat{y}_{t+1}= \alpha y_t + (1-\alpha)\hat{y}_t,
+$$
+\hat{y}_{t+1}= \alpha y_t + (1-\alpha)\hat{y}_t
 \tag{1}
-\]
-
-where:
-
-- \(y_t\) is the observed value at time \(t\),
-- \(\hat{y}_t\) is the estimated level,
-- \(\alpha\) is the smoothing parameter \((0<\alpha<1)\).
-
+$$
 
 ---
 
