@@ -1,6 +1,5 @@
 ---
 layout: archive
-title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -39,6 +38,7 @@ Economist and policy analyst with extensive experience supporting federal and pr
 ### AmirKabir University of Technology (Tehran Polytechnic)
 
 **B.Sc. in Mechanical Engineering** | 2011–2016
+
 
 ---
 
