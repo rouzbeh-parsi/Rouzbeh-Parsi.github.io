@@ -33,7 +33,7 @@ function drawChart() {
             null,null,null,null,null,null,null,null,null,null,
             null,null,null,null,null,null,17026,
             17420.588161,17815.163161,18209.725001],
-        mode: 'lines',
+        mode: 'lines+markers',
         name: 'ARIMA',
         line: { dash: 'dot' }
     };
@@ -46,7 +46,7 @@ function drawChart() {
             null,null,null,null,null,null,null,null,null,null,
             null,null,null,null,null,null,17026,
             17240.688393,17627.008740,18068.150743],
-        mode: 'lines',
+        mode: 'lines+markers',
         name: 'SARIMAX',
         line: { dash: 'dot' }
     };
