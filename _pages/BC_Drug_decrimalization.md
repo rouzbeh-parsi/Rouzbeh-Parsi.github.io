@@ -16,17 +16,15 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
 <script>
 window.addEventListener("load", function () {
 
-    // Load Jekyll data
-    const rawData = {{ site.data.drug | jsonify }};
+    // ✅ SAFE JEKYLL DATA (no broken JS injection)
+    const rawData = JSON.parse(`{{ site.data.drug | jsonify | escape }}`);
 
-    // Convert to time series (real dates)
     const x = rawData.map(d =>
         new Date(Number(d.DeathYear), Number(d.Month) - 1, 1)
     );
 
     const y = rawData.map(d => Number(d.Frequency));
 
-    // Main trace
     const trace = {
         x: x,
         y: y,
@@ -34,18 +32,15 @@ window.addEventListener("load", function () {
         name: "Drug-related deaths"
     };
 
-    // Layout
     const layout = {
         title: "BC Drug-Related Deaths",
         hovermode: "x unified",
         margin: { t: 50 },
-        xaxis: {
-            type: "date"
-        }
+        xaxis: { type: "date" }
     };
 
-    // Plot
     Plotly.newPlot("drug_chart", [trace], layout);
 
 });
 </script>
+
