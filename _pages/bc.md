@@ -98,6 +98,7 @@ The modeling process is very similar to the ARIMA methodology described above, w
 Although SARIMAX can improve in-sample forecasting when reliable external variables are available, I did not select it as the primary forecasting model for this project. Producing **ex ante forecasts** requires future values of the exogenous variables (inflation and GDP growth), which must themselves be forecast or obtained from another source. This additional dependency introduces extra uncertainty and reduces the model's practicality for independent long-term revenue forecasting.
 
 For this reason, the ETS and ARIMA models were preferred for the primary analysis, as they can generate forecasts directly from the historical PIT time series without requiring forecasts of external variables.
+
 \[
 \Delta y_t
 =
