@@ -35,7 +35,18 @@ ETS models capture patterns in time series data by decomposing it into:
 - Seasonality (repeating patterns, if present)
 
 The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS . 
+For a simple additive ETS model, the forecast is updated recursively as
 
+\[
+\hat{y}_{t+1}= \alpha y_t + (1-\alpha)\hat{y}_t,
+\tag{1}
+\]
+
+where:
+
+- \(y_t\) is the observed value at time \(t\),
+- \(\hat{y}_t\) is the estimated level,
+- \(\alpha\) is the smoothing parameter \((0<\alpha<1)\).
 
 
 ---
@@ -44,12 +55,61 @@ The model assigns exponentially decreasing weights to older observations, making
 
 In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving Average) model. The modeling process was implemented in Python using the "statsmodels" library. the code and related figures are provided in the appendix.
 Before fitting the ARIMA model, the time series should be tested for stationarity, I used the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time. the test result, showed a p-value to 1 so the series is non-stationary so I applied first-order differencing to stabilize the mean. to find the suitable AR and MA terms for the model I used the Autocorrelation (ACF) and Partial Autocorrelation (PACF) plots. Based on theplots, the first lag for both the MA and AR components appears to be a reasonable specification. in the final step I fit the model to the data and generated forecasts for the next three years.
+After first differencing, the ARIMA model is
 
-figure below shows the ACF and PACF plots for our data.
-<p align="center">
-<img src="/images/test.png" width="900">
-</p>
+\[
+\Delta y_t
+=
+c
++
+\phi_1 \Delta y_{t-1}
++
+\theta_1 \varepsilon_{t-1}
++
+\varepsilon_t,
+\tag{2}
+\]
 
+where:
+
+- \(\Delta y_t=y_t-y_{t-1}\) is the first difference,
+- \(\phi_1\) is the autoregressive coefficient,
+- \(\theta_1\) is the moving-average coefficient,
+- \(\varepsilon_t\) is the random error
+
+---
+### SARIMAX (Seasonal ARIMA with Exogenous Variables)
+
+The SARIMAX model extends the ARIMA framework by incorporating **exogenous (external) variables** that may influence the time series. In this analysis, **inflation** and **GDP growth** were included as exogenous predictors.
+
+The modeling process is very similar to the ARIMA methodology described above, with the addition of these external variables. The detailed implementation and model specification are provided in the Appendix.
+
+Although SARIMAX can improve in-sample forecasting when reliable external variables are available, I did not select it as the primary forecasting model for this project. Producing **ex ante forecasts** requires future values of the exogenous variables (inflation and GDP growth), which must themselves be forecast or obtained from another source. This additional dependency introduces extra uncertainty and reduces the model's practicality for independent long-term revenue forecasting.
+
+For this reason, the ETS and ARIMA models were preferred for the primary analysis, as they can generate forecasts directly from the historical PIT time series without requiring forecasts of external variables.
+\[
+\Delta y_t
+=
+c
++
+\phi_1 \Delta y_{t-1}
++
+\theta_1 \varepsilon_{t-1}
++
+\beta_1X_{1,t}
++
+\beta_2X_{2,t}
++
+\varepsilon_t,
+\tag{3}
+\]
+
+where:
+
+- \(X_{1,t}\) is the inflation rate,
+- \(X_{2,t}\) is GDP growth,
+- \(\beta_1\) and \(\beta_2\) measure the effects of the exogenous variables.
+---
 ## Results
 <div id="chart" style="width:120%;height:450px;"></div>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
@@ -76,14 +136,10 @@ sigma2      1.285e+06   2.81e-07   4.58e+12      0.000    1.29e+06    1.29e+06
 
 ---
 
-### SARIMA (Seasonal ARIMA)
-
-SARIMA extends ARIMA by incorporating seasonal components. It captures:
-- Seasonal autoregression
-- Seasonal differencing
-- Seasonal moving averages
-
-This makes it suitable when revenue data exhibits cyclical or periodic patterns.
+figure below shows the ACF and PACF plots for our data.
+<p align="center">
+<img src="/images/test.png" width="900">
+</p>
 
 ---
 
