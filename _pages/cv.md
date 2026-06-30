@@ -20,7 +20,7 @@ Victoria, BC, Canada
 
 Economist and policy analyst with extensive experience supporting federal and provincial governments through economic forecasting, policy analysis, and quantitative research. Experienced in developing forecasting models, conducting econometric analysis, producing executive briefing materials, and translating complex analytical findings into evidence-based policy recommendations.
 
-
+---
 ## Education
 
 ### University of Victoria
@@ -39,7 +39,7 @@ Economist and policy analyst with extensive experience supporting federal and pr
 **B.Sc. in Mechanical Engineering** | 2011–2016
 - Specialization in quantitative modeling and applied heat transfer analysis
 
-
+---
 ## Professional Experience
 
 ### Research Officer
