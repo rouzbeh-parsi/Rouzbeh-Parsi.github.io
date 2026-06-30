@@ -13,7 +13,7 @@ function drawChart() {
         name: 'Historical PIT'
     };
 
-    const forecast = {
+    const ETS = {
         x: [1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,
             2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,
             2019,2020,2021,2022,2023,2024,2025,2026,2027,2028],
@@ -22,28 +22,28 @@ function drawChart() {
             null,null,null,null,null,null,17026,
             17445.31136,17864.62271,18283.93407],
         mode: 'lines+markers',
-        name: 'Forecast PIT'
+        name: 'ETS'
     };
 
-    const lower = {
+    const ARIMA = {
         x: forecast.x,
         y: [null,null,null,null,null,null,null,null,null,null,
             null,null,null,null,null,null,null,null,null,null,
             null,null,null,null,null,null,17026,
-            14752.88,14358.14,14118.15],
+            17420.588161,17815.163161,18209.725001],
         mode: 'lines',
-        name: 'Lower Bound',
+        name: 'ARIMA',
         line: { dash: 'dot' }
     };
-
-    const upper = {
+\
+    const SARIMAX = {
         x: forecast.x,
         y: [null,null,null,null,null,null,null,null,null,null,
             null,null,null,null,null,null,null,null,null,null,
             null,null,null,null,null,null,17026,
-            20137.74,21371.10,22449.72],
+            17240.688393,17627.008740,18068.150743],
         mode: 'lines',
-        name: 'Upper Bound',
+        name: 'SARIMAX',
         line: { dash: 'dot' }
     };
 
