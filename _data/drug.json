@@ -1,137 +1,682 @@
-="DeathYear"	="Month"	="Frequency"
-="2015"	="1"	="43"
-="2015"	="2"	="31"
-="2015"	="3"	="32"
-="2015"	="4"	="34"
-="2015"	="5"	="41"
-="2015"	="6"	="34"
-="2015"	="7"	="40"
-="2015"	="8"	="53"
-="2015"	="9"	="50"
-="2015"	="10"	="53"
-="2015"	="11"	="52"
-="2015"	="12"	="65"
-="2016"	="1"	="86"
-="2016"	="2"	="58"
-="2016"	="3"	="76"
-="2016"	="4"	="73"
-="2016"	="5"	="51"
-="2016"	="6"	="72"
-="2016"	="7"	="74"
-="2016"	="8"	="65"
-="2016"	="9"	="63"
-="2016"	="10"	="77"
-="2016"	="11"	="140"
-="2016"	="12"	="162"
-="2017"	="1"	="148"
-="2017"	="2"	="125"
-="2017"	="3"	="129"
-="2017"	="4"	="156"
-="2017"	="5"	="149"
-="2017"	="6"	="130"
-="2017"	="7"	="122"
-="2017"	="8"	="126"
-="2017"	="9"	="97"
-="2017"	="10"	="98"
-="2017"	="11"	="110"
-="2017"	="12"	="104"
-="2018"	="1"	="134"
-="2018"	="2"	="108"
-="2018"	="3"	="158"
-="2018"	="4"	="136"
-="2018"	="5"	="119"
-="2018"	="6"	="117"
-="2018"	="7"	="151"
-="2018"	="8"	="126"
-="2018"	="9"	="139"
-="2018"	="10"	="119"
-="2018"	="11"	="132"
-="2018"	="12"	="127"
-="2019"	="1"	="94"
-="2019"	="2"	="87"
-="2019"	="3"	="122"
-="2019"	="4"	="81"
-="2019"	="5"	="93"
-="2019"	="6"	="73"
-="2019"	="7"	="72"
-="2019"	="8"	="83"
-="2019"	="9"	="63"
-="2019"	="10"	="79"
-="2019"	="11"	="81"
-="2019"	="12"	="64"
-="2020"	="1"	="80"
-="2020"	="2"	="79"
-="2020"	="3"	="120"
-="2020"	="4"	="130"
-="2020"	="5"	="175"
-="2020"	="6"	="189"
-="2020"	="7"	="186"
-="2020"	="8"	="161"
-="2020"	="9"	="142"
-="2020"	="10"	="176"
-="2020"	="11"	="170"
-="2020"	="12"	="166"
-="2021"	="1"	="188"
-="2021"	="2"	="177"
-="2021"	="3"	="173"
-="2021"	="4"	="187"
-="2021"	="5"	="174"
-="2021"	="6"	="177"
-="2021"	="7"	="199"
-="2021"	="8"	="202"
-="2021"	="9"	="161"
-="2021"	="10"	="212"
-="2021"	="11"	="216"
-="2021"	="12"	="227"
-="2022"	="1"	="215"
-="2022"	="2"	="205"
-="2022"	="3"	="185"
-="2022"	="4"	="174"
-="2022"	="5"	="214"
-="2022"	="6"	="159"
-="2022"	="7"	="201"
-="2022"	="8"	="192"
-="2022"	="9"	="192"
-="2022"	="10"	="212"
-="2022"	="11"	="203"
-="2022"	="12"	="234"
-="2023"	="1"	="231"
-="2023"	="2"	="198"
-="2023"	="3"	="216"
-="2023"	="4"	="240"
-="2023"	="5"	="200"
-="2023"	="6"	="204"
-="2023"	="7"	="224"
-="2023"	="8"	="199"
-="2023"	="9"	="191"
-="2023"	="10"	="217"
-="2023"	="11"	="231"
-="2023"	="12"	="242"
-="2024"	="1"	="221"
-="2024"	="2"	="204"
-="2024"	="3"	="219"
-="2024"	="4"	="196"
-="2024"	="5"	="198"
-="2024"	="6"	="201"
-="2024"	="7"	="194"
-="2024"	="8"	="210"
-="2024"	="9"	="192"
-="2024"	="10"	="163"
-="2024"	="11"	="157"
-="2024"	="12"	="163"
-="2025"	="1"	="167"
-="2025"	="2"	="133"
-="2025"	="3"	="143"
-="2025"	="4"	="174"
-="2025"	="5"	="159"
-="2025"	="6"	="151"
-="2025"	="7"	="152"
-="2025"	="8"	="156"
-="2025"	="9"	="165"
-="2025"	="10"	="143"
-="2025"	="11"	="137"
-="2025"	="12"	="145"
-="2026"	="1"	="152"
-="2026"	="2"	="117"
-="2026"	="3"	="134"
-="2026"	="4"	="119"
+[
+  {
+    "DeathYear": "2015",
+    "Month": "1",
+    "Frequency": "43"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "2",
+    "Frequency": "31"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "3",
+    "Frequency": "32"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "4",
+    "Frequency": "34"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "5",
+    "Frequency": "41"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "6",
+    "Frequency": "34"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "7",
+    "Frequency": "40"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "8",
+    "Frequency": "53"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "9",
+    "Frequency": "50"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "10",
+    "Frequency": "53"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "11",
+    "Frequency": "52"
+  },
+  {
+    "DeathYear": "2015",
+    "Month": "12",
+    "Frequency": "65"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "1",
+    "Frequency": "86"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "2",
+    "Frequency": "58"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "3",
+    "Frequency": "76"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "4",
+    "Frequency": "73"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "5",
+    "Frequency": "51"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "6",
+    "Frequency": "72"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "7",
+    "Frequency": "74"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "8",
+    "Frequency": "65"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "9",
+    "Frequency": "63"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "10",
+    "Frequency": "77"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "11",
+    "Frequency": "140"
+  },
+  {
+    "DeathYear": "2016",
+    "Month": "12",
+    "Frequency": "162"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "1",
+    "Frequency": "148"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "2",
+    "Frequency": "125"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "3",
+    "Frequency": "129"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "4",
+    "Frequency": "156"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "5",
+    "Frequency": "149"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "6",
+    "Frequency": "130"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "7",
+    "Frequency": "122"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "8",
+    "Frequency": "126"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "9",
+    "Frequency": "97"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "10",
+    "Frequency": "98"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "11",
+    "Frequency": "110"
+  },
+  {
+    "DeathYear": "2017",
+    "Month": "12",
+    "Frequency": "104"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "1",
+    "Frequency": "134"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "2",
+    "Frequency": "108"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "3",
+    "Frequency": "158"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "4",
+    "Frequency": "136"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "5",
+    "Frequency": "119"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "6",
+    "Frequency": "117"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "7",
+    "Frequency": "151"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "8",
+    "Frequency": "126"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "9",
+    "Frequency": "139"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "10",
+    "Frequency": "119"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "11",
+    "Frequency": "132"
+  },
+  {
+    "DeathYear": "2018",
+    "Month": "12",
+    "Frequency": "127"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "1",
+    "Frequency": "94"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "2",
+    "Frequency": "87"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "3",
+    "Frequency": "122"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "4",
+    "Frequency": "81"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "5",
+    "Frequency": "93"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "6",
+    "Frequency": "73"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "7",
+    "Frequency": "72"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "8",
+    "Frequency": "83"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "9",
+    "Frequency": "63"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "10",
+    "Frequency": "79"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "11",
+    "Frequency": "81"
+  },
+  {
+    "DeathYear": "2019",
+    "Month": "12",
+    "Frequency": "64"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "1",
+    "Frequency": "80"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "2",
+    "Frequency": "79"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "3",
+    "Frequency": "120"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "4",
+    "Frequency": "130"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "5",
+    "Frequency": "175"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "6",
+    "Frequency": "189"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "7",
+    "Frequency": "186"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "8",
+    "Frequency": "161"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "9",
+    "Frequency": "142"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "10",
+    "Frequency": "176"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "11",
+    "Frequency": "170"
+  },
+  {
+    "DeathYear": "2020",
+    "Month": "12",
+    "Frequency": "166"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "1",
+    "Frequency": "188"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "2",
+    "Frequency": "177"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "3",
+    "Frequency": "173"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "4",
+    "Frequency": "187"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "5",
+    "Frequency": "174"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "6",
+    "Frequency": "177"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "7",
+    "Frequency": "199"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "8",
+    "Frequency": "202"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "9",
+    "Frequency": "161"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "10",
+    "Frequency": "212"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "11",
+    "Frequency": "216"
+  },
+  {
+    "DeathYear": "2021",
+    "Month": "12",
+    "Frequency": "227"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "1",
+    "Frequency": "215"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "2",
+    "Frequency": "205"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "3",
+    "Frequency": "185"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "4",
+    "Frequency": "174"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "5",
+    "Frequency": "214"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "6",
+    "Frequency": "159"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "7",
+    "Frequency": "201"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "8",
+    "Frequency": "192"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "9",
+    "Frequency": "192"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "10",
+    "Frequency": "212"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "11",
+    "Frequency": "203"
+  },
+  {
+    "DeathYear": "2022",
+    "Month": "12",
+    "Frequency": "234"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "1",
+    "Frequency": "231"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "2",
+    "Frequency": "198"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "3",
+    "Frequency": "216"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "4",
+    "Frequency": "240"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "5",
+    "Frequency": "200"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "6",
+    "Frequency": "204"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "7",
+    "Frequency": "224"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "8",
+    "Frequency": "199"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "9",
+    "Frequency": "191"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "10",
+    "Frequency": "217"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "11",
+    "Frequency": "231"
+  },
+  {
+    "DeathYear": "2023",
+    "Month": "12",
+    "Frequency": "242"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "1",
+    "Frequency": "221"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "2",
+    "Frequency": "204"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "3",
+    "Frequency": "219"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "4",
+    "Frequency": "196"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "5",
+    "Frequency": "198"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "6",
+    "Frequency": "201"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "7",
+    "Frequency": "194"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "8",
+    "Frequency": "210"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "9",
+    "Frequency": "192"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "10",
+    "Frequency": "163"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "11",
+    "Frequency": "157"
+  },
+  {
+    "DeathYear": "2024",
+    "Month": "12",
+    "Frequency": "163"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "1",
+    "Frequency": "167"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "2",
+    "Frequency": "133"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "3",
+    "Frequency": "143"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "4",
+    "Frequency": "174"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "5",
+    "Frequency": "159"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "6",
+    "Frequency": "151"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "7",
+    "Frequency": "152"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "8",
+    "Frequency": "156"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "9",
+    "Frequency": "165"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "10",
+    "Frequency": "143"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "11",
+    "Frequency": "137"
+  },
+  {
+    "DeathYear": "2025",
+    "Month": "12",
+    "Frequency": "145"
+  },
+  {
+    "DeathYear": "2026",
+    "Month": "1",
+    "Frequency": "152"
+  },
+  {
+    "DeathYear": "2026",
+    "Month": "2",
+    "Frequency": "117"
+  },
+  {
+    "DeathYear": "2026",
+    "Month": "3",
+    "Frequency": "134"
+  },
+  {
+    "DeathYear": "2026",
+    "Month": "4",
+    "Frequency": "119"
+  }
+]
