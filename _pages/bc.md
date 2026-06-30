@@ -117,13 +117,96 @@ where:
 <script src="{{ '/assets/js/bc.js' | relative_url }}"></script>
 
 ## Appendix 1: Code and the related plots
-The outpot is:
+
+### Code
+
+```python
+import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.stattools import adfuller
+
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+
+# Getting data
+df = pd.read_excel("data.xlsx")
+
+df = df.set_index("year")
+y = df["PIT"]
+
+# ADF test
+y= y.loc[:2025]
+result = adfuller(y)
+
+print("ADF Statistic:", result[0])
+print("p-value:", result[1])
+
+# difference the series first
+y_diff = y.diff().dropna()
+result1= adfuller(y_diff)
+
+print("ADF Statistic:", result1[0])
+print("p-value:", result1[1])
+```
+ADF Statistic: 3.0510245117045023
+p-value: 1.0
+ADF Statistic (y_diff): -4.853524168075111
+p-value (y_diff): 4.291531922202673e-05
+
+```python
+# ACF & PACF
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+# ACF plot
+plot_acf(y_diff, lags=10, ax=axes[0])
+axes[0].set_title("ACF (Autocorrelation Function)")
+
+# PACF plot
+plot_pacf(y_diff, lags=10, ax=axes[1], method="ywm")
+axes[1].set_title("PACF (Partial Autocorrelation Function)")
+
+plt.tight_layout()
+plt.show()
+```
+
+figure below shows the ACF and PACF plots for our data.
+<p align="center">
+<img src="/images/test.png" width="900">
+</p>
+
+
+```python
+# Fit model (already done in your case)
+final_model = ARIMA(y, order=(1,1,1))
+final_results = final_model.fit()
+print(final_results.summary())
+
+# Forecast next 3 steps
+forecast_result = final_results.get_forecast(steps=3)
+
+# Mean forecast
+forecast_mean = forecast_result.predicted_mean
+
+# 95% confidence interval
+conf_int = forecast_result.conf_int(alpha=0.05)
+
+print("Forecast:")
+print(forecast_mean)
+
+print("\n95% Confidence Interval:")
+print(conf_int)
+```
+
 <pre>                               
+SARIMAX Results                                
 ==============================================================================
 Dep. Variable:                    PIT   No. Observations:                   27
 Model:                 ARIMA(1, 1, 1)   Log Likelihood                -220.209
-Date:                Thu, 25 Jun 2026   AIC                            446.418
-Time:                        16:58:32   BIC                            450.192
+Date:                Tue, 30 Jun 2026   AIC                            446.418
+Time:                        10:55:39   BIC                            450.192
 Sample:                             0   HQIC                           447.505
                                  - 27                                         
 Covariance Type:                  opg                                         
@@ -134,20 +217,86 @@ ar.L1          1.0000      0.009    111.109      0.000       0.982       1.018
 ma.L1         -0.9975      0.341     -2.926      0.003      -1.666      -0.329
 sigma2      1.285e+06   2.81e-07   4.58e+12      0.000    1.29e+06    1.29e+06
 ===================================================================================
+Ljung-Box (L1) (Q):                   0.05   Jarque-Bera (JB):                 3.21
+Prob(Q):                              0.82   Prob(JB):                         0.20
+Heteroskedasticity (H):               5.92   Skew:                             0.84
+Prob(H) (two-sided):                  0.01   Kurtosis:                         3.42
+===================================================================================
 
----
+Forecast:
+2026    17420.588161
+2027    17815.163161
+2028    18209.725001
+Name: predicted_mean, dtype: float64
 
-figure below shows the ACF and PACF plots for our data.
-<p align="center">
-<img src="/images/test.png" width="900">
-</p>
+95% Confidence Interval:
+         lower PIT     upper PIT
+2026  15171.587536  19669.588786
+2027  14593.088572  21037.237750
+2028  14213.311847  22206.138155
+  
+```python
+# SARIMAX MODEL
 
----
+from statsmodels.tsa.statespace.sarimax import SARIMAX
 
----
+#  Inflation and GDP growth were included as exogenous predictors
+X = df[["INF","RG"]]
 
-## Forecast
 
-<p align="center">
-<img src="/images/BC PIT forecast ETS.png" width="900">
-</p>
+X_Historical = X.loc[:2025]
+X_forecast = X.loc[2026:2028]
+
+model = SARIMAX(
+    y,
+    exog=X_Historical,
+    order=(1,1,1)
+)
+
+results = model.fit()
+
+print(results.summary())
+```
+<pre>  
+SARIMAX Results                                
+==============================================================================
+Dep. Variable:                    PIT   No. Observations:                   27
+Model:               SARIMAX(1, 1, 1)   Log Likelihood                -215.169
+Date:                Tue, 30 Jun 2026   AIC                            440.338
+Time:                        11:01:42   BIC                            446.629
+Sample:                             0   HQIC                           442.150
+                                 - 27                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+INF          458.5382    149.896      3.059      0.002     164.748     752.329
+RG          5153.1093   1.07e+04      0.482      0.630   -1.58e+04    2.61e+04
+ar.L1          0.9872      0.194      5.090      0.000       0.607       1.367
+ma.L1         -0.9402      0.480     -1.959      0.050      -1.881       0.000
+sigma2      8.877e+05   3.68e+05      2.410      0.016    1.66e+05    1.61e+06
+===================================================================================
+Ljung-Box (L1) (Q):                   0.11   Jarque-Bera (JB):                 0.45
+Prob(Q):                              0.74   Prob(JB):                         0.80
+Heteroskedasticity (H):               1.67   Skew:                            -0.16
+Prob(H) (two-sided):                  0.46   Kurtosis:                         2.44
+===================================================================================
+
+
+  
+```python
+forecast = results.get_forecast(
+    steps=len(X_forecast),
+    exog=X_forecast
+)
+
+pred = forecast.predicted_mean
+print(pred)
+```
+<pre>  
+2026    17240.688393
+2027    17627.008740
+2028    18068.150743
+Name: predicted_mean, dtype: float64
+
+
