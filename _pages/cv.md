@@ -37,6 +37,7 @@ Economist and policy analyst with extensive experience supporting federal and pr
 ### AmirKabir University of Technology (Tehran Polytechnic)
 
 **B.Sc. in Mechanical Engineering** | 2011–2016
+- Specialization in quantitative modeling and applied heat transfer analysis
 
 
 ## Professional Experience
