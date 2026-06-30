@@ -44,10 +44,10 @@ $$
 
 where:
 
-- \(\hat{y}_{t+1}\) is the forecasted value for the next time period  
-- \(y_t\) is the observed value at time \(t\)  
-- \(\hat{y}_t\) is the previous smoothed (forecasted) value  
-- \(\alpha\) is the smoothing parameter, where \(0 < \alpha < 1\)
+- $$\(\hat{y}_{t+1}\)$$ is the forecasted value for the next time period  
+- $$\(y_t\)$$ is the observed value at time $$\(t\)$$  
+- $$\(\hat{y}_t\)$$ is the previous smoothed (forecasted) value  
+- $$\(\alpha\)$$ is the smoothing parameter, where $$\(0 < \alpha < 1\)$$
 
 This equation represents the **simple exponential smoothing (ETS)** update rule, where the next forecast is a weighted combination of the most recent observation and the previous estimate. Higher values of \(\alpha\) place more weight on recent observations, making the model more responsive to changes in the data.
 ---
