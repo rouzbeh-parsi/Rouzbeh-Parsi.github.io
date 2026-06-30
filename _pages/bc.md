@@ -36,60 +36,26 @@ ETS models capture patterns in time series data by decomposing it into:
 
 The model assigns exponentially decreasing weights to older observations, making it more responsive to recent changes. the model can be easily applied by using the built-in Forecast Sheet visual tool or by using the core formula: =FORECAST.ETS . 
 
-#### ETS Forecast Results
-<div id="chart" style="width:120%;height:450px;"></div>
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-<script src="{{ '/assets/js/bc.js' | relative_url }}"></script>
+
 
 ---
 
 ### ARIMA (Autoregressive Integrated Moving Average)
 
-In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving Average) model to forecast British Columbia’s Personal Income Tax revenue. The modeling process was implemented in Python using the "statsmodels" library.
-Before fitting the ARIMA model, the time series should be tested for stationarity, I'm using the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time.
+In the second step I'm going to use the ARIMA (Autoregressive Integrated Moving Average) model. The modeling process was implemented in Python using the "statsmodels" library. the code and related figures are provided in the appendix.
+Before fitting the ARIMA model, the time series should be tested for stationarity, I used the Augmented Dickey-Fuller (ADF) test for this porpus. Stationarity is required for ARIMA models to ensure consistent statistical properties over time. the test result, showed a p-value to 1 so the series is non-stationary so I applied first-order differencing to stabilize the mean. to find the suitable AR and MA terms for the model I used the Autocorrelation (ACF) and Partial Autocorrelation (PACF) plots. Based on theplots, the first lag for both the MA and AR components appears to be a reasonable specification. in the final step I fit the model to the data and generated forecasts for the next three years.
 
-```python
-# ADF test
-from statsmodels.tsa.stattools import adfuller
-
-result = adfuller(y)
-print("ADF Statistic:", result[0])
-print("p-value:", result[1])
-```
-p-value is almost 1 so the series is non-stationary and we're gonna apply first-order differencing to stabilize the mean. 
-to find the suitable AR and MA terms for the model i'm using the Autocorrelation (ACF) and Partial Autocorrelation (PACF) plots.
-```python
-import matplotlib.pyplot as plt
-from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
-
-fig, axes = plt.subplots(1, 2, figsize=(12, 4))
-
-plot_acf(y_diff, lags=10, ax=axes[0])
-axes[0].set_title("ACF (Autocorrelation Function)")
-
-plot_pacf(y_diff, lags=10, ax=axes[1], method="ywm")
-axes[1].set_title("PACF (Partial Autocorrelation Function)")
-
-plt.tight_layout()
-plt.show()
-```
 figure below shows the ACF and PACF plots for our data.
 <p align="center">
 <img src="/images/test.png" width="900">
 </p>
-Based on the ACF and PACF plots, the first lag for both the MA and AR components appears to be a reasonable specification. The next step is to fit the model to the data and generate forecasts for the next three years.
 
-```python
-from statsmodels.tsa.arima.model import ARIMA
+## Results
+<div id="chart" style="width:120%;height:450px;"></div>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="{{ '/assets/js/bc.js' | relative_url }}"></script>
 
-final_model = ARIMA(y, order=(1,1,1))
-final_results = final_model.fit()
-print(final_results.summary())
-
-forecast = final_results.forecast(steps=3)
-
-print(forecast)
-```
+## Appendix 1: Code and the related plots
 The outpot is:
 <pre>                               
 ==============================================================================
