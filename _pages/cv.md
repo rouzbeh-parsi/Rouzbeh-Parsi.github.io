@@ -20,7 +20,6 @@ Victoria, BC, Canada
 
 Economist and policy analyst with extensive experience supporting federal and provincial governments through economic forecasting, policy analysis, and quantitative research. Experienced in developing forecasting models, conducting econometric analysis, producing executive briefing materials, and translating complex analytical findings into evidence-based policy recommendations.
 
----
 
 ## Education
 
@@ -38,9 +37,7 @@ Economist and policy analyst with extensive experience supporting federal and pr
 ### AmirKabir University of Technology (Tehran Polytechnic)
 
 **B.Sc. in Mechanical Engineering** | 2011–2016
-- 
 
----
 
 ## Professional Experience
 
