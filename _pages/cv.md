@@ -38,7 +38,7 @@ Economist and policy analyst with extensive experience supporting federal and pr
 ### AmirKabir University of Technology (Tehran Polytechnic)
 
 **B.Sc. in Mechanical Engineering** | 2011–2016
-
+- GPA: 3.85/4.0
 
 ---
 
