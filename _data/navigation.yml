@@ -16,6 +16,10 @@ main:
     
   - title: "Publications"
     url: /publications/
+    
+  - title: "drug"
+    url: /drug-dashboard/
+    
         
     
 
