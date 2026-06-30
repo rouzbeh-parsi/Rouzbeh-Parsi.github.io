@@ -16,23 +16,21 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
 <script>
 window.addEventListener("load", function () {
 
-    // -----------------------------
-    // SAFE JEKYLL DATA LOAD
-    // -----------------------------
-    const rawData = JSON.parse(`{{ site.data.drug | jsonify }}`);
+    // ✅ SAFE JEKYLL DATA (NO JSON.parse)
+    const rawData = {{ site.data.drug | jsonify }};
 
-    // -----------------------------
-    // Convert to real dates (IMPORTANT FIX)
-    // -----------------------------
+    if (!rawData || rawData.length === 0) {
+        console.error("No data loaded");
+        return;
+    }
+
+    // Convert to time series
     const x = rawData.map(d =>
         new Date(Number(d.DeathYear), Number(d.Month) - 1, 1)
     );
 
     const y = rawData.map(d => Number(d.Frequency));
 
-    // -----------------------------
-    // MAIN SERIES
-    // -----------------------------
     const trace = {
         x: x,
         y: y,
@@ -40,14 +38,12 @@ window.addEventListener("load", function () {
         name: "Drug-related deaths"
     };
 
-    // -----------------------------
-    // POLICY DATES (EDIT THESE)
-    // -----------------------------
+    // Policy dates
     const policyStart = new Date(2023, 0, 1);
     const policyEnd = new Date(2024, 0, 1);
 
     const layout = {
-        title: "BC Drug Policy Outcomes (Descriptive)",
+        title: "BC Drug Policy Outcomes",
         hovermode: "x unified",
         margin: { t: 50 },
 
@@ -64,11 +60,7 @@ window.addEventListener("load", function () {
                 y1: 1,
                 xref: "x",
                 yref: "paper",
-                line: {
-                    color: "green",
-                    width: 2,
-                    dash: "dash"
-                }
+                line: { color: "green", width: 2, dash: "dash" }
             },
             {
                 type: "line",
@@ -78,34 +70,7 @@ window.addEventListener("load", function () {
                 y1: 1,
                 xref: "x",
                 yref: "paper",
-                line: {
-                    color: "red",
-                    width: 2,
-                    dash: "dot"
-                }
-            }
-        ],
-
-        annotations: [
-            {
-                x: policyStart,
-                y: 1,
-                xref: "x",
-                yref: "paper",
-                text: "Policy Start",
-                showarrow: false,
-                yanchor: "bottom",
-                font: { color: "green" }
-            },
-            {
-                x: policyEnd,
-                y: 1,
-                xref: "x",
-                yref: "paper",
-                text: "Post-policy period",
-                showarrow: false,
-                yanchor: "bottom",
-                font: { color: "red" }
+                line: { color: "red", width: 2, dash: "dot" }
             }
         ]
     };
