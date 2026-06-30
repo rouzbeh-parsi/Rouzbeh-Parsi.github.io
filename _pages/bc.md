@@ -48,8 +48,7 @@ The model assigns exponentially decreasing weights to older observations, making
 For a simple additive ETS model, the forecast is updated recursively as
 
 $$
-\hat{y}_{t+1}= \alpha y_t + (1-\alpha)\hat{y}_t
-\tag{1}
+\hat{y}_{t+1}=\alpha y_t+(1-\alpha)\hat{y}_t\tag{1}
 $$
 
 ---
