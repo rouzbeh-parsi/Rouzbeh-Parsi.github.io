@@ -53,7 +53,7 @@ function drawChart() {
 
     function render() {
         Plotly.newPlot(chartDiv,
-            [historical, forecast, lower, upper],
+            [historical, ETS, ARIMA, SARIMAX],
             {
                 title: 'BC Personal Income Tax Forecast',
                 hovermode: 'x unified',
