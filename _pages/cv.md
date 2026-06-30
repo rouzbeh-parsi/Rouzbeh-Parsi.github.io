@@ -134,24 +134,6 @@ Economist and policy analyst with extensive experience supporting federal and pr
 - Tableau
 - Excel
 
-### Other Software
-
-- Microsoft Office Suite
-- Git
-- Jupyter Notebook
-
----
-
-## Research Interests
-
-- Time Series Forecasting
-- Econometrics
-- Economic Policy
-- Applied Statistics
-- Public Finance
-- Machine Learning
-- Market Intelligence
-
 ---
 
 ## Awards
