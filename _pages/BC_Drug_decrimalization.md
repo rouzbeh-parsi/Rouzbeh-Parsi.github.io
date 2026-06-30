@@ -14,42 +14,48 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
 
     // -----------------------------
-    // Load Jekyll data file
+    // SAFE JEKYLL DATA LOAD
     // -----------------------------
-    const rawData = {{ site.data.drug | jsonify }};
+    const rawData = JSON.parse(`{{ site.data.drug | jsonify }}`);
 
     // -----------------------------
-    // Convert data
+    // Convert to real dates (IMPORTANT FIX)
     // -----------------------------
-    const x = rawData.map(d => `${d.DeathYear}-${d.Month}`);
+    const x = rawData.map(d =>
+        new Date(Number(d.DeathYear), Number(d.Month) - 1, 1)
+    );
+
     const y = rawData.map(d => Number(d.Frequency));
 
     // -----------------------------
-    // Main time series
+    // MAIN SERIES
     // -----------------------------
     const trace = {
         x: x,
         y: y,
-        mode: 'lines+markers',
-        name: 'Drug-related deaths'
+        mode: "lines+markers",
+        name: "Drug-related deaths"
     };
 
     // -----------------------------
-    // Policy markers (EDIT THESE DATES)
+    // POLICY DATES (EDIT THESE)
     // -----------------------------
-    const policyStart = "2023-01";
-    const policyEnd = "2024-01";
+    const policyStart = new Date(2023, 0, 1);
+    const policyEnd = new Date(2024, 0, 1);
 
     const layout = {
         title: "BC Drug Policy Outcomes (Descriptive)",
         hovermode: "x unified",
         margin: { t: 50 },
 
+        xaxis: {
+            type: "date"
+        },
+
         shapes: [
-            // POLICY START LINE
             {
                 type: "line",
                 x0: policyStart,
@@ -64,8 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     dash: "dash"
                 }
             },
-
-            // POLICY END LINE (optional if needed)
             {
                 type: "line",
                 x0: policyEnd,
