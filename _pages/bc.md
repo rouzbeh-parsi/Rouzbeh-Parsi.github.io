@@ -8,14 +8,13 @@ mathjax: true
 <script>
 window.MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$']]
   }
 };
 </script>
 
-<script async
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 ## Overview
 
 This exercise presents a three-year forecast of **British Columbia’s Personal Income Tax (PIT) revenue** for the period **2026–2028**. The objective is to analyze historical revenue patterns and generate forward-looking projections using ETS, ARIMA and SARIMAX.
@@ -123,6 +122,7 @@ where:
 - \(\beta_1\) and \(\beta_2\) measure the effects of the exogenous variables.
 ---
 ## Results
+The results can be compared in the graph below. As can be seen, ARIMA and ETS produce very similar outcomes, while SARIMAX yields slightly lower predictions.
 <div id="chart" style="width:120%;height:450px;"></div>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <script src="{{ '/assets/js/bc.js' | relative_url }}"></script>
