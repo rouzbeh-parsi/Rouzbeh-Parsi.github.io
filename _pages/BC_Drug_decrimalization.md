@@ -9,13 +9,22 @@ author_profile: true
 
 This dashboard visualizes monthly drug-related deaths and highlights the policy intervention period.
 
-div id="debug"></div> 
-<script> 
-    window.addEventListener("load", function () { 
-        const rawData = {{ site.data.drug | jsonify }}; 
-    console.log("FULL DATA:", rawData); 
-    console.log("FIRST ROW:", rawData[0]); 
-    document.getElementById("debug").innerHTML = "First row: " + rawData[0].DeathYear + "-" + rawData[0].Month + " = " + rawData[0].Frequency; }); 
+<div id="debug"></div>
 
+<script>
+window.addEventListener("load", function () {
+
+    // ✅ correct Jekyll usage
+    const rawData = {{ site.data.drug | jsonify }};
+
+    console.log(rawData);
+    console.log(rawData[0]);
+
+    document.getElementById("debug").innerText =
+        rawData[0].DeathYear + "-" +
+        rawData[0].Month + " = " +
+        rawData[0].Frequency;
+
+});
 </script>
 
