@@ -8,7 +8,7 @@ mathjax: true
 
 ## Overview
 
-This exercise presents a three-year forecast of **British Columbia’s Personal Income Tax (PIT) revenue** for the period **2026–2028**. The objective is to analyze historical revenue patterns and generate forward-looking projections using ETS, ARIMA and SARIMAX.
+This exercise presents a three-year forecast of British Columbia’s Personal Income Tax (PIT) revenue for the period 2026–2028. The objective is to analyze historical revenue patterns and generate forward-looking projections using ETS, ARIMA and SARIMAX.
 
 The visualization included in this page shows historical PIT revenue trends alongside forecasted values and their associated uncertainty bounds.
 
@@ -16,7 +16,7 @@ The visualization included in this page shows historical PIT revenue trends alon
 
 ## Data
 
-The dataset is obtained from the **British Columbia Public Accounts**, which provides annual government financial statements and revenue breakdowns.
+The dataset is obtained from the British Columbia Public Accounts, which provides annual government financial statements and revenue breakdowns.
 
 - Source: BC Public Accounts  
 - Frequency: Annual observations  
@@ -43,12 +43,13 @@ $$
 $$
 
 where:
-- $$(\hat{y}_{t+1})$$ is the forecasted value for the next time period  
-- $$(y_t)$$ is the observed value at time $$(t)$$  
-- $$(\hat{y}_t)$$ is the previous smoothed (forecasted) value  
-- $$(\alpha)$$ is the smoothing parameter, where $$(0 < \alpha < 1)$$
+- $(\hat{y}_{t+1})$ is the forecasted value for the next time period  
+- $(y_t)$ is the observed value at time $(t)$  
+- $(\hat{y}_t)$ is the previous smoothed (forecasted) value  
+- $(\alpha)$ is the smoothing parameter, where $(0 < \alpha < 1)$
 
-This equation represents the **simple exponential smoothing (ETS)** update rule, where the next forecast is a weighted combination of the most recent observation and the previous estimate. Higher values of \(\alpha\) place more weight on recent observations, making the model more responsive to changes in the data.
+This equation represents the simple exponential smoothing (ETS) update rule, where the next forecast is a weighted combination of the most recent observation and the previous estimate. Higher values of $(\alpha)$ place more weight on recent observations, making the model more responsive to changes in the data.
+
 ---
 
 ### ARIMA (Autoregressive Integrated Moving Average)
@@ -80,11 +81,11 @@ where:
 ---
 ### SARIMAX (Seasonal ARIMA with Exogenous Variables)
 
-The SARIMAX model extends the ARIMA framework by incorporating **exogenous (external) variables** that may influence the time series. In this analysis, **inflation** and **GDP growth** were included as exogenous predictors.
+The SARIMAX model extends the ARIMA framework by incorporating exogenous (external) variables that may influence the time series. In this analysis, inflation and GDP growth were included as exogenous predictors.
 
 The modeling process is very similar to the ARIMA methodology described above, with the addition of these external variables. The detailed implementation and model specification are provided in the Appendix.
 
-Although SARIMAX can improve in-sample forecasting when reliable external variables are available, I did not select it as the primary forecasting model for this project. Producing **ex ante forecasts** requires future values of the exogenous variables (inflation and GDP growth), which must themselves be forecast or obtained from another source. This additional dependency introduces extra uncertainty and reduces the model's practicality for independent long-term revenue forecasting.
+Although SARIMAX can improve in-sample forecasting when reliable external variables are available, I did not select it as the primary forecasting model for this project. Producing ex ante forecasts requires future values of the exogenous variables (inflation and GDP growth), which must themselves be forecast or obtained from another source. This additional dependency introduces extra uncertainty and reduces the model's practicality for independent long-term revenue forecasting.
 
 For this reason, the ETS and ARIMA models were preferred for the primary analysis, as they can generate forecasts directly from the historical PIT time series without requiring forecasts of external variables.
 
@@ -110,6 +111,8 @@ where:
 - $(X_{1,t})$ is the inflation rate,
 - $(X_{2,t})$ is GDP growth,
 - $(\beta_1)$ and $(\beta_2)$ measure the effects of the exogenous variables.
+
+
 ---
 ## Results
 The results can be compared in the graph below. As can be seen, ARIMA and ETS produce very similar outcomes, while SARIMAX yields slightly lower predictions.
