@@ -11,7 +11,7 @@ mathjax: false
 This dashboard visualizes monthly drug-related deaths and highlights the policy intervention period.
 
 <div id="debug"></div>
-<div id="drug_chart" style="width:120%;height:650px;"></div>
+<div id="drug_chart" style="width:110%;height:650px;"></div>
 
 <script>
 window.DRUG_DATA = {{ site.data.drug | jsonify }};
