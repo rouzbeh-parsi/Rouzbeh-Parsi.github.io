@@ -18,7 +18,23 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
     window.addEventListener("load", function () { const rawData = {{ site.data.drug | jsonify }}; 
     console.log("FULL DATA:", rawData); 
     console.log("FIRST ROW:", rawData[0]); 
-    document.getElementById("debug").innerHTML = "First row: " + rawData[0].DeathYear + "-" + rawData[0].Month + " = " + rawData[0].Frequency; }); 
+    document.getElementById("debug").innerHTML = "First row: " + rawData[0].DeathYear + "-" + rawData[0].Month + " = " + rawData[0].Frequency; 
+    const x = rawData.map(d =>
+        new Date(
+            Number(d.DeathYear),
+            Number(d.Month) - 1,
+            1
+        )
+    );
+
+    const y = rawData.map(d => Number(d.Frequency));
+
+    console.log(x[0]);
+    console.log(y[0]);
+    
+    
+    
+    }); 
 
 </script>
 
