@@ -14,44 +14,39 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
 
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
-<script> 
-    window.addEventListener("load", function () { const rawData = {{ site.data.drug | jsonify }}; 
-    console.log("FULL DATA:", rawData); 
-    console.log("FIRST ROW:", rawData[0]); 
-    document.getElementById("debug").innerHTML = "First row: " + rawData[0].DeathYear + "-" + rawData[0].Month + " = " + rawData[0].Frequency; 
+<script>
+window.addEventListener("load", function () {
+
+    const rawData = JSON.parse(`{{ site.data.drug | jsonify | escape }}`);
+
+    console.log("FULL DATA:", rawData);
+    console.log("FIRST ROW:", rawData[0]);
+
+    document.getElementById("debug").innerHTML =
+        "First row: " +
+        rawData[0].DeathYear + "-" +
+        rawData[0].Month + " = " +
+        rawData[0].Frequency;
+
     const x = rawData.map(d =>
-        new Date(
-            Number(d.DeathYear),
-            Number(d.Month) - 1,
-            1
-        )
+        new Date(Number(d.DeathYear), Number(d.Month) - 1, 1)
     );
 
     const y = rawData.map(d => Number(d.Frequency));
 
-    console.log(x[0]);
-    console.log(y[0]);
-    
-Plotly.newPlot("drug_chart", [{
-    x: x,
-    y: y,
-    mode: "lines+markers",
-    name: "Drug-related deaths"
-}], {
-    title: "Drug-related Deaths in BC",
-    xaxis: {
-        title: "Date",
-        type: "date"
-    },
-    yaxis: {
-        title: "Deaths"
-    },
-    hovermode: "x unified",
-
-    shapes: [
-        {
+    Plotly.newPlot("drug_chart", [{
+        x: x,
+        y: y,
+        mode: "lines+markers",
+        name: "Drug-related deaths"
+    }], {
+        title: "Drug-related Deaths in BC",
+        xaxis: { title: "Date", type: "date" },
+        yaxis: { title: "Deaths" },
+        hovermode: "x unified",
+        shapes: [{
             type: "line",
-            x0: new Date(2020, 2, 1),  // policy start (March 2020)
+            x0: new Date(2020, 2, 1),
             x1: new Date(2020, 2, 1),
             y0: 0,
             y1: 1,
@@ -62,23 +57,8 @@ Plotly.newPlot("drug_chart", [{
                 width: 2,
                 dash: "dash"
             }
-        }
-    ],
+        }]
+    });
 
-    annotations: [
-        {
-            x: new Date(2020, 2, 1),
-            y: 1,
-            xref: "x",
-            yref: "paper",
-            text: "Policy Start",
-            showarrow: false,
-            yanchor: "bottom",
-            font: { color: "red" }
-        }
-    ]
 });
-    
-  });
 </script>
-
