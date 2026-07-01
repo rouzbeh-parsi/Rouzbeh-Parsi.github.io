@@ -537,3 +537,358 @@ window.addEventListener("load", function () {
     });
 });
 </script>
+
+
+<div id="policy_regression_results" style="margin: 1.5rem 0; padding: 1rem; border: 1px solid #ddd; background: #fafafa;"></div>
+<div id="policy_percent_chart" style="width:100%;height:650px;"></div>
+
+<script>
+window.addEventListener("load", function () {
+    const rawData = window.DRUG_DATA;
+
+    if (!rawData || rawData.length === 0) {
+        return;
+    }
+
+    const x = rawData.map(function (d) {
+        return new Date(d.DeathYear, d.Month - 1, 1);
+    });
+
+    const y = rawData.map(function (d) {
+        return Number(d.Frequency);
+    });
+
+    const validData = x.map(function (date, i) {
+        return {
+            date: date,
+            deaths: y[i]
+        };
+    }).filter(function (row) {
+        return row.deaths > 0;
+    });
+
+    const modelDates = validData.map(function (row) {
+        return row.date;
+    });
+
+    const observedDeaths = validData.map(function (row) {
+        return row.deaths;
+    });
+
+    const logDeaths = observedDeaths.map(function (value) {
+        return Math.log(value);
+    });
+
+    const policyStart = new Date(2023, 0, 1);
+    const policyEnd = new Date(2026, 0, 1);
+
+    function transpose(matrix) {
+        return matrix[0].map(function (_, columnIndex) {
+            return matrix.map(function (row) {
+                return row[columnIndex];
+            });
+        });
+    }
+
+    function multiplyMatrices(a, b) {
+        return a.map(function (row) {
+            return b[0].map(function (_, columnIndex) {
+                return row.reduce(function (sum, value, i) {
+                    return sum + value * b[i][columnIndex];
+                }, 0);
+            });
+        });
+    }
+
+    function invertMatrix(matrix) {
+        const n = matrix.length;
+        const augmented = matrix.map(function (row, i) {
+            return row.concat(
+                Array.from({ length: n }, function (_, j) {
+                    return i === j ? 1 : 0;
+                })
+            );
+        });
+
+        for (let i = 0; i < n; i++) {
+            let pivot = augmented[i][i];
+
+            if (Math.abs(pivot) < 1e-12) {
+                for (let r = i + 1; r < n; r++) {
+                    if (Math.abs(augmented[r][i]) > Math.abs(pivot)) {
+                        const temp = augmented[i];
+                        augmented[i] = augmented[r];
+                        augmented[r] = temp;
+                        pivot = augmented[i][i];
+                        break;
+                    }
+                }
+            }
+
+            for (let j = 0; j < 2 * n; j++) {
+                augmented[i][j] = augmented[i][j] / pivot;
+            }
+
+            for (let r = 0; r < n; r++) {
+                if (r !== i) {
+                    const factor = augmented[r][i];
+
+                    for (let c = 0; c < 2 * n; c++) {
+                        augmented[r][c] = augmented[r][c] - factor * augmented[i][c];
+                    }
+                }
+            }
+        }
+
+        return augmented.map(function (row) {
+            return row.slice(n);
+        });
+    }
+
+    function linearRegression(designMatrix, response) {
+        const yMatrix = response.map(function (value) {
+            return [value];
+        });
+
+        const xTranspose = transpose(designMatrix);
+        const xtx = multiplyMatrices(xTranspose, designMatrix);
+        const xtxInverse = invertMatrix(xtx);
+        const xty = multiplyMatrices(xTranspose, yMatrix);
+        const coefficients = multiplyMatrices(xtxInverse, xty);
+
+        return coefficients.map(function (row) {
+            return row[0];
+        });
+    }
+
+    const policyStartIndex = modelDates.findIndex(function (date) {
+        return date >= policyStart;
+    });
+
+    const regressionRows = modelDates.map(function (date, i) {
+        const inPolicyPeriod = date >= policyStart && date < policyEnd;
+        const policyTime = inPolicyPeriod ? i - policyStartIndex : 0;
+
+        return {
+            date: date,
+            time: i,
+            policy: inPolicyPeriod ? 1 : 0,
+            policyTime: policyTime
+        };
+    });
+
+    const designMatrix = regressionRows.map(function (row) {
+        return [
+            1,
+            row.time,
+            row.policy,
+            row.policyTime
+        ];
+    });
+
+    const coefficients = linearRegression(designMatrix, logDeaths);
+
+    const intercept = coefficients[0];
+    const baselineTrend = coefficients[1];
+    const policyLevelChange = coefficients[2];
+    const policyTrendChange = coefficients[3];
+
+    const fittedLogDeaths = regressionRows.map(function (row) {
+        return (
+            intercept +
+            baselineTrend * row.time +
+            policyLevelChange * row.policy +
+            policyTrendChange * row.policyTime
+        );
+    });
+
+    const counterfactualLogDeaths = regressionRows.map(function (row) {
+        return intercept + baselineTrend * row.time;
+    });
+
+    const fittedDeaths = fittedLogDeaths.map(function (value) {
+        return Math.exp(value);
+    });
+
+    const counterfactualDeaths = counterfactualLogDeaths.map(function (value) {
+        return Math.exp(value);
+    });
+
+    const observedPercentDifference = regressionRows.map(function (row, i) {
+        if (row.date < policyStart || row.date >= policyEnd) {
+            return null;
+        }
+
+        return ((observedDeaths[i] - counterfactualDeaths[i]) / counterfactualDeaths[i]) * 100;
+    });
+
+    const modelPercentDifference = regressionRows.map(function (row, i) {
+        if (row.date < policyStart || row.date >= policyEnd) {
+            return null;
+        }
+
+        return ((fittedDeaths[i] - counterfactualDeaths[i]) / counterfactualDeaths[i]) * 100;
+    });
+
+    const immediatePolicyPercentChange = (Math.exp(policyLevelChange) - 1) * 100;
+    const baselineMonthlyPercentTrend = (Math.exp(baselineTrend) - 1) * 100;
+    const policyMonthlyPercentTrendChange = (Math.exp(policyTrendChange) - 1) * 100;
+    const policyMonthlyPercentTrend = (Math.exp(baselineTrend + policyTrendChange) - 1) * 100;
+
+    const policyObservedValues = observedPercentDifference.filter(function (value) {
+        return value !== null;
+    });
+
+    const policyModelValues = modelPercentDifference.filter(function (value) {
+        return value !== null;
+    });
+
+    const averageObservedPercentDifference =
+        policyObservedValues.reduce(function (total, value) {
+            return total + value;
+        }, 0) / policyObservedValues.length;
+
+    const averageModelPercentDifference =
+        policyModelValues.reduce(function (total, value) {
+            return total + value;
+        }, 0) / policyModelValues.length;
+
+    let levelInterpretation = "higher";
+    if (immediatePolicyPercentChange < 0) {
+        levelInterpretation = "lower";
+    }
+
+    let trendInterpretation = "increased";
+    if (policyMonthlyPercentTrendChange < 0) {
+        trendInterpretation = "decreased";
+    }
+
+    document.getElementById("policy_regression_results").innerHTML =
+        "<h3>Interrupted Time-Series Regression Results</h3>" +
+        "<p><strong>Model:</strong> log(Deaths) = β0 + β1 Time + β2 Policy + β3 PolicyTime</p>" +
+        "<ul>" +
+        "<li><strong>Constant β0:</strong> " + intercept.toFixed(3) + "</li>" +
+        "<li><strong>Baseline monthly trend β1:</strong> " + baselineMonthlyPercentTrend.toFixed(2) + "% per month</li>" +
+        "<li><strong>Immediate policy-period change β2:</strong> " + immediatePolicyPercentChange.toFixed(2) + "%</li>" +
+        "<li><strong>Policy-period trend change β3:</strong> " + policyMonthlyPercentTrendChange.toFixed(2) + "% per month</li>" +
+        "<li><strong>Total monthly trend during policy:</strong> " + policyMonthlyPercentTrend.toFixed(2) + "% per month</li>" +
+        "<li><strong>Average observed difference from expected during policy:</strong> " + averageObservedPercentDifference.toFixed(2) + "%</li>" +
+        "<li><strong>Average model-estimated policy effect:</strong> " + averageModelPercentDifference.toFixed(2) + "%</li>" +
+        "</ul>" +
+        "<p><strong>Interpretation:</strong> During the policy period, deaths were estimated to be " +
+        Math.abs(immediatePolicyPercentChange).toFixed(2) + "% " + levelInterpretation +
+        " at the start of the policy period, while the monthly trend " +
+        trendInterpretation + " by " + Math.abs(policyMonthlyPercentTrendChange).toFixed(2) +
+        " percentage points relative to the baseline trend. This shows association, not proof of causation.</p>";
+
+    Plotly.newPlot("policy_percent_chart", [
+        {
+            x: modelDates,
+            y: observedPercentDifference,
+            mode: "lines+markers",
+            name: "Observed difference from expected",
+            line: { color: "#2563eb", width: 2 },
+            marker: { size: 6 },
+            hovertemplate: "%{x|%b %Y}<br>Observed: %{y:.1f}%<extra></extra>"
+        },
+        {
+            x: modelDates,
+            y: modelPercentDifference,
+            mode: "lines",
+            name: "Model-estimated policy effect",
+            line: { color: "#dc2626", width: 3 },
+            hovertemplate: "%{x|%b %Y}<br>Model effect: %{y:.1f}%<extra></extra>"
+        }
+    ], {
+        title: {
+            text: "Estimated Policy Effect as Percent Difference from Expected Deaths",
+            font: { size: 22, color: "#222" },
+            x: 0.5
+        },
+
+        font: { color: "#222" },
+
+        margin: {
+            l: 80,
+            r: 40,
+            t: 90,
+            b: 80
+        },
+
+        xaxis: {
+            title: { text: "Date", font: { size: 16, color: "#222" } },
+            type: "date",
+            tickfont: { color: "#222" }
+        },
+
+        yaxis: {
+            title: { text: "Percent Difference from Expected Deaths", font: { size: 16, color: "#222" } },
+            ticksuffix: "%",
+            zeroline: true,
+            zerolinecolor: "#111827",
+            tickfont: { color: "#222" }
+        },
+
+        hovermode: "x unified",
+
+        shapes: [
+            {
+                type: "rect",
+                xref: "x",
+                yref: "paper",
+                x0: policyStart,
+                x1: policyEnd,
+                y0: 0,
+                y1: 1,
+                fillcolor: "rgba(255, 0, 0, 0.08)",
+                line: { width: 0 }
+            },
+            {
+                type: "line",
+                x0: policyStart,
+                x1: policyStart,
+                y0: 0,
+                y1: 1,
+                xref: "x",
+                yref: "paper",
+                line: { color: "red", width: 2, dash: "dash" }
+            },
+            {
+                type: "line",
+                x0: policyEnd,
+                x1: policyEnd,
+                y0: 0,
+                y1: 1,
+                xref: "x",
+                yref: "paper",
+                line: { color: "red", width: 2, dash: "dash" }
+            }
+        ],
+
+        annotations: [
+            {
+                x: policyStart,
+                y: 1,
+                xref: "x",
+                yref: "paper",
+                text: "Policy Start",
+                showarrow: false,
+                yanchor: "bottom",
+                font: { color: "red" }
+            },
+            {
+                x: policyEnd,
+                y: 1,
+                xref: "x",
+                yref: "paper",
+                text: "Policy End",
+                showarrow: false,
+                yanchor: "bottom",
+                font: { color: "red" }
+            }
+        ]
+    }, {
+        responsive: true
+    });
+});
+</script>
