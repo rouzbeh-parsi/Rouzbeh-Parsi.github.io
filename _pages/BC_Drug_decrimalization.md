@@ -34,8 +34,8 @@ window.addEventListener("load", function () {
         rawData[0].Month + " = " +
         rawData[0].Frequency;
 
-    // =========================
-    // Convert data (NOW CLEAN NUMBERS)
+     // =========================
+    // Convert data (ONLY ONCE)
     // =========================
     const x = rawData.map(d =>
         new Date(d.DeathYear, d.Month - 1, 1)
@@ -44,7 +44,7 @@ window.addEventListener("load", function () {
     const y = rawData.map(d => d.Frequency);
 
     // =========================
-    // Policy dates
+    // Policy dates (defined but not used yet)
     // =========================
     const policyStart = new Date(2023, 0, 1);
     const policyEnd   = new Date(2026, 0, 1);
@@ -52,27 +52,22 @@ window.addEventListener("load", function () {
     // =========================
     // Plot
     // =========================
-    const x = rawData.map(d =>
-    new Date(d.DeathYear, d.Month - 1, 1)
-);
+    Plotly.newPlot("drug_chart", [{
+        x: x,
+        y: y,
+        mode: "lines+markers",
+        name: "Drug-related deaths"
+    }], {
+        title: "Drug-related Deaths in BC",
+        xaxis: {
+            title: "Date",
+            type: "date"
+        },
+        yaxis: {
+            title: "Deaths"
+        },
+        hovermode: "x unified"
+    });
 
-const y = rawData.map(d => d.Frequency);
-
-Plotly.newPlot("drug_chart", [{
-    x: x,
-    y: y,
-    mode: "lines+markers",
-    name: "Drug-related deaths"
-}], {
-    title: "Drug-related Deaths in BC",
-    xaxis: {
-        title: "Date",
-        type: "date"
-    },
-    yaxis: {
-        title: "Deaths"
-    },
-    hovermode: "x unified"
-});
 });
 </script>
