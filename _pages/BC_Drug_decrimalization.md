@@ -9,6 +9,17 @@ author_profile: true
 
 This dashboard visualizes monthly drug-related deaths and highlights the policy intervention period.
 
+---
+layout: archive
+title: "Drug Policy Analysis Dashboard"
+permalink: /drug-dashboard/
+author_profile: true
+---
+
+## Drug-related Deaths in BC
+
+This dashboard visualizes monthly drug-related deaths and highlights the policy intervention period.
+
 <div id="debug"></div>
 <div id="drug_chart" style="width:100%;height:600px;"></div>
 
@@ -34,7 +45,7 @@ window.addEventListener("load", function () {
         rawData[0].Month + " = " +
         rawData[0].Frequency;
 
-     // =========================
+    // =========================
     // Convert data (ONLY ONCE)
     // =========================
     const x = rawData.map(d =>
