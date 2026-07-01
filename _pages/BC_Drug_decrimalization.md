@@ -43,6 +43,6 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
     yaxis: { title: "Deaths" }
     
     }); 
-
+  });
 </script>
 
