@@ -34,20 +34,37 @@ window.addEventListener("load", function () {
 
     const y = rawData.map(d => Number(d.Frequency));
 
-    Plotly.newPlot("drug_chart", [{
-        x: x,
-        y: y,
-        mode: "lines+markers",
-        name: "Drug-related deaths"
-    }], {
-        title: "Drug-related Deaths in BC",
-        xaxis: { title: "Date", type: "date" },
-        yaxis: { title: "Deaths" },
-        hovermode: "x unified",
-        shapes: [{
+   Plotly.newPlot("drug_chart", [{
+    x: x,
+    y: y,
+    mode: "lines+markers",
+    name: "Drug-related deaths"
+}], {
+    title: "Drug-related Deaths in BC",
+    xaxis: { title: "Date", type: "date" },
+    yaxis: { title: "Deaths" },
+    hovermode: "x unified",
+
+    shapes: [
+
+        // shaded policy period (2023–2026)
+        {
+            type: "rect",
+            xref: "x",
+            yref: "paper",
+            x0: new Date(2023, 0, 1),
+            x1: new Date(2026, 0, 1),
+            y0: 0,
+            y1: 1,
+            fillcolor: "rgba(255, 0, 0, 0.08)",
+            line: { width: 0 }
+        },
+
+        // start line
+        {
             type: "line",
-            x0: new Date(2020, 2, 1),
-            x1: new Date(2020, 2, 1),
+            x0: new Date(2023, 0, 1),
+            x1: new Date(2023, 0, 1),
             y0: 0,
             y1: 1,
             xref: "x",
@@ -57,8 +74,51 @@ window.addEventListener("load", function () {
                 width: 2,
                 dash: "dash"
             }
-        }]
-    });
+        },
 
+        // end line
+        {
+            type: "line",
+            x0: new Date(2026, 0, 1),
+            x1: new Date(2026, 0, 1),
+            y0: 0,
+            y1: 1,
+            xref: "x",
+            yref: "paper",
+            line: {
+                color: "red",
+                width: 2,
+                dash: "dash"
+            }
+        }
+
+    ],
+
+    annotations: [
+
+        {
+            x: new Date(2023, 0, 1),
+            y: 1,
+            xref: "x",
+            yref: "paper",
+            text: "Policy Start (2023)",
+            showarrow: false,
+            yanchor: "bottom",
+            font: { color: "red" }
+        },
+
+        {
+            x: new Date(2026, 0, 1),
+            y: 1,
+            xref: "x",
+            yref: "paper",
+            text: "Policy End (2026)",
+            showarrow: false,
+            yanchor: "bottom",
+            font: { color: "red" }
+        }
+
+    ]
+});
 });
 </script>
