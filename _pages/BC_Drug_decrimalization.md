@@ -5,16 +5,16 @@ permalink: /drug-dashboard/
 author_profile: true
 mathjax: false
 ---
-
+<script>
+window.MathJax = { startup: { typeset: false } };
+</script>
 ## Drug-related Deaths in BC
 
 This dashboard visualizes monthly drug-related deaths and highlights the policy intervention period.
 
 <div id="debug"></div>
 <div id="drug_chart" style="width:100%;height:600px;"></div>
-<script>
-window.MathJax = { startup: { typeset: false } };
-</script>
+
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
 <script>
