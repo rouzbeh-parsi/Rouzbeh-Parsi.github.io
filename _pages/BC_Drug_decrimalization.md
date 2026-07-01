@@ -15,9 +15,7 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
 <script>
-window.addEventListener("load", function () {
-
-    const rawData = {{ site.data.drug | jsonify }};
+window.addEventListener("load", function () {const rawData = {{ site.data.drug | jsonify }};
 
     console.log("FULL DATA:", rawData);
     console.log("FIRST ROW:", rawData[0]);
