@@ -12,6 +12,7 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
 
 <div id="debug"></div>
 <div id="drug_chart" style="width:105%;height:650px;"></div>
+<div id="policy_model_chart" style="width:100%;height:650px;"></div>
 
 <script>
 window.DRUG_DATA = {{ site.data.drug | jsonify }};
@@ -238,11 +239,9 @@ window.addEventListener("load", function () {
         responsive: true
     });
 });
-</script>
 
-<div id="policy_model_chart" style="width:100%;height:650px;"></div>
 
-<script>
+
 function transpose(matrix) {
     return matrix[0].map(function (_, columnIndex) {
         return matrix.map(function (row) {
