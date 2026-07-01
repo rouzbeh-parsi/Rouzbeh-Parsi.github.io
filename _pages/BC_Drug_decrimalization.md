@@ -12,15 +12,28 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
 <div id="debug"></div>
 <div id="drug_chart" style="width:100%;height:600px;"></div>
 
+<!-- =========================
+     1. SAFE DATA INJECTION
+     ========================= -->
+<script>
+window.DRUG_DATA = {{ site.data.drug | jsonify | strip_newlines }};
+</script>
+
+<!-- =========================
+     2. PLOTLY LIBRARY
+     ========================= -->
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
+<!-- =========================
+     3. DASHBOARD LOGIC
+     ========================= -->
 <script>
 window.addEventListener("load", function () {
 
     // =========================
-    // Load Jekyll data
+    // Load data safely
     // =========================
-    const rawData = {{ site.data.drug | jsonify }};
+    const rawData = window.DRUG_DATA;
 
     console.log("FULL DATA:", rawData);
     console.log("FIRST ROW:", rawData[0]);
@@ -35,7 +48,7 @@ window.addEventListener("load", function () {
         rawData[0].Frequency;
 
     // =========================
-    // Convert data (ONLY ONCE)
+    // Convert data
     // =========================
     const x = rawData.map(d =>
         new Date(d.DeathYear, d.Month - 1, 1)
@@ -44,7 +57,7 @@ window.addEventListener("load", function () {
     const y = rawData.map(d => d.Frequency);
 
     // =========================
-    // Policy dates (defined but not used yet)
+    // Policy period
     // =========================
     const policyStart = new Date(2023, 0, 1);
     const policyEnd   = new Date(2026, 0, 1);
@@ -66,7 +79,64 @@ window.addEventListener("load", function () {
         yaxis: {
             title: "Deaths"
         },
-        hovermode: "x unified"
+        hovermode: "x unified",
+
+        shapes: [
+            {
+                type: "rect",
+                xref: "x",
+                yref: "paper",
+                x0: policyStart,
+                x1: policyEnd,
+                y0: 0,
+                y1: 1,
+                fillcolor: "rgba(255, 0, 0, 0.08)",
+                line: { width: 0 }
+            },
+            {
+                type: "line",
+                x0: policyStart,
+                x1: policyStart,
+                y0: 0,
+                y1: 1,
+                xref: "x",
+                yref: "paper",
+                line: { color: "red", width: 2, dash: "dash" }
+            },
+            {
+                type: "line",
+                x0: policyEnd,
+                x1: policyEnd,
+                y0: 0,
+                y1: 1,
+                xref: "x",
+                yref: "paper",
+                line: { color: "red", width: 2, dash: "dash" }
+            }
+        ],
+
+        annotations: [
+            {
+                x: policyStart,
+                y: 1,
+                xref: "x",
+                yref: "paper",
+                text: "Policy Start (2023)",
+                showarrow: false,
+                yanchor: "bottom",
+                font: { color: "red" }
+            },
+            {
+                x: policyEnd,
+                y: 1,
+                xref: "x",
+                yref: "paper",
+                text: "Policy End (2026)",
+                showarrow: false,
+                yanchor: "bottom",
+                font: { color: "red" }
+            }
+        ]
     });
 
 });
