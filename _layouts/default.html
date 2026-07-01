@@ -24,7 +24,8 @@ layout: compress
       </footer>
     </div>
 
-    <script>
+{% if page.mathjax %}
+<script>
 window.MathJax = {
   tex: {
     displayMath: [['$$', '$$'], ['\\[', '\\]']],
@@ -34,6 +35,7 @@ window.MathJax = {
 </script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{% endif %}
 
     {% include scripts.html %}
 
