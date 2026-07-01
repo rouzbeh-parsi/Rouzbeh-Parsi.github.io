@@ -64,10 +64,41 @@ window.addEventListener("load", function () {
         mode: "lines+markers",
         name: "Drug-related deaths"
     }], {
-        title: "Drug-related Deaths in BC",
-        xaxis: { title: "Date", type: "date" },
-        yaxis: { title: "Deaths" },
-        hovermode: "x unified",
+    title: {
+        text: "Drug-related Deaths in BC",
+        font: { size: 22, color: "#222" },
+        x: 0.5
+    },
+
+    font: {
+        color: "#222"
+    },
+
+    margin: {
+        l: 80,
+        r: 40,
+        t: 90,
+        b: 80
+    },
+
+    xaxis: {
+        title: {
+            text: "Date",
+            font: { size: 16, color: "#222" }
+        },
+        type: "date",
+        tickfont: { color: "#222" }
+    },
+
+    yaxis: {
+        title: {
+            text: "Deaths",
+            font: { size: 16, color: "#222" }
+        },
+        tickfont: { color: "#222" }
+    },
+
+    hovermode: "x unified",
 
         shapes: [{
             type: "rect",
