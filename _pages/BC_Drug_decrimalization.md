@@ -52,94 +52,27 @@ window.addEventListener("load", function () {
     // =========================
     // Plot
     // =========================
-    Plotly.newPlot("drug_chart", [
-        {
-            x: x,
-            y: y,
-            mode: "lines+markers",
-            name: "Drug-related deaths"
-        }
-    ], {
-        title: "Drug-related Deaths in BC",
-        xaxis: {
-            title: "Date",
-            type: "date"
-        },
-        yaxis: {
-            title: "Deaths"
-        },
-        hovermode: "x unified",
+    const x = rawData.map(d =>
+    new Date(d.DeathYear, d.Month - 1, 1)
+);
 
-        shapes: [
-            // policy start line
-            {
-                type: "line",
-                x0: policyStart,
-                x1: policyStart,
-                y0: 0,
-                y1: 1,
-                xref: "x",
-                yref: "paper",
-                line: {
-                    color: "red",
-                    width: 2,
-                    dash: "dash"
-                }
-            },
+const y = rawData.map(d => d.Frequency);
 
-            // policy end line
-            {
-                type: "line",
-                x0: policyEnd,
-                x1: policyEnd,
-                y0: 0,
-                y1: 1,
-                xref: "x",
-                yref: "paper",
-                line: {
-                    color: "red",
-                    width: 2,
-                    dash: "dash"
-                }
-            },
-
-            // shaded policy period
-            {
-                type: "rect",
-                xref: "x",
-                yref: "paper",
-                x0: policyStart,
-                x1: policyEnd,
-                y0: 0,
-                y1: 1,
-                fillcolor: "rgba(255, 0, 0, 0.08)",
-                line: { width: 0 }
-            }
-        ],
-
-        annotations: [
-            {
-                x: policyStart,
-                y: 1,
-                xref: "x",
-                yref: "paper",
-                text: "Policy Start (2023)",
-                showarrow: false,
-                yanchor: "bottom",
-                font: { color: "red" }
-            },
-            {
-                x: policyEnd,
-                y: 1,
-                xref: "x",
-                yref: "paper",
-                text: "Policy End (2026)",
-                showarrow: false,
-                yanchor: "bottom",
-                font: { color: "red" }
-            }
-        ]
-    });
-
+Plotly.newPlot("drug_chart", [{
+    x: x,
+    y: y,
+    mode: "lines+markers",
+    name: "Drug-related deaths"
+}], {
+    title: "Drug-related Deaths in BC",
+    xaxis: {
+        title: "Date",
+        type: "date"
+    },
+    yaxis: {
+        title: "Deaths"
+    },
+    hovermode: "x unified"
+});
 });
 </script>
