@@ -32,7 +32,15 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
     console.log(x[0]);
     console.log(y[0]);
     
-    
+    Plotly.newPlot("drug_chart", [{
+    x: x,
+    y: y,
+    mode: "lines+markers",
+    name: "Drug-related deaths"
+}], {
+    title: "Drug-related Deaths in BC",
+    xaxis: { title: "Date", type: "date" },
+    yaxis: { title: "Deaths" }
     
     }); 
 
