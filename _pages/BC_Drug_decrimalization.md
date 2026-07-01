@@ -18,7 +18,7 @@ This dashboard visualizes monthly drug-related deaths and highlights the policy 
      1. SAFE DATA INJECTION
      ========================= -->
 <script>
-window.DRUG_DATA = {{ site.data.drug | jsonify | strip_newlines }};
+window.DRUG_DATA = {{ site.data.drug | jsonify }};
 </script>
 
 <!-- =========================
