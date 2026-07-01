@@ -31,42 +31,33 @@ window.DRUG_DATA = {{ site.data.drug | jsonify }};
      ========================= -->
 <script>
 window.addEventListener("load", function () {
-
-    // =========================
-    // Load data safely
-    // =========================
     const rawData = window.DRUG_DATA;
+
+    if (!rawData || rawData.length === 0) {
+        document.getElementById("debug").innerHTML = "Error: No data found.";
+        return;
+    }
 
     console.log("FULL DATA:", rawData);
     console.log("FIRST ROW:", rawData[0]);
 
-    // =========================
-    // Debug output
-    // =========================
     document.getElementById("debug").innerHTML =
         "First row: " +
         rawData[0].DeathYear + "-" +
         rawData[0].Month + " = " +
         rawData[0].Frequency;
 
-    // =========================
-    // Convert data
-    // =========================
-    const x = rawData.map(d =>
-        new Date(d.DeathYear, d.Month - 1, 1)
-    );
+    const x = rawData.map(function (d) {
+        return new Date(d.DeathYear, d.Month - 1, 1);
+    });
 
-    const y = rawData.map(d => d.Frequency);
+    const y = rawData.map(function (d) {
+        return d.Frequency;
+    });
 
-    // =========================
-    // Policy period
-    // =========================
     const policyStart = new Date(2023, 0, 1);
-    const policyEnd   = new Date(2026, 0, 1);
+    const policyEnd = new Date(2026, 0, 1);
 
-    // =========================
-    // Plot
-    // =========================
     Plotly.newPlot("drug_chart", [{
         x: x,
         y: y,
@@ -74,72 +65,59 @@ window.addEventListener("load", function () {
         name: "Drug-related deaths"
     }], {
         title: "Drug-related Deaths in BC",
-        xaxis: {
-            title: "Date",
-            type: "date"
-        },
-        yaxis: {
-            title: "Deaths"
-        },
+        xaxis: { title: "Date", type: "date" },
+        yaxis: { title: "Deaths" },
         hovermode: "x unified",
 
-        shapes: [
-            {
-                type: "rect",
-                xref: "x",
-                yref: "paper",
-                x0: policyStart,
-                x1: policyEnd,
-                y0: 0,
-                y1: 1,
-                fillcolor: "rgba(255, 0, 0, 0.08)",
-                line: { width: 0 }
-            },
-            {
-                type: "line",
-                x0: policyStart,
-                x1: policyStart,
-                y0: 0,
-                y1: 1,
-                xref: "x",
-                yref: "paper",
-                line: { color: "red", width: 2, dash: "dash" }
-            },
-            {
-                type: "line",
-                x0: policyEnd,
-                x1: policyEnd,
-                y0: 0,
-                y1: 1,
-                xref: "x",
-                yref: "paper",
-                line: { color: "red", width: 2, dash: "dash" }
-            }
-        ],
+        shapes: [{
+            type: "rect",
+            xref: "x",
+            yref: "paper",
+            x0: policyStart,
+            x1: policyEnd,
+            y0: 0,
+            y1: 1,
+            fillcolor: "rgba(255, 0, 0, 0.08)",
+            line: { width: 0 }
+        }, {
+            type: "line",
+            x0: policyStart,
+            x1: policyStart,
+            y0: 0,
+            y1: 1,
+            xref: "x",
+            yref: "paper",
+            line: { color: "red", width: 2, dash: "dash" }
+        }, {
+            type: "line",
+            x0: policyEnd,
+            x1: policyEnd,
+            y0: 0,
+            y1: 1,
+            xref: "x",
+            yref: "paper",
+            line: { color: "red", width: 2, dash: "dash" }
+        }],
 
-        annotations: [
-            {
-                x: policyStart,
-                y: 1,
-                xref: "x",
-                yref: "paper",
-                text: "Policy Start (2023)",
-                showarrow: false,
-                yanchor: "bottom",
-                font: { color: "red" }
-            },
-            {
-                x: policyEnd,
-                y: 1,
-                xref: "x",
-                yref: "paper",
-                text: "Policy End (2026)",
-                showarrow: false,
-                yanchor: "bottom",
-                font: { color: "red" }
-            }
-        ]
+        annotations: [{
+            x: policyStart,
+            y: 1,
+            xref: "x",
+            yref: "paper",
+            text: "Policy Start (2023)",
+            showarrow: false,
+            yanchor: "bottom",
+            font: { color: "red" }
+        }, {
+            x: policyEnd,
+            y: 1,
+            xref: "x",
+            yref: "paper",
+            text: "Policy End (2026)",
+            showarrow: false,
+            yanchor: "bottom",
+            font: { color: "red" }
+        }]
     });
-
 });
 </script>
