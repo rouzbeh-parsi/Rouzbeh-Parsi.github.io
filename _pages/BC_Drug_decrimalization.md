@@ -3,6 +3,7 @@ layout: archive
 title: "Drug Policy Analysis Dashboard"
 permalink: /drug-dashboard/
 author_profile: true
+mathjax: false
 ---
 
 ## Drug-related Deaths in BC
