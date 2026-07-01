@@ -238,7 +238,7 @@ window.addEventListener("load", function () {
     }, {
         responsive: true
     });
-});
+
 
 
 
@@ -529,4 +529,6 @@ Plotly.newPlot("policy_model_chart", [
 }, {
     responsive: true
 });
+
+    });
 </script>
