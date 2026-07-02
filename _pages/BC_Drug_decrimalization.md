@@ -186,3 +186,210 @@ Since changes in drug-related mortality are unlikely to occur immediately follow
 
 The interrupted time-series regression model was estimated using RStudio. Data preparation, variable construction, model estimation, and diagnostic analyses were performed in R. The complete R script used for data processing, model specification, estimation, and visualization is included in Appendix 1. 
 
+<div id="policy_model_chart" style="width:100%;height:650px;"></div>
+<div id="sensitivity_table"></div>
+
+<script>
+window.addEventListener("load", function () {
+    const modelData = {{ site.data.policy_main_model_plot_data | jsonify }};
+    const sensitivityData = {{ site.data.policy_sensitivity_analysis | jsonify }};
+
+    if (!modelData || modelData.length === 0) {
+        document.getElementById("policy_model_chart").innerHTML = "Error: No policy model data found.";
+        return;
+    }
+
+    const x = modelData.map(function (d) {
+        return new Date(d.date);
+    });
+
+    const deaths = modelData.map(function (d) {
+        return Number(d.deaths);
+    });
+
+    const fittedDeaths = modelData.map(function (d) {
+        return Number(d.fitted_deaths);
+    });
+
+    const counterfactualDeaths = modelData.map(function (d) {
+        return Number(d.counterfactual_deaths);
+    });
+
+    const policyStart = new Date(2023, 0, 1);
+    const policyEnd = new Date(2026, 0, 1);
+    const effectStart = new Date(2023, 6, 1);
+
+    Plotly.newPlot("policy_model_chart", [
+        {
+            x: x,
+            y: deaths,
+            mode: "lines+markers",
+            name: "Observed deaths",
+            line: { color: "#2563eb", width: 2 },
+            marker: { size: 5 },
+            hovertemplate: "%{x|%b %Y}<br>Observed deaths: %{y:.0f}<extra></extra>"
+        },
+        {
+            x: x,
+            y: fittedDeaths,
+            mode: "lines",
+            name: "Model fitted deaths",
+            line: { color: "#dc2626", width: 3 },
+            hovertemplate: "%{x|%b %Y}<br>Fitted deaths: %{y:.1f}<extra></extra>"
+        },
+        {
+            x: x,
+            y: counterfactualDeaths,
+            mode: "lines",
+            name: "Counterfactual without policy effect",
+            line: { color: "#6b7280", width: 3, dash: "dash" },
+            hovertemplate: "%{x|%b %Y}<br>Counterfactual deaths: %{y:.1f}<extra></extra>"
+        }
+    ], {
+        title: {
+            text: "Interrupted Time-Series Model with Delayed Policy Effect",
+            font: { size: 22, color: "#222" },
+            x: 0.5
+        },
+
+        font: { color: "#222" },
+
+        margin: {
+            l: 80,
+            r: 40,
+            t: 90,
+            b: 80
+        },
+
+        xaxis: {
+            title: { text: "Date", font: { size: 16, color: "#222" } },
+            type: "date",
+            tickfont: { color: "#222" }
+        },
+
+        yaxis: {
+            title: { text: "Deaths", font: { size: 16, color: "#222" } },
+            tickfont: { color: "#222" }
+        },
+
+        hovermode: "x unified",
+
+        shapes: [
+            {
+                type: "rect",
+                xref: "x",
+                yref: "paper",
+                x0: policyStart,
+                x1: policyEnd,
+                y0: 0,
+                y1: 1,
+                fillcolor: "rgba(255, 0, 0, 0.08)",
+                line: { width: 0 }
+            },
+            {
+                type: "line",
+                x0: policyStart,
+                x1: policyStart,
+                y0: 0,
+                y1: 1,
+                xref: "x",
+                yref: "paper",
+                line: { color: "red", width: 2, dash: "dash" }
+            },
+            {
+                type: "line",
+                x0: policyEnd,
+                x1: policyEnd,
+                y0: 0,
+                y1: 1,
+                xref: "x",
+                yref: "paper",
+                line: { color: "red", width: 2, dash: "dash" }
+            },
+            {
+                type: "line",
+                x0: effectStart,
+                x1: effectStart,
+                y0: 0,
+                y1: 1,
+                xref: "x",
+                yref: "paper",
+                line: { color: "#dc2626", width: 2, dash: "dot" }
+            }
+        ],
+
+        annotations: [
+            {
+                x: policyStart,
+                y: 1,
+                xref: "x",
+                yref: "paper",
+                text: "Policy Start",
+                showarrow: false,
+                yanchor: "bottom",
+                font: { color: "red" }
+            },
+            {
+                x: effectStart,
+                y: 0.92,
+                xref: "x",
+                yref: "paper",
+                text: "6-Month Effect Start",
+                showarrow: false,
+                yanchor: "bottom",
+                font: { color: "#dc2626" }
+            },
+            {
+                x: policyEnd,
+                y: 1,
+                xref: "x",
+                yref: "paper",
+                text: "Policy End",
+                showarrow: false,
+                yanchor: "bottom",
+                font: { color: "red" }
+            }
+        ]
+    }, {
+        responsive: true
+    });
+
+    if (!sensitivityData || sensitivityData.length === 0) {
+        document.getElementById("sensitivity_table").innerHTML = "Error: No sensitivity data found.";
+        return;
+    }
+
+    let tableHtml = "";
+    tableHtml += "<h3>Sensitivity Analysis</h3>";
+    tableHtml += "<p>Stars indicate statistical significance: *** p < 0.01, ** p < 0.05, * p < 0.10.</p>";
+    tableHtml += "<table style='width:100%; border-collapse:collapse; margin-top:1rem;'>";
+    tableHtml += "<thead>";
+    tableHtml += "<tr>";
+    tableHtml += "<th style='border-bottom:1px solid #ccc; text-align:left; padding:8px;'>Lag</th>";
+    tableHtml += "<th style='border-bottom:1px solid #ccc; text-align:left; padding:8px;'>Effect Start</th>";
+    tableHtml += "<th style='border-bottom:1px solid #ccc; text-align:right; padding:8px;'>Baseline Trend</th>";
+    tableHtml += "<th style='border-bottom:1px solid #ccc; text-align:right; padding:8px;'>Immediate Effect</th>";
+    tableHtml += "<th style='border-bottom:1px solid #ccc; text-align:right; padding:8px;'>Trend Change</th>";
+    tableHtml += "<th style='border-bottom:1px solid #ccc; text-align:right; padding:8px;'>Avg. Model Effect</th>";
+    tableHtml += "</tr>";
+    tableHtml += "</thead>";
+    tableHtml += "<tbody>";
+
+    sensitivityData.forEach(function (row) {
+        tableHtml += "<tr>";
+        tableHtml += "<td style='border-bottom:1px solid #eee; padding:8px;'>" + row.lag_months + " months</td>";
+        tableHtml += "<td style='border-bottom:1px solid #eee; padding:8px;'>" + row.effect_start + "</td>";
+        tableHtml += "<td style='border-bottom:1px solid #eee; padding:8px; text-align:right;'>" + row.baseline_result + "%</td>";
+        tableHtml += "<td style='border-bottom:1px solid #eee; padding:8px; text-align:right;'>" + row.immediate_policy_result + "%</td>";
+        tableHtml += "<td style='border-bottom:1px solid #eee; padding:8px; text-align:right;'>" + row.policy_trend_result + "%</td>";
+        tableHtml += "<td style='border-bottom:1px solid #eee; padding:8px; text-align:right;'>" + row.average_model_percent_difference + "%</td>";
+        tableHtml += "</tr>";
+    });
+
+    tableHtml += "</tbody>";
+    tableHtml += "</table>";
+
+    document.getElementById("sensitivity_table").innerHTML = tableHtml;
+});
+</script>
+
