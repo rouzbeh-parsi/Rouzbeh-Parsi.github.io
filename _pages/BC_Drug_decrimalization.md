@@ -182,3 +182,7 @@ Variables:
 
 Since changes in drug-related mortality are unlikely to occur immediately following policy implementation, the primary analysis assumes a 6-month implementation lag. Under this assumption, the policy is modeled as beginning to influence outcomes in July 2023, although it officially came into effect in January 2023. To evaluate the robustness of the findings, a sensitivity analysis will also be conducted using alternative lag assumptions.
 
+## Results
+
+The interrupted time-series regression model was estimated using RStudio. Data preparation, variable construction, model estimation, and diagnostic analyses were performed in R. The complete R script used for data processing, model specification, estimation, and visualization is included in Appendix 1. 
+
