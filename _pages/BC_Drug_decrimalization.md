@@ -20,15 +20,6 @@ The dataset used in this analysis consists of monthly counts of unregulated drug
 
 The data is reported on a monthly basis, allowing for high-frequency time-series analysis of trends in mortality over time. This structure makes it suitable for evaluating both short-term fluctuations and longer-term structural changes associated with public health interventions and policy shifts.
 
-<div id="debug"></div>
-<div id="drug_chart" style="width:105%;height:650px;"></div>
-
-<script>
-window.DRUG_DATA = {{ site.data.drug | jsonify }};
-</script>
-
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-
 <script>
 window.addEventListener("load", function () {
     const rawData = window.DRUG_DATA;
@@ -55,72 +46,6 @@ window.addEventListener("load", function () {
     const policyStart = new Date(2023, 0, 1);
     const policyEnd = new Date(2026, 0, 1);
 
-    function fitLine(points) {
-        const n = points.length;
-
-        if (n < 2) {
-            return { slope: 0, intercept: points.length ? points[0].y : 0 };
-        }
-
-        const sumX = points.reduce(function (total, point) {
-            return total + point.t;
-        }, 0);
-
-        const sumY = points.reduce(function (total, point) {
-            return total + point.y;
-        }, 0);
-
-        const sumXY = points.reduce(function (total, point) {
-            return total + point.t * point.y;
-        }, 0);
-
-        const sumXX = points.reduce(function (total, point) {
-            return total + point.t * point.t;
-        }, 0);
-
-        const denominator = n * sumXX - sumX * sumX;
-
-        if (denominator === 0) {
-            return { slope: 0, intercept: sumY / n };
-        }
-
-        const slope = (n * sumXY - sumX * sumY) / denominator;
-        const intercept = (sumY - slope * sumX) / n;
-
-        return { slope: slope, intercept: intercept };
-    }
-
-    const indexedData = x.map(function (date, i) {
-        return {
-            date: date,
-            t: i,
-            y: y[i]
-        };
-    });
-
-    const prePolicyData = indexedData.filter(function (d) {
-        return d.date < policyStart;
-    });
-
-    const postPolicyData = indexedData.filter(function (d) {
-        return d.date >= policyStart;
-    });
-
-    const prePolicyModel = fitLine(prePolicyData);
-    const postPolicyModel = fitLine(postPolicyData);
-
-    const prePolicyTrendY = prePolicyData.map(function (d) {
-        return prePolicyModel.slope * d.t + prePolicyModel.intercept;
-    });
-
-    const counterfactualY = postPolicyData.map(function (d) {
-        return prePolicyModel.slope * d.t + prePolicyModel.intercept;
-    });
-
-    const postPolicyTrendY = postPolicyData.map(function (d) {
-        return postPolicyModel.slope * d.t + postPolicyModel.intercept;
-    });
-
     Plotly.newPlot("drug_chart", [
         {
             x: x,
@@ -129,27 +54,6 @@ window.addEventListener("load", function () {
             name: "Observed deaths",
             line: { color: "#2563eb", width: 2 },
             marker: { size: 6 }
-        },
-        {
-            x: prePolicyData.map(function (d) { return d.date; }),
-            y: prePolicyTrendY,
-            mode: "lines",
-            name: "Pre-policy trend",
-            line: { color: "#111827", width: 3 }
-        },
-        {
-            x: postPolicyData.map(function (d) { return d.date; }),
-            y: counterfactualY,
-            mode: "lines",
-            name: "Counterfactual from pre-policy trend",
-            line: { color: "#6b7280", width: 3, dash: "dash" }
-        },
-        {
-            x: postPolicyData.map(function (d) { return d.date; }),
-            y: postPolicyTrendY,
-            mode: "lines",
-            name: "Post-policy trend",
-            line: { color: "#dc2626", width: 3 }
         }
     ], {
         title: {
@@ -228,7 +132,7 @@ window.addEventListener("load", function () {
                 y: 1,
                 xref: "x",
                 yref: "paper",
-                text: "Policy Start (2023)",
+                text: "Policy Start (Jan 2023)",
                 showarrow: false,
                 yanchor: "bottom",
                 font: { color: "red" }
@@ -238,7 +142,7 @@ window.addEventListener("load", function () {
                 y: 1,
                 xref: "x",
                 yref: "paper",
-                text: "Policy End (2026)",
+                text: "Policy End (Jan 2026)",
                 showarrow: false,
                 yanchor: "bottom",
                 font: { color: "red" }
@@ -247,7 +151,7 @@ window.addEventListener("load", function () {
     }, {
         responsive: true
     });
-    });
+});
 </script>
 
 ## Methodology: Interrupted Time Series Regression
