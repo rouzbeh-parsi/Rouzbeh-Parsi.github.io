@@ -20,14 +20,16 @@ The dataset used in this analysis consists of monthly counts of unregulated drug
 
 The data is reported on a monthly basis, allowing for high-frequency time-series analysis of trends in mortality over time. This structure makes it suitable for evaluating both short-term fluctuations and longer-term structural changes associated with public health interventions and policy shifts.
 
+
 <div id="debug"></div>
-<div id="drug_chart" style="width:100%;height:600px;"></div>
+<div id="drug_chart" style="width:105%;height:650px;"></div>
 
 <script>
 window.DRUG_DATA = {{ site.data.drug | jsonify }};
 </script>
 
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
 
 <script>
 window.addEventListener("load", function () {
