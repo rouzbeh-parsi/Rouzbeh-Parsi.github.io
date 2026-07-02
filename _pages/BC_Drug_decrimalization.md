@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "Drug Policy Analysis Dashboard"
-permalink: /BC_drug-policy/
+permalink: /BC-drug-policy/
 author_profile: true
 mathjax: false
 ---
