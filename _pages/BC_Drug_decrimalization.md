@@ -187,6 +187,17 @@ Since changes in drug-related mortality are unlikely to occur immediately follow
 The interrupted time-series regression model was estimated using RStudio. Data preparation, variable construction, model estimation, and diagnostic analyses were performed in R. The complete R script used for data processing, model specification, estimation, and visualization is included in Appendix 1. 
 
 <div id="policy_model_chart" style="width:100%;height:650px;"></div>
+
+The primary analysis assumes a 6-month implementation lag, with the policy effect beginning in July 2023. This specification was selected because changes in drug-related mortality are unlikely to occur immediately following implementation, as behavioral adaptation, service uptake, and changes in the unregulated drug supply may require time before measurable effects are observed.
+
+The interrupted time-series model indicates that, prior to the policy period, monthly drug-related deaths were increasing at an average rate of 1.16% per month (p < 0.001), reflecting a statistically significant upward trend.
+
+The estimated immediate level change following the assumed policy effect was an increase of 12.8%. However, this effect was not statistically significant, suggesting insufficient evidence of an immediate change in mortality levels when the policy began to influence outcomes.
+
+More importantly, the estimated trend change during the policy period was −2.83% per month (p < 0.001). This indicates that the monthly growth rate in drug-related deaths slowed significantly following the intervention. Although deaths did not immediately decline, the rate at which they were increasing became substantially lower than during the pre-policy period.
+
+Overall, the model estimates an average reduction of approximately 23.2% in drug-related deaths over the policy period relative to the counterfactual trend that would have been expected in the absence of the intervention. While this finding suggests that the policy may have contributed to moderating the upward trajectory of mortality, it should be interpreted as an observational association rather than definitive evidence of causality
+
 <div id="sensitivity_table"></div>
 
 <script>
