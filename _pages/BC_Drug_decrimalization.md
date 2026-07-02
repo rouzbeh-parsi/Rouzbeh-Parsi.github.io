@@ -260,13 +260,13 @@ log(Deaths_t) = β0 + β1 * Time_t + β2 * Policy_t + β3 * PolicyTime_t + ε_t
 
 Variables:
 
-- Deaths_t
+- Deaths_t:
 Monthly number of unregulated drug toxicity deaths in month t.
 
-- Time_t
+- Time_t:
 A continuous time index starting from the first observation.
 
-- Policy_t (policy indicator)
+- Policy_t (policy indicator):
 A binary variable indicating whether the policy is in effect:
 
 - Policy_t =
@@ -276,7 +276,7 @@ A binary variable indicating whether the policy is in effect:
 
 This captures the immediate level shift after policy introduction.
 
-- PolicyTime_t (post-policy trend counter)
+- PolicyTime_t (post-policy trend counter):
 
 A variable counting time since policy implementation, this captures changes in trend after the intervention.
 
