@@ -194,6 +194,11 @@ window.addEventListener("load", function () {
     const modelData = {{ site.data.policy_main_model_plot_data | jsonify }};
     const sensitivityData = {{ site.data.policy_sensitivity_analysis | jsonify }};
 
+    const policyStart = new Date(2023, 0, 1);
+    const policyEnd = new Date(2026, 0, 1);
+    const effectStart = new Date(2023, 6, 1);
+    const fittedModelEnd = new Date(2025, 10, 1); // Nov 2025
+
     if (!modelData || modelData.length === 0) {
         document.getElementById("policy_model_chart").innerHTML = "Error: No policy model data found.";
         return;
@@ -221,10 +226,6 @@ window.addEventListener("load", function () {
         return Number(d.counterfactual_deaths);
     });
 
-    const policyStart = new Date(2023, 0, 1);
-    const policyEnd = new Date(2026, 0, 1);
-    const effectStart = new Date(2023, 6, 1);
-    const fittedModelEnd = new Date(2025, 10, 1); // Nov 2025
 
     Plotly.newPlot("policy_model_chart", [
         {
