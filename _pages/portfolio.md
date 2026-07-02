@@ -16,10 +16,10 @@ An interactive forecasting project that compares **ETS**, **ARIMA**, and **SARIM
 ➡️ **[View Project]({{ "/bc/" | relative_url }})**
 
 
-## Drug Policy Analysis Dashboard
+## Drug Policy Analysis
 
 An interrupted time-series analysis of unregulated drug toxicity deaths in British Columbia using monthly data from the BC Coroners Service.
 
 **Tools:** R, Plotly, RStudio, ITS Analysis
 
-➡️ **[View Project →]({{ "/drug-policy/" | relative_url }})**
+➡️ **[View Project →]({{ "/BC-drug-policy/" | relative_url }})**
