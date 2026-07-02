@@ -151,20 +151,3 @@ Recognized as a member of the Tariff Impact Analysis Team supporting senior lead
 Awarded for academic excellence in environmental and resource economics.
 
 ---
-
-## Selected Projects
-
-- **BC Personal Income Tax Forecast**
-  - Interactive comparison of ETS, ARIMA, and SARIMAX forecasting models.
-  - Python • Statsmodels • Plotly • GitHub Pages
-  - **[View Project]({{ "/bc/" | relative_url }})**
-
----
-
-## Publications
-
-<ul>
-{% for post in site.publications reversed %}
-{% include archive-single-cv.html %}
-{% endfor %}
-</ul>
