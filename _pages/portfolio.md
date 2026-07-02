@@ -7,7 +7,7 @@ author_profile: true
 
 # Forecasting Projects
 
-##Evaluation of Drug Decriminalization Pilot Program in BC
+## Evaluation of Drug Decriminalization Pilot Program in BC
 
 An interrupted time-series analysis **(ITS)** of monthly unregulated drug toxicity deaths in British Columbia, examining changes before and after the province’s 2023–2026 decriminalization pilot program. The study uses data from the BC Coroners Service to assess whether the policy is associated with changes in the level and trend of deaths over time, while also testing different time delays for when the policy effect may begin.
 
