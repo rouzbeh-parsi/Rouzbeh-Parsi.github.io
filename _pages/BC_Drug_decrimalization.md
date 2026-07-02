@@ -270,3 +270,5 @@ Variables:
 
 - PolicyTime_t (post-policy trend counter): A variable counting time since policy implementation, this captures changes in trend after the intervention.
 
+Since changes in drug-related mortality are unlikely to occur immediately following policy implementation, the primary analysis assumes a 6-month implementation lag. Under this assumption, the policy is modeled as beginning to influence outcomes in July 2023, although it officially came into effect in January 2023. To evaluate the robustness of the findings, a sensitivity analysis will also be conducted using alternative lag assumptions.
+
