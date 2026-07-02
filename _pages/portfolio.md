@@ -18,7 +18,7 @@ An interrupted time-series analysis **(ITS)** of monthly unregulated drug toxici
 
 ## BC Personal Income Tax Forecast
 
-An interactive forecasting project that compares **ETS**, **ARIMA**, and **SARIMAX** models to predict **British Columbia Personal Income Tax (PIT)** revenue.
+An interactive forecasting project that compares **ETS**, **ARIMA**, and **SARIMAX** models to predict British Columbia Personal Income Tax (PIT) revenue.
 
 **Tools:** Python, Statsmodels, Plotly, Jupyter Notebook, GitHub Pages
 
