@@ -5,7 +5,6 @@ permalink: /portfolio/
 author_profile: true
 ---
 
-# Forecasting Projects
 
 ## Evaluation of Drug Decriminalization Pilot Program in BC
 
