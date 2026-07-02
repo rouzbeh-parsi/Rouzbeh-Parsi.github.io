@@ -1,0 +1,11 @@
+[
+  {
+    "main_lag_months": 6,
+    "effect_start": "2023-07-01",
+    "baseline_monthly_percent_trend": 1.16,
+    "immediate_policy_percent_change": 12.8,
+    "policy_monthly_percent_trend_change": -2.83,
+    "total_policy_monthly_percent_trend": -1.69,
+    "average_model_percent_difference": -23.24
+  }
+]

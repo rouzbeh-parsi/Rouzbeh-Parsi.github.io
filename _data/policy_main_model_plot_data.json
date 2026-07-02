@@ -1,0 +1,1150 @@
+[
+  {
+    "date": "2015-01-01",
+    "deaths": 43,
+    "fitted_deaths": 62.38,
+    "counterfactual_deaths": 62.38,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-02-01",
+    "deaths": 31,
+    "fitted_deaths": 63.1,
+    "counterfactual_deaths": 63.1,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-03-01",
+    "deaths": 32,
+    "fitted_deaths": 63.84,
+    "counterfactual_deaths": 63.84,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-04-01",
+    "deaths": 34,
+    "fitted_deaths": 64.58,
+    "counterfactual_deaths": 64.58,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-05-01",
+    "deaths": 41,
+    "fitted_deaths": 65.33,
+    "counterfactual_deaths": 65.33,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-06-01",
+    "deaths": 34,
+    "fitted_deaths": 66.09,
+    "counterfactual_deaths": 66.09,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-07-01",
+    "deaths": 40,
+    "fitted_deaths": 66.86,
+    "counterfactual_deaths": 66.86,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-08-01",
+    "deaths": 53,
+    "fitted_deaths": 67.64,
+    "counterfactual_deaths": 67.64,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-09-01",
+    "deaths": 50,
+    "fitted_deaths": 68.43,
+    "counterfactual_deaths": 68.43,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-10-01",
+    "deaths": 53,
+    "fitted_deaths": 69.23,
+    "counterfactual_deaths": 69.23,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-11-01",
+    "deaths": 52,
+    "fitted_deaths": 70.03,
+    "counterfactual_deaths": 70.03,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2015-12-01",
+    "deaths": 65,
+    "fitted_deaths": 70.85,
+    "counterfactual_deaths": 70.85,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-01-01",
+    "deaths": 86,
+    "fitted_deaths": 71.67,
+    "counterfactual_deaths": 71.67,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-02-01",
+    "deaths": 58,
+    "fitted_deaths": 72.51,
+    "counterfactual_deaths": 72.51,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-03-01",
+    "deaths": 76,
+    "fitted_deaths": 73.35,
+    "counterfactual_deaths": 73.35,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-04-01",
+    "deaths": 73,
+    "fitted_deaths": 74.21,
+    "counterfactual_deaths": 74.21,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-05-01",
+    "deaths": 51,
+    "fitted_deaths": 75.07,
+    "counterfactual_deaths": 75.07,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-06-01",
+    "deaths": 72,
+    "fitted_deaths": 75.95,
+    "counterfactual_deaths": 75.95,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-07-01",
+    "deaths": 74,
+    "fitted_deaths": 76.83,
+    "counterfactual_deaths": 76.83,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-08-01",
+    "deaths": 65,
+    "fitted_deaths": 77.73,
+    "counterfactual_deaths": 77.73,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-09-01",
+    "deaths": 63,
+    "fitted_deaths": 78.63,
+    "counterfactual_deaths": 78.63,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-10-01",
+    "deaths": 77,
+    "fitted_deaths": 79.55,
+    "counterfactual_deaths": 79.55,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-11-01",
+    "deaths": 140,
+    "fitted_deaths": 80.47,
+    "counterfactual_deaths": 80.47,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2016-12-01",
+    "deaths": 162,
+    "fitted_deaths": 81.41,
+    "counterfactual_deaths": 81.41,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-01-01",
+    "deaths": 148,
+    "fitted_deaths": 82.36,
+    "counterfactual_deaths": 82.36,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-02-01",
+    "deaths": 125,
+    "fitted_deaths": 83.32,
+    "counterfactual_deaths": 83.32,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-03-01",
+    "deaths": 129,
+    "fitted_deaths": 84.29,
+    "counterfactual_deaths": 84.29,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-04-01",
+    "deaths": 156,
+    "fitted_deaths": 85.27,
+    "counterfactual_deaths": 85.27,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-05-01",
+    "deaths": 149,
+    "fitted_deaths": 86.27,
+    "counterfactual_deaths": 86.27,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-06-01",
+    "deaths": 130,
+    "fitted_deaths": 87.27,
+    "counterfactual_deaths": 87.27,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-07-01",
+    "deaths": 122,
+    "fitted_deaths": 88.29,
+    "counterfactual_deaths": 88.29,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-08-01",
+    "deaths": 126,
+    "fitted_deaths": 89.31,
+    "counterfactual_deaths": 89.31,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-09-01",
+    "deaths": 97,
+    "fitted_deaths": 90.36,
+    "counterfactual_deaths": 90.36,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-10-01",
+    "deaths": 98,
+    "fitted_deaths": 91.41,
+    "counterfactual_deaths": 91.41,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-11-01",
+    "deaths": 110,
+    "fitted_deaths": 92.47,
+    "counterfactual_deaths": 92.47,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2017-12-01",
+    "deaths": 104,
+    "fitted_deaths": 93.55,
+    "counterfactual_deaths": 93.55,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-01-01",
+    "deaths": 134,
+    "fitted_deaths": 94.64,
+    "counterfactual_deaths": 94.64,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-02-01",
+    "deaths": 108,
+    "fitted_deaths": 95.74,
+    "counterfactual_deaths": 95.74,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-03-01",
+    "deaths": 158,
+    "fitted_deaths": 96.86,
+    "counterfactual_deaths": 96.86,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-04-01",
+    "deaths": 136,
+    "fitted_deaths": 97.98,
+    "counterfactual_deaths": 97.98,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-05-01",
+    "deaths": 119,
+    "fitted_deaths": 99.13,
+    "counterfactual_deaths": 99.13,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-06-01",
+    "deaths": 117,
+    "fitted_deaths": 100.28,
+    "counterfactual_deaths": 100.28,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-07-01",
+    "deaths": 151,
+    "fitted_deaths": 101.45,
+    "counterfactual_deaths": 101.45,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-08-01",
+    "deaths": 126,
+    "fitted_deaths": 102.63,
+    "counterfactual_deaths": 102.63,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-09-01",
+    "deaths": 139,
+    "fitted_deaths": 103.83,
+    "counterfactual_deaths": 103.83,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-10-01",
+    "deaths": 119,
+    "fitted_deaths": 105.04,
+    "counterfactual_deaths": 105.04,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-11-01",
+    "deaths": 132,
+    "fitted_deaths": 106.26,
+    "counterfactual_deaths": 106.26,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2018-12-01",
+    "deaths": 127,
+    "fitted_deaths": 107.5,
+    "counterfactual_deaths": 107.5,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-01-01",
+    "deaths": 94,
+    "fitted_deaths": 108.75,
+    "counterfactual_deaths": 108.75,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-02-01",
+    "deaths": 87,
+    "fitted_deaths": 110.02,
+    "counterfactual_deaths": 110.02,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-03-01",
+    "deaths": 122,
+    "fitted_deaths": 111.3,
+    "counterfactual_deaths": 111.3,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-04-01",
+    "deaths": 81,
+    "fitted_deaths": 112.59,
+    "counterfactual_deaths": 112.59,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-05-01",
+    "deaths": 93,
+    "fitted_deaths": 113.9,
+    "counterfactual_deaths": 113.9,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-06-01",
+    "deaths": 73,
+    "fitted_deaths": 115.23,
+    "counterfactual_deaths": 115.23,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-07-01",
+    "deaths": 72,
+    "fitted_deaths": 116.57,
+    "counterfactual_deaths": 116.57,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-08-01",
+    "deaths": 83,
+    "fitted_deaths": 117.93,
+    "counterfactual_deaths": 117.93,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-09-01",
+    "deaths": 63,
+    "fitted_deaths": 119.3,
+    "counterfactual_deaths": 119.3,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-10-01",
+    "deaths": 79,
+    "fitted_deaths": 120.69,
+    "counterfactual_deaths": 120.69,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-11-01",
+    "deaths": 81,
+    "fitted_deaths": 122.1,
+    "counterfactual_deaths": 122.1,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2019-12-01",
+    "deaths": 64,
+    "fitted_deaths": 123.52,
+    "counterfactual_deaths": 123.52,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-01-01",
+    "deaths": 80,
+    "fitted_deaths": 124.96,
+    "counterfactual_deaths": 124.96,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-02-01",
+    "deaths": 79,
+    "fitted_deaths": 126.42,
+    "counterfactual_deaths": 126.42,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-03-01",
+    "deaths": 120,
+    "fitted_deaths": 127.89,
+    "counterfactual_deaths": 127.89,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-04-01",
+    "deaths": 130,
+    "fitted_deaths": 129.38,
+    "counterfactual_deaths": 129.38,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-05-01",
+    "deaths": 175,
+    "fitted_deaths": 130.89,
+    "counterfactual_deaths": 130.89,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-06-01",
+    "deaths": 189,
+    "fitted_deaths": 132.41,
+    "counterfactual_deaths": 132.41,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-07-01",
+    "deaths": 186,
+    "fitted_deaths": 133.95,
+    "counterfactual_deaths": 133.95,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-08-01",
+    "deaths": 161,
+    "fitted_deaths": 135.51,
+    "counterfactual_deaths": 135.51,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-09-01",
+    "deaths": 142,
+    "fitted_deaths": 137.09,
+    "counterfactual_deaths": 137.09,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-10-01",
+    "deaths": 176,
+    "fitted_deaths": 138.69,
+    "counterfactual_deaths": 138.69,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-11-01",
+    "deaths": 170,
+    "fitted_deaths": 140.3,
+    "counterfactual_deaths": 140.3,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2020-12-01",
+    "deaths": 166,
+    "fitted_deaths": 141.94,
+    "counterfactual_deaths": 141.94,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-01-01",
+    "deaths": 188,
+    "fitted_deaths": 143.59,
+    "counterfactual_deaths": 143.59,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-02-01",
+    "deaths": 177,
+    "fitted_deaths": 145.26,
+    "counterfactual_deaths": 145.26,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-03-01",
+    "deaths": 173,
+    "fitted_deaths": 146.96,
+    "counterfactual_deaths": 146.96,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-04-01",
+    "deaths": 187,
+    "fitted_deaths": 148.67,
+    "counterfactual_deaths": 148.67,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-05-01",
+    "deaths": 174,
+    "fitted_deaths": 150.4,
+    "counterfactual_deaths": 150.4,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-06-01",
+    "deaths": 177,
+    "fitted_deaths": 152.15,
+    "counterfactual_deaths": 152.15,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-07-01",
+    "deaths": 199,
+    "fitted_deaths": 153.92,
+    "counterfactual_deaths": 153.92,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-08-01",
+    "deaths": 202,
+    "fitted_deaths": 155.72,
+    "counterfactual_deaths": 155.72,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-09-01",
+    "deaths": 161,
+    "fitted_deaths": 157.53,
+    "counterfactual_deaths": 157.53,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-10-01",
+    "deaths": 212,
+    "fitted_deaths": 159.36,
+    "counterfactual_deaths": 159.36,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-11-01",
+    "deaths": 216,
+    "fitted_deaths": 161.22,
+    "counterfactual_deaths": 161.22,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2021-12-01",
+    "deaths": 227,
+    "fitted_deaths": 163.1,
+    "counterfactual_deaths": 163.1,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-01-01",
+    "deaths": 215,
+    "fitted_deaths": 165,
+    "counterfactual_deaths": 165,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-02-01",
+    "deaths": 205,
+    "fitted_deaths": 166.92,
+    "counterfactual_deaths": 166.92,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-03-01",
+    "deaths": 185,
+    "fitted_deaths": 168.86,
+    "counterfactual_deaths": 168.86,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-04-01",
+    "deaths": 174,
+    "fitted_deaths": 170.83,
+    "counterfactual_deaths": 170.83,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-05-01",
+    "deaths": 214,
+    "fitted_deaths": 172.82,
+    "counterfactual_deaths": 172.82,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-06-01",
+    "deaths": 159,
+    "fitted_deaths": 174.83,
+    "counterfactual_deaths": 174.83,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-07-01",
+    "deaths": 201,
+    "fitted_deaths": 176.87,
+    "counterfactual_deaths": 176.87,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-08-01",
+    "deaths": 192,
+    "fitted_deaths": 178.93,
+    "counterfactual_deaths": 178.93,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-09-01",
+    "deaths": 192,
+    "fitted_deaths": 181.01,
+    "counterfactual_deaths": 181.01,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-10-01",
+    "deaths": 212,
+    "fitted_deaths": 183.12,
+    "counterfactual_deaths": 183.12,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-11-01",
+    "deaths": 203,
+    "fitted_deaths": 185.26,
+    "counterfactual_deaths": 185.26,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2022-12-01",
+    "deaths": 234,
+    "fitted_deaths": 187.41,
+    "counterfactual_deaths": 187.41,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-01-01",
+    "deaths": 231,
+    "fitted_deaths": 189.6,
+    "counterfactual_deaths": 189.6,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-02-01",
+    "deaths": 198,
+    "fitted_deaths": 191.81,
+    "counterfactual_deaths": 191.81,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-03-01",
+    "deaths": 216,
+    "fitted_deaths": 194.04,
+    "counterfactual_deaths": 194.04,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-04-01",
+    "deaths": 240,
+    "fitted_deaths": 196.3,
+    "counterfactual_deaths": 196.3,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-05-01",
+    "deaths": 200,
+    "fitted_deaths": 198.59,
+    "counterfactual_deaths": 198.59,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-06-01",
+    "deaths": 204,
+    "fitted_deaths": 200.9,
+    "counterfactual_deaths": 200.9,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-07-01",
+    "deaths": 224,
+    "fitted_deaths": 229.25,
+    "counterfactual_deaths": 203.24,
+    "observed_percent_difference": 10.21,
+    "model_percent_difference": 12.8,
+    "policy_effect": 1,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2023-08-01",
+    "deaths": 199,
+    "fitted_deaths": 225.37,
+    "counterfactual_deaths": 205.61,
+    "observed_percent_difference": -3.21,
+    "model_percent_difference": 9.61,
+    "policy_effect": 1,
+    "policy_effect_time": 1
+  },
+  {
+    "date": "2023-09-01",
+    "deaths": 191,
+    "fitted_deaths": 221.55,
+    "counterfactual_deaths": 208,
+    "observed_percent_difference": -8.17,
+    "model_percent_difference": 6.51,
+    "policy_effect": 1,
+    "policy_effect_time": 2
+  },
+  {
+    "date": "2023-10-01",
+    "deaths": 217,
+    "fitted_deaths": 217.8,
+    "counterfactual_deaths": 210.42,
+    "observed_percent_difference": 3.13,
+    "model_percent_difference": 3.51,
+    "policy_effect": 1,
+    "policy_effect_time": 3
+  },
+  {
+    "date": "2023-11-01",
+    "deaths": 231,
+    "fitted_deaths": 214.11,
+    "counterfactual_deaths": 212.88,
+    "observed_percent_difference": 8.51,
+    "model_percent_difference": 0.58,
+    "policy_effect": 1,
+    "policy_effect_time": 4
+  },
+  {
+    "date": "2023-12-01",
+    "deaths": 242,
+    "fitted_deaths": 210.49,
+    "counterfactual_deaths": 215.35,
+    "observed_percent_difference": 12.37,
+    "model_percent_difference": -2.26,
+    "policy_effect": 1,
+    "policy_effect_time": 5
+  },
+  {
+    "date": "2024-01-01",
+    "deaths": 221,
+    "fitted_deaths": 206.92,
+    "counterfactual_deaths": 217.86,
+    "observed_percent_difference": 1.44,
+    "model_percent_difference": -5.02,
+    "policy_effect": 1,
+    "policy_effect_time": 6
+  },
+  {
+    "date": "2024-02-01",
+    "deaths": 204,
+    "fitted_deaths": 203.42,
+    "counterfactual_deaths": 220.4,
+    "observed_percent_difference": -7.44,
+    "model_percent_difference": -7.71,
+    "policy_effect": 1,
+    "policy_effect_time": 7
+  },
+  {
+    "date": "2024-03-01",
+    "deaths": 219,
+    "fitted_deaths": 199.97,
+    "counterfactual_deaths": 222.97,
+    "observed_percent_difference": -1.78,
+    "model_percent_difference": -10.31,
+    "policy_effect": 1,
+    "policy_effect_time": 8
+  },
+  {
+    "date": "2024-04-01",
+    "deaths": 196,
+    "fitted_deaths": 196.59,
+    "counterfactual_deaths": 225.56,
+    "observed_percent_difference": -13.11,
+    "model_percent_difference": -12.85,
+    "policy_effect": 1,
+    "policy_effect_time": 9
+  },
+  {
+    "date": "2024-05-01",
+    "deaths": 198,
+    "fitted_deaths": 193.26,
+    "counterfactual_deaths": 228.19,
+    "observed_percent_difference": -13.23,
+    "model_percent_difference": -15.31,
+    "policy_effect": 1,
+    "policy_effect_time": 10
+  },
+  {
+    "date": "2024-06-01",
+    "deaths": 201,
+    "fitted_deaths": 189.99,
+    "counterfactual_deaths": 230.85,
+    "observed_percent_difference": -12.93,
+    "model_percent_difference": -17.7,
+    "policy_effect": 1,
+    "policy_effect_time": 11
+  },
+  {
+    "date": "2024-07-01",
+    "deaths": 194,
+    "fitted_deaths": 186.77,
+    "counterfactual_deaths": 233.54,
+    "observed_percent_difference": -16.93,
+    "model_percent_difference": -20.03,
+    "policy_effect": 1,
+    "policy_effect_time": 12
+  },
+  {
+    "date": "2024-08-01",
+    "deaths": 210,
+    "fitted_deaths": 183.61,
+    "counterfactual_deaths": 236.26,
+    "observed_percent_difference": -11.11,
+    "model_percent_difference": -22.29,
+    "policy_effect": 1,
+    "policy_effect_time": 13
+  },
+  {
+    "date": "2024-09-01",
+    "deaths": 192,
+    "fitted_deaths": 180.5,
+    "counterfactual_deaths": 239.01,
+    "observed_percent_difference": -19.67,
+    "model_percent_difference": -24.48,
+    "policy_effect": 1,
+    "policy_effect_time": 14
+  },
+  {
+    "date": "2024-10-01",
+    "deaths": 163,
+    "fitted_deaths": 177.44,
+    "counterfactual_deaths": 241.8,
+    "observed_percent_difference": -32.59,
+    "model_percent_difference": -26.61,
+    "policy_effect": 1,
+    "policy_effect_time": 15
+  },
+  {
+    "date": "2024-11-01",
+    "deaths": 157,
+    "fitted_deaths": 174.44,
+    "counterfactual_deaths": 244.61,
+    "observed_percent_difference": -35.82,
+    "model_percent_difference": -28.69,
+    "policy_effect": 1,
+    "policy_effect_time": 16
+  },
+  {
+    "date": "2024-12-01",
+    "deaths": 163,
+    "fitted_deaths": 171.48,
+    "counterfactual_deaths": 247.46,
+    "observed_percent_difference": -34.13,
+    "model_percent_difference": -30.7,
+    "policy_effect": 1,
+    "policy_effect_time": 17
+  },
+  {
+    "date": "2025-01-01",
+    "deaths": 167,
+    "fitted_deaths": 168.58,
+    "counterfactual_deaths": 250.34,
+    "observed_percent_difference": -33.29,
+    "model_percent_difference": -32.66,
+    "policy_effect": 1,
+    "policy_effect_time": 18
+  },
+  {
+    "date": "2025-02-01",
+    "deaths": 133,
+    "fitted_deaths": 165.72,
+    "counterfactual_deaths": 253.26,
+    "observed_percent_difference": -47.48,
+    "model_percent_difference": -34.56,
+    "policy_effect": 1,
+    "policy_effect_time": 19
+  },
+  {
+    "date": "2025-03-01",
+    "deaths": 143,
+    "fitted_deaths": 162.92,
+    "counterfactual_deaths": 256.21,
+    "observed_percent_difference": -44.19,
+    "model_percent_difference": -36.41,
+    "policy_effect": 1,
+    "policy_effect_time": 20
+  },
+  {
+    "date": "2025-04-01",
+    "deaths": 174,
+    "fitted_deaths": 160.16,
+    "counterfactual_deaths": 259.19,
+    "observed_percent_difference": -32.87,
+    "model_percent_difference": -38.21,
+    "policy_effect": 1,
+    "policy_effect_time": 21
+  },
+  {
+    "date": "2025-05-01",
+    "deaths": 159,
+    "fitted_deaths": 157.45,
+    "counterfactual_deaths": 262.21,
+    "observed_percent_difference": -39.36,
+    "model_percent_difference": -39.95,
+    "policy_effect": 1,
+    "policy_effect_time": 22
+  },
+  {
+    "date": "2025-06-01",
+    "deaths": 151,
+    "fitted_deaths": 154.78,
+    "counterfactual_deaths": 265.27,
+    "observed_percent_difference": -43.08,
+    "model_percent_difference": -41.65,
+    "policy_effect": 1,
+    "policy_effect_time": 23
+  },
+  {
+    "date": "2025-07-01",
+    "deaths": 152,
+    "fitted_deaths": 152.16,
+    "counterfactual_deaths": 268.36,
+    "observed_percent_difference": -43.36,
+    "model_percent_difference": -43.3,
+    "policy_effect": 1,
+    "policy_effect_time": 24
+  },
+  {
+    "date": "2025-08-01",
+    "deaths": 156,
+    "fitted_deaths": 149.58,
+    "counterfactual_deaths": 271.48,
+    "observed_percent_difference": -42.54,
+    "model_percent_difference": -44.9,
+    "policy_effect": 1,
+    "policy_effect_time": 25
+  },
+  {
+    "date": "2025-09-01",
+    "deaths": 165,
+    "fitted_deaths": 147.05,
+    "counterfactual_deaths": 274.64,
+    "observed_percent_difference": -39.92,
+    "model_percent_difference": -46.46,
+    "policy_effect": 1,
+    "policy_effect_time": 26
+  },
+  {
+    "date": "2025-10-01",
+    "deaths": 143,
+    "fitted_deaths": 144.56,
+    "counterfactual_deaths": 277.84,
+    "observed_percent_difference": -48.53,
+    "model_percent_difference": -47.97,
+    "policy_effect": 1,
+    "policy_effect_time": 27
+  },
+  {
+    "date": "2025-11-01",
+    "deaths": 137,
+    "fitted_deaths": 142.11,
+    "counterfactual_deaths": 281.08,
+    "observed_percent_difference": -51.26,
+    "model_percent_difference": -49.44,
+    "policy_effect": 1,
+    "policy_effect_time": 28
+  },
+  {
+    "date": "2025-12-01",
+    "deaths": 145,
+    "fitted_deaths": 139.71,
+    "counterfactual_deaths": 284.35,
+    "observed_percent_difference": -49.01,
+    "model_percent_difference": -50.87,
+    "policy_effect": 1,
+    "policy_effect_time": 29
+  },
+  {
+    "date": "2026-01-01",
+    "deaths": 152,
+    "fitted_deaths": 287.67,
+    "counterfactual_deaths": 287.67,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2026-02-01",
+    "deaths": 117,
+    "fitted_deaths": 291.02,
+    "counterfactual_deaths": 291.02,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2026-03-01",
+    "deaths": 134,
+    "fitted_deaths": 294.41,
+    "counterfactual_deaths": 294.41,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  },
+  {
+    "date": "2026-04-01",
+    "deaths": 119,
+    "fitted_deaths": 297.83,
+    "counterfactual_deaths": 297.83,
+    "policy_effect": 0,
+    "policy_effect_time": 0
+  }
+]
