@@ -208,8 +208,14 @@ window.addEventListener("load", function () {
     });
 
     const fittedDeaths = modelData.map(function (d) {
-        return Number(d.fitted_deaths);
-    });
+    const date = new Date(d.date);
+
+    if (date >= fittedModelEnd) {
+        return null;
+    }
+
+    return Number(d.fitted_deaths);
+});
 
     const counterfactualDeaths = modelData.map(function (d) {
         return Number(d.counterfactual_deaths);
@@ -218,6 +224,7 @@ window.addEventListener("load", function () {
     const policyStart = new Date(2023, 0, 1);
     const policyEnd = new Date(2026, 0, 1);
     const effectStart = new Date(2023, 6, 1);
+    const fittedModelEnd = new Date(2025, 10, 1); // Nov 2025
 
     Plotly.newPlot("policy_model_chart", [
         {
