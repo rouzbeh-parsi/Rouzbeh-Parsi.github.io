@@ -9,7 +9,7 @@ author_profile: true
 
 ## BC Personal Income Tax Forecast
 
-An interactive forecasting project that compares **ETS**, **ARIMA**, and **SARIMAX** models to predict **British Columbia Personal Income Tax (PIT)** revenue. The project demonstrates the complete forecasting workflow, including data preparation, stationarity testing, model selection, model diagnostics, interactive Plotly visualizations, and forecast comparison.
+An interactive forecasting project that compares **ETS**, **ARIMA**, and **SARIMAX** models to predict **British Columbia Personal Income Tax (PIT)** revenue.
 
 **Tools:** Python, Statsmodels, Plotly, Jupyter Notebook, GitHub Pages
 
@@ -18,7 +18,7 @@ An interactive forecasting project that compares **ETS**, **ARIMA**, and **SARIM
 
 ## Drug Policy Analysis
 
-An interrupted time-series analysis of unregulated drug toxicity deaths in British Columbia using monthly data from the BC Coroners Service.
+An interrupted time-series analysis **(ITS)** of unregulated drug toxicity deaths in British Columbia using monthly data from the BC Coroners Service.
 
 **Tools:** R, Plotly, RStudio, ITS Analysis
 
