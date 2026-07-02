@@ -40,11 +40,6 @@ window.addEventListener("load", function () {
         return;
     }
 
-    document.getElementById("debug").innerHTML =
-        "First row: " +
-        rawData[0].DeathYear + "-" +
-        rawData[0].Month + " = " +
-        rawData[0].Frequency;
 
     const x = rawData.map(function (d) {
         return new Date(d.DeathYear, d.Month - 1, 1);
