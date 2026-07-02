@@ -10,9 +10,8 @@ redirect_from:
 
 # ROUZBEH PARSI
 
-Victoria, BC, Canada  
-📞 (778) 922-5974  
-📧 rouzbeh.parsi.edu@gmail.com
+Victoria, BC, Canada   
+📧 rouzbeh.parsi.gm@gmail.com
 
 ---
 
