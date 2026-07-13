@@ -1,6 +1,21 @@
 const DATA_URL =
 "/_data/health%20dash/Beds.json";
 
+const provinceNames = {
+    "zz": "Canada",
+    "NL": "Newfoundland and Labrador",
+    "PE": "Prince Edward Island",
+    "NS": "Nova Scotia",
+    "NB": "New Brunswick",
+    "QC": "Quebec",
+    "ON": "Ontario",
+    "MB": "Manitoba",
+    "SK": "Saskatchewan",
+    "AB": "Alberta",
+    "BC": "British Columbia"
+};
+
+
 async function loadBeds(){
 
     const response = await fetch(DATA_URL);
@@ -15,17 +30,18 @@ async function loadBeds(){
 
     const select = document.getElementById("provinceSelect");
 
-    beds2024.forEach(row=>{
+Object.entries(provinceNames).forEach(([code, name]) => {
 
-        const option = document.createElement("option");
+    const option = document.createElement("option");
 
-        option.value = row.prov_cd;
+    option.value = code;
 
-        option.text = row.prov_cd;
+    option.text = name;
 
-        select.appendChild(option);
+    select.appendChild(option);
 
-    });
+});
+
 
     function updateCard(){
 
