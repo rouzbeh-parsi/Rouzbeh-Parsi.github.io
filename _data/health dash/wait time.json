@@ -1,0 +1,317 @@
+[
+  {
+    "location": "Alberta",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": 2.9
+  },
+  {
+    "location": "Alberta",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": 3.8
+  },
+  {
+    "location": "Alberta",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": 4.9
+  },
+  {
+    "location": "Alberta",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": 5.2
+  },
+  {
+    "location": "Alberta",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 5.4
+  },
+  {
+    "location": "British Columbia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": 2.5
+  },
+  {
+    "location": "British Columbia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": 3.4
+  },
+  {
+    "location": "British Columbia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": 4
+  },
+  {
+    "location": "British Columbia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": 4.3
+  },
+  {
+    "location": "British Columbia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 5
+  },
+  {
+    "location": "Canada",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": 3.2
+  },
+  {
+    "location": "Canada",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": 4.2
+  },
+  {
+    "location": "Canada",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": 5
+  },
+  {
+    "location": "Canada",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": 5.2
+  },
+  {
+    "location": "Canada",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 5.5
+  },
+  {
+    "location": "Manitoba",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Manitoba",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Manitoba",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Manitoba",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Manitoba",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 8.5
+  },
+  {
+    "location": "Nova Scotia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Nova Scotia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Nova Scotia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Nova Scotia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Nova Scotia",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Ontario",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": 2.7
+  },
+  {
+    "location": "Ontario",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": 3.7
+  },
+  {
+    "location": "Ontario",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": 4.2
+  },
+  {
+    "location": "Ontario",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": 4.4
+  },
+  {
+    "location": "Ontario",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 4.5
+  },
+  {
+    "location": "Prince Edward Island",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Prince Edward Island",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": 6.1
+  },
+  {
+    "location": "Prince Edward Island",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": 7.7
+  },
+  {
+    "location": "Prince Edward Island",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": 8.3
+  },
+  {
+    "location": "Prince Edward Island",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 8.9
+  },
+  {
+    "location": "Quebec",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": 4.8
+  },
+  {
+    "location": "Quebec",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": 6.2
+  },
+  {
+    "location": "Quebec",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": 7.1
+  },
+  {
+    "location": "Quebec",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": 7.2
+  },
+  {
+    "location": "Quebec",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 7.5
+  },
+  {
+    "location": "Saskatchewan",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2020,
+    "item ": "90th percentile",
+    "wait time": ""
+  },
+  {
+    "location": "Saskatchewan",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2021,
+    "item ": "90th percentile",
+    "wait time": 3.1
+  },
+  {
+    "location": "Saskatchewan",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2022,
+    "item ": "90th percentile",
+    "wait time": 3.8
+  },
+  {
+    "location": "Saskatchewan",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2023,
+    "item ": "90th percentile",
+    "wait time": 4.1
+  },
+  {
+    "location": "Saskatchewan",
+    "item 2": "Emergency Department Wait Time for Physician Initial Assessment",
+    "year": 2024,
+    "item ": "90th percentile",
+    "wait time": 4.2
+  }
+]
