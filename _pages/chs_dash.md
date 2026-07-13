@@ -46,5 +46,8 @@ per 100,000 population (2024)
 </div>
 
 </div>
+<script>
+const DATA_URL = "{{ '/_data/health dash/Beds.json' | relative_url }}";
+</script>
 
 <script src="{{ '/assets/js/chs_dash.js' | relative_url }}"></script>
