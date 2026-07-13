@@ -49,8 +49,3 @@ const DATA_URL = "{{ '/_data/health dash/Beds.json' | relative_url }}";
 
 <script src="{{ '/assets/js/chs_dash.js' | relative_url }}"></script>
 
-</div>
-
-</div>
-
-<script src="{{ '/assets/js/chs_dash.js' | relative_url }}"></script>
