@@ -1,4 +1,3 @@
-
 ---
 title: "Canadian Healthcare System Dashboard"
 permalink: /chs-dashboard/
