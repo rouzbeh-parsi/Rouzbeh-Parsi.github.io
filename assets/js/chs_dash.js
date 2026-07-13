@@ -1,4 +1,4 @@
-const DATA_URL = "/data/health dash/Beds.json";
+const DATA_URL = "/_data/health dash/Beds.json";
 
 
 const provinceNames = {
