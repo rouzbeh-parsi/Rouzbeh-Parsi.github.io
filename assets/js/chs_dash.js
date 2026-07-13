@@ -1,5 +1,4 @@
-const DATA_URL = "/_data/health/Beds.json";
-
+const DATA_URL = "{{ '/_data/health dash/Beds.json' | relative_url }}";
 
 const provinceNames = {
     "zz": "Canada",
