@@ -1,5 +1,4 @@
-const DATA_URL =
-"/_data/health%20dash/Beds.json";
+const DATA_URL = "/data/health/Beds.json";
 
 const provinceNames = {
     "zz": "Canada",
