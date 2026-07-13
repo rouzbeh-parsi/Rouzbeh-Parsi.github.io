@@ -1,4 +1,4 @@
-const DATA_URL = "/_data/health dash/Beds.json";
+const DATA_URL = "/_data/health/Beds.json";
 
 
 const provinceNames = {
@@ -18,108 +18,73 @@ const provinceNames = {
 
 async function loadBeds(){
 
-    try {
+    const response = await fetch(DATA_URL);
 
-        const response = await fetch(DATA_URL);
-
-        if (!response.ok) {
-            throw new Error("Cannot load Beds.json");
-        }
-
-        const data = await response.json();
+    const data = await response.json();
 
 
-        // Keep only 2024 observations
-        const beds2024 = data.filter(
-            d => Number(d.fiscal_yr) === 2024
+    // Select only 2024 and per 100,000 records
+    const beds2024 = data.filter(
+        d =>
+        Number(d.fiscal_yr) === 2024 &&
+        d.alias === "per 100,000"
+    );
+
+
+    const select = document.getElementById("provinceSelect");
+
+
+    // Create province dropdown
+    Object.entries(provinceNames).forEach(([code, name]) => {
+
+        const option = document.createElement("option");
+
+        option.value = code;
+
+        option.textContent = name;
+
+        select.appendChild(option);
+
+    });
+
+
+
+    function updateCard(){
+
+        const province = select.value;
+
+
+        const row = beds2024.find(
+            d => d.prov_cd === province
         );
 
 
-        const select = document.getElementById("provinceSelect");
+        if(row){
 
+            document.getElementById("bedsValue").textContent =
+                row.Total_hosp_bed.toFixed(1);
 
-        // Create dropdown
-        Object.entries(provinceNames).forEach(([code, name]) => {
+        }
+        else{
 
-            const option = document.createElement("option");
-
-            option.value = code;
-
-            option.textContent = name;
-
-            select.appendChild(option);
-
-        });
-
-
-        function updateCard(){
-
-            const province = select.value;
-
-
-            const row = beds2024.find(
-                d => d.prov_cd === province
-            );
-
-
-            if(row){
-
-                document.getElementById("bedsValue").textContent =
-                    row.Total_hosp_bed.toFixed(1);
-
-            } 
-            else {
-
-                // Canada calculation if zz does not exist
-                if(province === "zz"){
-
-                    const total =
-                        beds2024.reduce(
-                            (sum,d)=>sum + d.Total_hosp_bed,
-                            0
-                        );
-
-                    const average =
-                        total / beds2024.length;
-
-
-                    document.getElementById("bedsValue").textContent =
-                        average.toFixed(1);
-
-                }
-                else {
-
-                    document.getElementById("bedsValue").textContent =
-                        "N/A";
-
-                }
-
-            }
+            document.getElementById("bedsValue").textContent =
+                "N/A";
 
         }
 
-
-        select.addEventListener(
-            "change",
-            updateCard
-        );
-
-
-        // Default selection
-        select.value = "BC";
-
-        updateCard();
-
-
     }
-    catch(error){
 
-        console.error(error);
 
-        document.getElementById("bedsValue").textContent =
-            "Error";
+    select.addEventListener(
+        "change",
+        updateCard
+    );
 
-    }
+
+    // Default province
+    select.value = "BC";
+
+    updateCard();
 
 }
 
