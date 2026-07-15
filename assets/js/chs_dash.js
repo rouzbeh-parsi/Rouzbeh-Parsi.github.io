@@ -1,5 +1,5 @@
 
-const DATA_URL = "{{ '/assets/data/health/Beds.json' | relative_url }}";
+const DATA_URL = "{{ 'assets/data/health/beds.json' | relative_url }}";
 
 
 
