@@ -12,41 +12,43 @@ author_profile: true
 # Canadian Healthcare System Dashboard
 
 <div class="controls">
+    <label for="provinceSelect">
+        <b>Select Province:</b>
+    </label>
 
-<label for="provinceSelect"><b>Select Province:</b></label>
-
-<select id="provinceSelect">
-
-</select>
-
+    <select id="provinceSelect"></select>
 </div>
 
 <div class="kpi-grid">
 
-<div class="kpi-card">
+    <div class="kpi-card">
+        <div class="kpi-title">
+            🏥 Hospital Beds
+        </div>
 
-<div class="kpi-title">
+        <div id="bedsValue" class="kpi-value">
+            --
+        </div>
 
-🏥 Hospital Beds
+        <div class="kpi-subtitle">
+            per 100,000 population (2024)
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <div class="kpi-title">
+            👨‍⚕️ Family Doctors
+        </div>
+
+        <div id="doctorValue" class="kpi-value">
+            --
+        </div>
+
+        <div class="kpi-subtitle">
+            per 100,000 population (2024)
+        </div>
+    </div>
 
 </div>
-
-<div id="bedsValue" class="kpi-value">
-
---
-
-</div>
-
-<div class="kpi-subtitle">
-
-per 100,000 population (2024)
-
-</div>
-
-<script>
-const DATA_URL = "{{ '/assets/data/health/beds.json' | relative_url }}";
-</script>
 
 <script src="{{ '/assets/js/chs_dash.js' | relative_url }}"></script>
-</div>
-</div>
