@@ -1,4 +1,6 @@
-const DATA_URL = "{{ '/data/health dash/Beds.json' | relative_url }}";
+
+const DATA_URL = "{{ '/assets/data/health/Beds.json' | relative_url }}";
+
 
 
 const provinceNames = {
