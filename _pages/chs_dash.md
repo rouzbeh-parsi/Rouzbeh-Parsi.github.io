@@ -110,8 +110,7 @@ layout: splash
     <option value="wait">Wait Time</option>
 </select>
 
-
-<div id="healthMap" style="height:600px;"></div>
+<div id="healthMap" style="width:100%; height:650px;"></div>
 
 </div>
 
