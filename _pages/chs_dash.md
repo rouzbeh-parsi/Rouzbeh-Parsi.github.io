@@ -12,16 +12,21 @@ author_profile: true
 # Canadian Healthcare System Dashboard
 
 <div class="controls">
+
     <label for="provinceSelect">
         <b>Select Province:</b>
     </label>
 
     <select id="provinceSelect"></select>
+
 </div>
+
 
 <div class="kpi-grid">
 
+
     <div class="kpi-card">
+
         <div class="kpi-title">
             🏥 Hospital Beds
         </div>
@@ -33,9 +38,13 @@ author_profile: true
         <div class="kpi-subtitle">
             per 100,000 population (2024)
         </div>
+
     </div>
 
+
+
     <div class="kpi-card">
+
         <div class="kpi-title">
             👨‍⚕️ Family Doctors
         </div>
@@ -47,39 +56,47 @@ author_profile: true
         <div class="kpi-subtitle">
             per 100,000 population (2024)
         </div>
-    </div>
-    <div class="kpi-card">
 
-    <div class="kpi-title">
-        🚑 Unmet Health Needs
     </div>
 
-    <div id="unmetValue" class="kpi-value">
-        --
-    </div>
 
-    <div class="kpi-subtitle">
-        % of persons with unmet healthcare needs (2024)
-    </div>
 
     <div class="kpi-card">
 
-    <div class="kpi-title">
-        ⏳ Wait Time
+        <div class="kpi-title">
+            🚑 Unmet Health Needs
+        </div>
+
+        <div id="unmetValue" class="kpi-value">
+            --
+        </div>
+
+        <div class="kpi-subtitle">
+            % of persons with unmet healthcare needs (2024)
+        </div>
+
     </div>
 
-    <div id="waitValue" class="kpi-value">
-        --
+
+
+    <div class="kpi-card">
+
+        <div class="kpi-title">
+            ⏳ Emergency Department Wait Time
+        </div>
+
+        <div id="waitValue" class="kpi-value">
+            --
+        </div>
+
+        <div class="kpi-subtitle">
+            Days (90th percentile physician assessment, 2024)
+        </div>
+
     </div>
 
-    <div class="kpi-subtitle">
-        Days (90th percentile ED physician assessment, 2024)
-    </div>
 
 </div>
 
-</div>
-
-</div>
 
 <script src="{{ '/assets/js/chs_dash.js' | relative_url }}"></script>
