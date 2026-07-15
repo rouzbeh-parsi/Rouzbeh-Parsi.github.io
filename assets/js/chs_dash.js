@@ -218,10 +218,10 @@ async function loadDashboard() {
 
 // Load healthcare map
 loadMap(
-    beds2024,
-    doctors2024,
-    unmet2024,
-    wait2024
+    bedsData,
+    doctorsData,
+    unmetData,
+    waitData
 );
 
 
