@@ -249,23 +249,56 @@ loadMap(
 // ==========================
 
 async function loadMap(
-    beds2024,
-    doctors2024,
-    unmet2024,
-    wait2024
+    bedsData,
+    doctorsData,
+    unmetData,
+    waitData
 ){
 
     const geoResponse = await fetch(GEO_URL);
 
     if(!geoResponse.ok){
-        throw new Error("GeoJSON loading failed");
+        throw new Error("GeoJSON failed to load");
     }
+
 
     const canadaGeo = await geoResponse.json();
 
 
+
     let selectedMetric = "beds";
 
+    let selectedYear = 2024;
+
+
+
+    const yearSlider =
+        document.getElementById("mapYearSlider");
+
+
+    const yearLabel =
+        document.getElementById("selectedYear");
+
+
+
+    // Slider settings
+
+    yearSlider.min = 2019;
+
+    yearSlider.max = 2024;
+
+    yearSlider.value = 2024;
+
+
+    yearLabel.textContent = 2024;
+
+
+
+
+
+    // ==========================
+    // Clean missing values
+    // ==========================
 
     function cleanValue(value){
 
@@ -275,8 +308,11 @@ async function loadMap(
             value === undefined ||
             isNaN(Number(value))
         ){
+
             return null;
+
         }
+
 
         return Number(value);
 
@@ -284,79 +320,147 @@ async function loadMap(
 
 
 
-    function prepareData(metric){
+
+
+
+    // ==========================
+    // Prepare map data
+    // ==========================
+
+    function prepareData(){
+
 
         let data = [];
 
 
-        // ==========================
+
+        // --------------------------
         // Hospital Beds
-        // ==========================
+        // --------------------------
 
-        if(metric === "beds"){
+        if(selectedMetric === "beds"){
 
-            data = beds2024
+
+            data = bedsData
+
+                .filter(d =>
+                    Number(d.fiscal_yr) === selectedYear &&
+                    d.alias === "per 100,000"
+                )
+
                 .map(d => ({
-                    prov_cd: d.prov_cd.toUpperCase(),
-                    value: cleanValue(d.Total_hosp_bed)
-                }))
-                .filter(d => d.value !== null);
+
+                    prov_cd:
+                        d.prov_cd.toUpperCase(),
+
+                    value:
+                        cleanValue(
+                            d.Total_hosp_bed
+                        )
+
+                }));
 
         }
 
 
 
-        // ==========================
+
+
+        // --------------------------
         // Family Doctors
-        // ==========================
+        // --------------------------
 
-        if(metric === "doctors"){
+        if(selectedMetric === "doctors"){
 
-            data = doctors2024
+
+            data = doctorsData
+
+                .filter(d =>
+                    Number(d.year) === selectedYear &&
+                    d.alias === "per 100,000"
+                )
+
                 .map(d => ({
-                    prov_cd: d.prov_cd.toUpperCase(),
-                    value: cleanValue(d.fdp)
-                }))
-                .filter(d => d.value !== null);
+
+                    prov_cd:
+                        d.prov_cd.toUpperCase(),
+
+                    value:
+                        cleanValue(d.fdp)
+
+                }));
 
         }
 
 
 
-        // ==========================
-        // Unmet Health Needs
-        // ==========================
 
-        if(metric === "unmet"){
 
-            data = unmet2024
+
+        // --------------------------
+        // Unmet Needs
+        // --------------------------
+
+        if(selectedMetric === "unmet"){
+
+
+            data = unmetData
+
+                .filter(d =>
+                    Number(d.year) === selectedYear
+                )
+
                 .map(d => ({
-                    prov_cd: d["loc-a"].toUpperCase(),
-                    value: cleanValue(d.unmet)
-                }))
-                .filter(d => d.value !== null);
+
+                    prov_cd:
+                        d["loc-a"].toUpperCase(),
+
+                    value:
+                        cleanValue(d.unmet)
+
+                }));
 
         }
 
 
 
-        // ==========================
+
+
+
+        // --------------------------
         // Wait Time
-        // ==========================
+        // --------------------------
 
-        if(metric === "wait"){
+        if(selectedMetric === "wait"){
 
-            data = wait2024
+
+            data = waitData
+
+                .filter(d =>
+                    Number(d.year) === selectedYear &&
+                    d["wait time"] !== ""
+                )
+
                 .map(d => ({
-                    prov_cd: d.prov_cd.toUpperCase(),
-                    value: cleanValue(d["wait time"])
-                }))
-                .filter(d => d.value !== null);
+
+                    prov_cd:
+                        d.prov_cd.toUpperCase(),
+
+                    value:
+                        cleanValue(
+                            d["wait time"]
+                        )
+
+                }));
 
         }
 
 
-        return data;
+
+
+        return data.filter(
+            d => d.value !== null
+        );
 
     }
 
@@ -364,33 +468,50 @@ async function loadMap(
 
 
 
+
+
+
+
+    // ==========================
+    // Draw Map
+    // ==========================
+
     function drawMap(){
 
 
-        const mapData = prepareData(selectedMetric);
+
+        const mapData = prepareData();
 
 
 
-        const locations = mapData.map(
-            d => d.prov_cd
-        );
-
-
-        const values = mapData.map(
-            d => d.value
-        );
+        const locations =
+            mapData.map(
+                d => d.prov_cd
+            );
 
 
 
+        const values =
+            mapData.map(
+                d => d.value
+            );
 
-        // Higher value = better
+
+
+
+
+
         let colorScale;
 
+
+
+        // Higher is better
 
         if(
             selectedMetric === "beds" ||
             selectedMetric === "doctors"
         ){
+
 
             colorScale = [
 
@@ -404,8 +525,12 @@ async function loadMap(
 
         }
 
-        // Lower value = better
+
+
+        // Lower is better
+
         else{
+
 
             colorScale = [
 
@@ -422,19 +547,26 @@ async function loadMap(
 
 
 
+
+
+
         const trace = {
 
 
-            type: "choroplethmapbox",
+            type:
+                "choroplethmapbox",
 
 
-            geojson: canadaGeo,
+            geojson:
+                canadaGeo,
 
 
-            locations: locations,
+            locations:
+                locations,
 
 
-            z: values,
+            z:
+                values,
 
 
             featureidkey:
@@ -449,21 +581,18 @@ async function loadMap(
 
             marker:{
 
+
                 line:{
+
 
                     color:"white",
 
+
                     width:1
+
 
                 }
 
-            },
-
-
-
-            colorbar:{
-
-                title:selectedMetric
 
             },
 
@@ -471,13 +600,19 @@ async function loadMap(
 
             hovertemplate:
 
+
                 "<b>%{location}</b><br>" +
+
+                "Year: " + selectedYear +
+
+                "<br>" +
 
                 "Value: %{z:.1f}" +
 
                 "<extra></extra>"
 
         };
+
 
 
 
@@ -493,24 +628,30 @@ async function loadMap(
             mapbox:{
 
 
-                style:"carto-positron",
+                style:
+                    "carto-positron",
 
 
-                zoom:2.5,
+                zoom:
+                    2.5,
 
 
                 center:{
 
+
                     lat:57,
+
 
                     lon:-96
 
                 }
 
+
             },
 
 
             margin:{
+
 
                 t:10,
 
@@ -522,7 +663,10 @@ async function loadMap(
 
             }
 
+
         };
+
+
 
 
 
@@ -547,31 +691,61 @@ async function loadMap(
 
 
 
-    // Initial display
-
-    drawMap();
 
 
 
 
-    // Change metric
+    // ==========================
+    // Controls
+    // ==========================
 
-    const metricSelector =
-        document.getElementById("mapMetric");
+
+    document
+        .getElementById("mapMetric")
+        .addEventListener(
+            "change",
+            function(){
+
+                selectedMetric =
+                    this.value;
 
 
-    metricSelector.addEventListener(
-        "change",
+                drawMap();
+
+            }
+        );
+
+
+
+
+
+    yearSlider.addEventListener(
+        "input",
         function(){
 
-            selectedMetric =
-                this.value;
+
+            selectedYear =
+                Number(this.value);
+
+
+            yearLabel.textContent =
+                selectedYear;
+
 
             drawMap();
+
 
         }
     );
 
+
+
+
+
+
+    // Initial map
+
+    drawMap();
 
 }
 loadDashboard();
