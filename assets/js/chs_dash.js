@@ -759,7 +759,7 @@ async function loadMap(
 
 
 // ==========================
-// Growth AREA CHART
+// Growth CHART
 // ==========================
 
 function loadGrowthChart(
@@ -1001,287 +1001,169 @@ function loadGrowthChart(
 
 
 
-        // ==========================
-        // BED CHART
-        // ==========================
+    // ==========================
+// BED GAP CHART
+// ==========================
+
+const bedGap = populationGrowth.map(
+    (x, i) => x - (bedGrowth[i] ?? 0)
+);
 
 
-        const bedArea =
-            createGapAreas(
-                bedYears.slice(1),
-                populationGrowth,
-                bedGrowth
-            );
+// Simple linear trendline
+const bedTrend = [];
+
+const bedAvg =
+    bedGap.reduce((a,b)=>a+b,0)
+    / bedGap.length;
+
+for(let i=0;i<bedGap.length;i++){
+
+    bedTrend.push(
+        bedAvg +
+        (i - bedGap.length/2) *
+        (
+            (bedGap[bedGap.length-1] - bedGap[0])
+            /
+            (bedGap.length-1)
+        )
+    );
+
+}
 
 
+Plotly.react(
 
-        const bedTraces = [
+    "bedGrowthChart",
 
+    [
 
-            {
-                x:bedYears.slice(1),
+        {
+            x: bedYears.slice(1),
+            y: populationGrowth,
+            name: "Population Growth",
+            mode: "lines+markers",
+            type: "scatter"
+        },
 
-                y:populationGrowth,
+        {
+            x: bedYears.slice(1),
+            y: bedGrowth,
+            name: "Hospital Bed Growth",
+            mode: "lines+markers",
+            type: "scatter"
+        },
 
-                name:
-                "Population Growth",
-
-                mode:
-                "lines+markers",
-
-                type:
-                "scatter"
-
+        {
+            x: bedYears.slice(1),
+            y: bedTrend,
+            name: "Gap Trend",
+            mode: "lines",
+            line: {
+                dash: "dash",
+                width: 3
             },
+            type: "scatter"
+        }
+
+    ],
+
+    {
+
+        title:
+        "Population Growth vs Hospital Bed Growth",
+
+        yaxis:{
+            title:"Annual Growth (%)"
+        },
+
+        hovermode:"x unified"
+
+    }
+
+);
 
 
-            {
-                x:bedYears.slice(1),
+// ==========================
+// DOCTOR GAP CHART
+// ==========================
 
-                y:bedGrowth,
+const doctorGap = populationGrowth.map(
+    (x, i) => x - (doctorGrowth[i] ?? 0)
+);
 
-                name:
-                "Hospital Bed Growth",
 
-                mode:
-                "lines+markers",
+const doctorTrend = [];
 
-                type:
-                "scatter"
+const doctorAvg =
+    doctorGap.reduce((a,b)=>a+b,0)
+    / doctorGap.length;
 
+for(let i=0;i<doctorGap.length;i++){
+
+    doctorTrend.push(
+        doctorAvg +
+        (i - doctorGap.length/2) *
+        (
+            (doctorGap[doctorGap.length-1] - doctorGap[0])
+            /
+            (doctorGap.length-1)
+        )
+    );
+
+}
+
+
+Plotly.react(
+
+    "doctorGrowthChart",
+
+    [
+
+        {
+            x: doctorYears.slice(1),
+            y: populationGrowth,
+            name: "Population Growth",
+            mode: "lines+markers",
+            type: "scatter"
+        },
+
+        {
+            x: doctorYears.slice(1),
+            y: doctorGrowth,
+            name: "Family Doctor Growth",
+            mode: "lines+markers",
+            type: "scatter"
+        },
+
+        {
+            x: doctorYears.slice(1),
+            y: doctorTrend,
+            name: "Gap Trend",
+            mode: "lines",
+            line:{
+                dash:"dash",
+                width:3
             },
+            type:"scatter"
+        }
 
+    ],
 
-            {
-                x:bedArea.red.x,
+    {
 
-                y:bedArea.red.pop,
+        title:
+        "Population Growth vs Family Doctor Growth",
 
-                base:bedArea.red.cap,
+        yaxis:{
+            title:"Annual Growth (%)"
+        },
 
-                fill:"tonexty",
+        hovermode:"x unified"
 
-                fillcolor:
-                "rgba(220,0,0,0.25)",
+    }
 
-                line:
-                {
-                    color:"transparent"
-                },
-
-                name:
-                "Increasing Pressure",
-
-                type:
-                "scatter"
-
-            },
-
-
-            {
-                x:bedArea.green.x,
-
-                y:bedArea.green.pop,
-
-                base:bedArea.green.cap,
-
-                fill:"tonexty",
-
-                fillcolor:
-                "rgba(0,160,0,0.25)",
-
-                line:
-                {
-                    color:"transparent"
-                },
-
-                name:
-                "Improving Capacity",
-
-                type:
-                "scatter"
-
-            }
-
-        ];
-
-
-
-        Plotly.react(
-
-            "bedGrowthChart",
-
-            bedTraces,
-
-            {
-
-                title:
-                "Hospital Beds vs Population Growth - "
-                + province,
-
-
-                yaxis:
-                {
-                    title:
-                    "Annual Growth (%)"
-                },
-
-
-                hovermode:
-                "x unified"
-
-            },
-
-            {
-                responsive:true
-            }
-
-        );
-
-
-
-
-
-
-
-        // ==========================
-        // DOCTOR CHART
-        // ==========================
-
-
-        const doctorArea =
-            createGapAreas(
-                doctorYears.slice(1),
-                populationGrowth,
-                doctorGrowth
-            );
-
-
-
-        const doctorTraces = [
-
-
-            {
-                x:doctorYears.slice(1),
-
-                y:populationGrowth,
-
-                name:
-                "Population Growth",
-
-                mode:
-                "lines+markers",
-
-                type:
-                "scatter"
-
-            },
-
-
-            {
-                x:doctorYears.slice(1),
-
-                y:doctorGrowth,
-
-                name:
-                "Family Doctor Growth",
-
-                mode:
-                "lines+markers",
-
-                type:
-                "scatter"
-
-            },
-
-
-            {
-                x:doctorArea.red.x,
-
-                y:doctorArea.red.pop,
-
-                base:doctorArea.red.cap,
-
-                fill:"tonexty",
-
-                fillcolor:
-                "rgba(220,0,0,0.25)",
-
-                line:
-                {
-                    color:"transparent"
-                },
-
-                name:
-                "Increasing Pressure",
-
-                type:
-                "scatter"
-
-            },
-
-
-            {
-                x:doctorArea.green.x,
-
-                y:doctorArea.green.pop,
-
-                base:doctorArea.green.cap,
-
-                fill:"tonexty",
-
-                fillcolor:
-                "rgba(0,160,0,0.25)",
-
-                line:
-                {
-                    color:"transparent"
-                },
-
-                name:
-                "Improving Capacity",
-
-                type:
-                "scatter"
-
-            }
-
-        ];
-
-
-
-
-        Plotly.react(
-
-            "doctorGrowthChart",
-
-            doctorTraces,
-
-            {
-
-                title:
-                "Family Doctors vs Population Growth - "
-                + province,
-
-
-                yaxis:
-                {
-                    title:
-                    "Annual Growth (%)"
-                },
-
-
-                hovermode:
-                "x unified"
-
-            },
-
-
-            {
-                responsive:true
-            }
-
-        );
+);
 
 
     }
