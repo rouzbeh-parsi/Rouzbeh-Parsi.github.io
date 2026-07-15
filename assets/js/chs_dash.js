@@ -2,6 +2,7 @@ const BEDS_URL = "/assets/data/health/beds.json";
 const DOCTORS_URL = "/assets/data/health/DPF.json";
 const UNMET_URL = "/assets/data/health/unmet.json";
 const WAIT_URL = "/assets/data/health/wait.json";
+const GEO_URL = "/assets/data/canada.geojson";
 
 
 const provinceNames = {
