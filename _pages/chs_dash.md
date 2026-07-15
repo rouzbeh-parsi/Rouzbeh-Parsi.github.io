@@ -62,6 +62,22 @@ author_profile: true
         % of persons with unmet healthcare needs (2024)
     </div>
 
+    <div class="kpi-card">
+
+    <div class="kpi-title">
+        ⏳ Wait Time
+    </div>
+
+    <div id="waitValue" class="kpi-value">
+        --
+    </div>
+
+    <div class="kpi-subtitle">
+        Days (90th percentile ED physician assessment, 2024)
+    </div>
+
+</div>
+
 </div>
 
 </div>
