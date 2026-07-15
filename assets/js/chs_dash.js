@@ -3,7 +3,7 @@ const DOCTORS_URL = "/assets/data/health/DPF.json";
 const UNMET_URL = "/assets/data/health/unmet.json";
 const WAIT_URL = "/assets/data/health/wait.json";
 const GEO_URL = "/assets/data/canada.geojson";
-
+const POP_URL = "/assets/data/health/pop.json";
 
 const provinceNames = {
     "ZZ": "Canada",
@@ -25,24 +25,26 @@ async function loadDashboard() {
 
     try {
 
-        const [
-            bedsResponse,
-            doctorsResponse,
-            unmetResponse,
-            waitResponse
-        ] = await Promise.all([
-            fetch(BEDS_URL),
-            fetch(DOCTORS_URL),
-            fetch(UNMET_URL),
-            fetch(WAIT_URL)
-        ]);
+       const [
+    bedsResponse,
+    doctorsResponse,
+    unmetResponse,
+    waitResponse,
+    popResponse
+] = await Promise.all([
+    fetch(BEDS_URL),
+    fetch(DOCTORS_URL),
+    fetch(UNMET_URL),
+    fetch(WAIT_URL),
+    fetch(POP_URL)
+]);
 
 
         const bedsData = await bedsResponse.json();
         const doctorsData = await doctorsResponse.json();
         const unmetData = await unmetResponse.json();
         const waitData = await waitResponse.json();
-
+        const popData = await popResponse.json();
 
 
         // ==========================
