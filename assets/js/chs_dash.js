@@ -1,4 +1,4 @@
-const BEDS_URL = "/assets/data/health/Beds.json";
+const BEDS_URL = "/assets/data/health/beds.json";
 const DOCTORS_URL = "/assets/data/health/DPF.json";
 
 const provinceNames = {
