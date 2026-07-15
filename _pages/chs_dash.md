@@ -1,8 +1,7 @@
 ---
 title: "Canadian Healthcare System Dashboard"
 permalink: /chs-dashboard/
-layout: single
-author_profile: false
+layout: splash
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/chs_dash.css' | relative_url }}">
