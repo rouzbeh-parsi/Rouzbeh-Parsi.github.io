@@ -245,6 +245,9 @@ loadMap(
 
 
 
+// ==========================
+// Healthcare Capacity Map
+// ==========================
 
 async function loadMap(
     beds2024,
@@ -255,6 +258,10 @@ async function loadMap(
 
     const geoResponse = await fetch(GEO_URL);
 
+    if(!geoResponse.ok){
+        throw new Error("GeoJSON loading failed");
+    }
+
     const canadaGeo = await geoResponse.json();
 
 
@@ -263,44 +270,52 @@ async function loadMap(
 
     function prepareData(metric){
 
+
         let data = [];
 
 
+        // Hospital beds
         if(metric === "beds"){
 
             data = beds2024.map(d => ({
                 prov_cd: d.prov_cd.toUpperCase(),
-                value: d.Total_hosp_bed
+                value: Number(d.Total_hosp_bed)
             }));
 
         }
 
 
+
+        // Family doctors
         if(metric === "doctors"){
 
             data = doctors2024.map(d => ({
                 prov_cd: d.prov_cd.toUpperCase(),
-                value: d.fdp
+                value: Number(d.fdp)
             }));
 
         }
 
 
+
+        // Unmet healthcare needs
         if(metric === "unmet"){
 
             data = unmet2024.map(d => ({
                 prov_cd: d["loc-a"].toUpperCase(),
-                value: d.unmet
+                value: Number(d.unmet)
             }));
 
         }
 
 
+
+        // Emergency wait time
         if(metric === "wait"){
 
             data = wait2024.map(d => ({
                 prov_cd: d.prov_cd.toUpperCase(),
-                value: d["wait time"]
+                value: Number(d["wait time"])
             }));
 
         }
@@ -312,14 +327,15 @@ async function loadMap(
 
 
 
+
     function drawMap(){
 
 
         const mapData = prepareData(selectedMetric);
 
 
-        const values = {};
 
+        const values = {};
 
         mapData.forEach(d => {
 
@@ -329,34 +345,85 @@ async function loadMap(
 
 
 
+        const locations = Object.keys(values);
+
+        const zValues = Object.values(values);
+
+
+
+        // Higher is better
+        let colorScale;
+
+
+        if(
+            selectedMetric === "beds" ||
+            selectedMetric === "doctors"
+        ){
+
+            colorScale = [
+                [0, "#d73027"],
+                [0.5, "#fee08b"],
+                [1, "#1a9850"]
+            ];
+
+        }
+
+
+        // Lower is better
+        else{
+
+            colorScale = [
+                [0, "#1a9850"],
+                [0.5, "#fee08b"],
+                [1, "#d73027"]
+            ];
+
+        }
+
+
+
+
         const trace = {
 
-            type: "choroplethmapbox",
+
+            type:"choroplethmapbox",
+
 
             geojson: canadaGeo,
 
 
-            locations: Object.keys(values),
+            locations: locations,
 
 
-            z: Object.values(values),
+            z: zValues,
 
 
-            featureidkey: "properties.CODE",
+            featureidkey:
+                "properties.CODE",
 
 
-            colorscale: "Viridis",
+
+            colorscale:
+                colorScale,
 
 
-            marker: {
+            marker:{
 
-                line: {
+                line:{
 
-                    color: "white",
+                    color:"white",
 
-                    width: 1
+                    width:1
 
                 }
+
+            },
+
+
+            colorbar:{
+
+                title:
+                    selectedMetric
 
             },
 
@@ -369,39 +436,48 @@ async function loadMap(
 
                 "<extra></extra>"
 
+
         };
+
 
 
 
 
         const layout = {
 
-            mapbox: {
 
-                style: "carto-positron",
+            autosize:true,
 
-                zoom: 2.8,
 
-                center: {
+            mapbox:{
 
-                    lat: 57,
 
-                    lon: -96
+                style:"carto-positron",
+
+
+                zoom:2.5,
+
+
+                center:{
+
+                    lat:57,
+
+                    lon:-96
 
                 }
 
             },
 
 
-            margin: {
+            margin:{
 
-                t: 0,
+                t:10,
 
-                b: 0,
+                b:10,
 
-                l: 0,
+                l:10,
 
-                r: 0
+                r:10
 
             }
 
@@ -409,7 +485,8 @@ async function loadMap(
 
 
 
-        Plotly.newPlot(
+
+        Plotly.react(
 
             "healthMap",
 
@@ -418,18 +495,28 @@ async function loadMap(
             layout,
 
             {
-                responsive: true
+                responsive:true
             }
 
         );
+
+
 
     }
 
 
 
+
+
+    // Initial map
+
     drawMap();
 
 
+
+
+
+    // Change indicator
 
     document
         .getElementById("mapMetric")
@@ -437,9 +524,13 @@ async function loadMap(
             "change",
             function(){
 
-                selectedMetric = this.value;
+
+                selectedMetric =
+                    this.value;
+
 
                 drawMap();
+
 
             }
         );
