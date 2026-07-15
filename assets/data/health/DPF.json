@@ -1,0 +1,728 @@
+[
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "AB",
+    "fdp": 129
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "AB",
+    "fdp": 125
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "AB",
+    "fdp": 122
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "AB",
+    "fdp": 120
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "AB",
+    "fdp": 116
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "AB",
+    "fdp": 117
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "AB",
+    "fdp": "5,599"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "AB",
+    "fdp": "5,496"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "AB",
+    "fdp": "5,423"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "AB",
+    "fdp": "5,417"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "AB",
+    "fdp": "5,452"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "AB",
+    "fdp": "5,744"
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "BC",
+    "fdp": 120
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "BC",
+    "fdp": 119
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "BC",
+    "fdp": 118
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "BC",
+    "fdp": 115
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "BC",
+    "fdp": 114
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "BC",
+    "fdp": 138
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "BC",
+    "fdp": "6,148"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "BC",
+    "fdp": "6,154"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "BC",
+    "fdp": "6,188"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "BC",
+    "fdp": "6,176"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "BC",
+    "fdp": "6,292"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "BC",
+    "fdp": "7,826"
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "CA",
+    "fdp": 119
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "MB",
+    "fdp": 109
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "MB",
+    "fdp": 108
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "MB",
+    "fdp": 108
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "MB",
+    "fdp": 111
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "MB",
+    "fdp": 107
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "MB",
+    "fdp": 112
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "MB",
+    "fdp": "1,491"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "MB",
+    "fdp": "1,494"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "MB",
+    "fdp": "1,505"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "MB",
+    "fdp": "1,570"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "MB",
+    "fdp": "1,562"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "MB",
+    "fdp": "1,671"
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "NB",
+    "fdp": 136
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "NB",
+    "fdp": 137
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "NB",
+    "fdp": 140
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "NB",
+    "fdp": 139
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "NB",
+    "fdp": 142
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "NB",
+    "fdp": 138
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "NB",
+    "fdp": "1,058"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "NB",
+    "fdp": "1,072"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "NB",
+    "fdp": "1,103"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "NB",
+    "fdp": "1,124"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "NB",
+    "fdp": "1,181"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "NB",
+    "fdp": "1,184"
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "NL",
+    "fdp": 131
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "NL",
+    "fdp": 130
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "NL",
+    "fdp": 132
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "NL",
+    "fdp": 132
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "NL",
+    "fdp": 124
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "NL",
+    "fdp": 121
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "NL",
+    "fdp": 692
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "NL",
+    "fdp": 684
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "NL",
+    "fdp": 695
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "NL",
+    "fdp": 702
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "NL",
+    "fdp": 666
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "NL",
+    "fdp": 662
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "NS",
+    "fdp": 133
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "NS",
+    "fdp": 138
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "NS",
+    "fdp": 137
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "NS",
+    "fdp": 131
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "NS",
+    "fdp": 121
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "NS",
+    "fdp": 123
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "NS",
+    "fdp": "1,295"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "NS",
+    "fdp": "1,365"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "NS",
+    "fdp": "1,374"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "NS",
+    "fdp": "1,346"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "NS",
+    "fdp": "1,279"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "NS",
+    "fdp": "1,332"
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "ON",
+    "fdp": 116
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "ON",
+    "fdp": 115
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "ON",
+    "fdp": 116
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "ON",
+    "fdp": 115
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "ON",
+    "fdp": 110
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "ON",
+    "fdp": 107
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "ON",
+    "fdp": "16,863"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "ON",
+    "fdp": "16,990"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "ON",
+    "fdp": "17,220"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "ON",
+    "fdp": "17,416"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "ON",
+    "fdp": "17,178"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "ON",
+    "fdp": "17,275"
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "PE",
+    "fdp": 113
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "PE",
+    "fdp": 110
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "PE",
+    "fdp": 115
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "PE",
+    "fdp": 117
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "PE",
+    "fdp": 118
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "PE",
+    "fdp": 118
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "PE",
+    "fdp": 176
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "PE",
+    "fdp": 175
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "PE",
+    "fdp": 186
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "PE",
+    "fdp": 195
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "PE",
+    "fdp": 205
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "PE",
+    "fdp": 212
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "QC",
+    "fdp": 127
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "QC",
+    "fdp": 130
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "QC",
+    "fdp": 132
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "QC",
+    "fdp": 132
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "QC",
+    "fdp": 130
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "QC",
+    "fdp": 129
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "QC",
+    "fdp": "10,786"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "QC",
+    "fdp": "11,098"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "QC",
+    "fdp": "11,334"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "QC",
+    "fdp": "11,449"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "QC",
+    "fdp": "11,549"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "QC",
+    "fdp": "11,604"
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "SK",
+    "fdp": 117
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "SK",
+    "fdp": 121
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "SK",
+    "fdp": 107
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "SK",
+    "fdp": 119
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "SK",
+    "fdp": 118
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "SK",
+    "fdp": 115
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "SK",
+    "fdp": "1,363"
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "SK",
+    "fdp": "1,407"
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "SK",
+    "fdp": "1,248"
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "SK",
+    "fdp": "1,406"
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "SK",
+    "fdp": "1,431"
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "SK",
+    "fdp": "1,435"
+  }
+]
