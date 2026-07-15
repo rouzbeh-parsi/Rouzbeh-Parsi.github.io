@@ -1,8 +1,3 @@
-
-const DATA_URL = "{{ 'assets/data/health/beds.json' | relative_url }}";
-
-
-
 const provinceNames = {
     "zz": "Canada",
     "NL": "Newfoundland and Labrador",
