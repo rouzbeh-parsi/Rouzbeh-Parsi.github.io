@@ -226,7 +226,12 @@ loadMap(
     waitData
 );
 
-
+loadGrowthChart(
+    bedsData,
+    doctorsData,
+    popData
+);
+        
     } catch (error) {
 
 
@@ -750,4 +755,231 @@ async function loadMap(
     drawMap();
 
 }
+
+// =================================
+// Population vs Healthcare Growth
+// =================================
+
+function loadGrowthChart(
+    bedsData,
+    doctorsData,
+    popData
+){
+
+
+    const province = "BC";
+
+
+    // ------------------------------
+    // Population
+    // ------------------------------
+
+    const popRow = popData.find(
+        d => d.Geography === province
+    );
+
+
+    const years = Object.keys(popRow)
+        .filter(
+            d => !isNaN(d)
+        )
+        .map(
+            d => Number(d)
+        )
+        .sort();
+
+
+
+    const population = years.map(
+        y => Number(popRow[y])
+    );
+
+
+
+    // ------------------------------
+    // Hospital Beds Total
+    // ------------------------------
+
+    const beds = bedsData
+        .filter(
+            d =>
+            d.prov_cd === province &&
+            d.alias === "Total"
+        )
+        .sort(
+            (a,b)=>
+            a.fiscal_yr-b.fiscal_yr
+        );
+
+
+
+    // ------------------------------
+    // Doctors Total
+    // ------------------------------
+
+    const doctors = doctorsData
+        .filter(
+            d =>
+            d.prov_cd === province &&
+            d.alias === "Total"
+        )
+        .sort(
+            (a,b)=>
+            a.year-b.year
+        );
+
+
+
+
+    function growth(values){
+
+        let result=[];
+
+
+        for(let i=1;i<values.length;i++){
+
+            result.push(
+                (
+                    (values[i]-values[i-1])
+                    /
+                    values[i-1]
+                )*100
+            );
+
+        }
+
+
+        return result;
+
+    }
+
+
+
+
+    const popGrowth =
+        growth(population);
+
+
+
+    const bedGrowth =
+        growth(
+            beds.map(
+                d=>Number(d.Total_hosp_bed)
+            )
+        );
+
+
+
+    const doctorGrowth =
+        growth(
+            doctors.map(
+                d=>Number(d.fdp)
+            )
+        );
+
+
+
+    const tracePopulation = {
+
+        x: years.slice(1),
+
+        y: popGrowth,
+
+        name:"Population",
+
+        type:"scatter",
+
+        mode:"lines+markers"
+
+    };
+
+
+
+    const traceBeds = {
+
+        x: years.slice(1),
+
+        y: bedGrowth,
+
+        name:"Hospital Beds",
+
+        type:"scatter",
+
+        mode:"lines+markers"
+
+    };
+
+
+
+    const traceDoctors = {
+
+        x: years.slice(1),
+
+        y: doctorGrowth,
+
+        name:"Family Doctors",
+
+        type:"scatter",
+
+        mode:"lines+markers"
+
+    };
+
+
+
+
+
+    const layout = {
+
+
+        title:
+        "Annual Growth Rate: Population vs Healthcare Capacity",
+
+
+        yaxis:{
+
+            title:
+            "Annual Growth (%)"
+
+        },
+
+
+        xaxis:{
+
+            title:
+            "Year"
+
+        },
+
+
+        hovermode:
+        "x unified"
+
+
+    };
+
+
+
+
+    Plotly.newPlot(
+
+        "growthChart",
+
+        [
+            tracePopulation,
+            traceBeds,
+            traceDoctors
+        ],
+
+        layout,
+
+        {
+            responsive:true
+        }
+
+    );
+
+
+}
+
 loadDashboard();
