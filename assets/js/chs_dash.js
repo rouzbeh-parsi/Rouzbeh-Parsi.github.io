@@ -236,4 +236,205 @@ async function loadDashboard() {
 }
 
 
+
+
+async function loadMap(
+    beds2024,
+    doctors2024,
+    unmet2024,
+    wait2024
+){
+
+    const geoResponse = await fetch(GEO_URL);
+
+    const canadaGeo = await geoResponse.json();
+
+
+    let selectedMetric = "beds";
+
+
+    function prepareData(metric){
+
+        let data = [];
+
+
+        if(metric === "beds"){
+
+            data = beds2024.map(d => ({
+                prov_cd: d.prov_cd.toUpperCase(),
+                value: d.Total_hosp_bed
+            }));
+
+        }
+
+
+        if(metric === "doctors"){
+
+            data = doctors2024.map(d => ({
+                prov_cd: d.prov_cd.toUpperCase(),
+                value: d.fdp
+            }));
+
+        }
+
+
+        if(metric === "unmet"){
+
+            data = unmet2024.map(d => ({
+                prov_cd: d["loc-a"].toUpperCase(),
+                value: d.unmet
+            }));
+
+        }
+
+
+        if(metric === "wait"){
+
+            data = wait2024.map(d => ({
+                prov_cd: d.prov_cd.toUpperCase(),
+                value: d["wait time"]
+            }));
+
+        }
+
+
+        return data;
+
+    }
+
+
+
+    function drawMap(){
+
+
+        const mapData = prepareData(selectedMetric);
+
+
+        const values = {};
+
+
+        mapData.forEach(d => {
+
+            values[d.prov_cd] = d.value;
+
+        });
+
+
+
+        const trace = {
+
+            type: "choroplethmapbox",
+
+            geojson: canadaGeo,
+
+
+            locations: Object.keys(values),
+
+
+            z: Object.values(values),
+
+
+            featureidkey: "properties.CODE",
+
+
+            colorscale: "Viridis",
+
+
+            marker: {
+
+                line: {
+
+                    color: "white",
+
+                    width: 1
+
+                }
+
+            },
+
+
+            hovertemplate:
+
+                "<b>%{location}</b><br>" +
+
+                "Value: %{z:.1f}" +
+
+                "<extra></extra>"
+
+        };
+
+
+
+
+        const layout = {
+
+            mapbox: {
+
+                style: "carto-positron",
+
+                zoom: 2.8,
+
+                center: {
+
+                    lat: 57,
+
+                    lon: -96
+
+                }
+
+            },
+
+
+            margin: {
+
+                t: 0,
+
+                b: 0,
+
+                l: 0,
+
+                r: 0
+
+            }
+
+        };
+
+
+
+        Plotly.newPlot(
+
+            "healthMap",
+
+            [trace],
+
+            layout,
+
+            {
+                responsive: true
+            }
+
+        );
+
+    }
+
+
+
+    drawMap();
+
+
+
+    document
+        .getElementById("mapMetric")
+        .addEventListener(
+            "change",
+            function(){
+
+                selectedMetric = this.value;
+
+                drawMap();
+
+            }
+        );
+
+}
 loadDashboard();
