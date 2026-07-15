@@ -48,6 +48,21 @@ author_profile: true
             per 100,000 population (2024)
         </div>
     </div>
+    <div class="kpi-card">
+
+    <div class="kpi-title">
+        🚑 Unmet Health Needs
+    </div>
+
+    <div id="unmetValue" class="kpi-value">
+        --
+    </div>
+
+    <div class="kpi-subtitle">
+        % of persons with unmet healthcare needs (2024)
+    </div>
+
+</div>
 
 </div>
 
