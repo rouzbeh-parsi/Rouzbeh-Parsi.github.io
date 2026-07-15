@@ -96,6 +96,19 @@ layout: splash
 
 
 </div>
+<h2>Healthcare Capacity Across Canada</h2>
 
+<div class="chart-controls">
+    <label for="metricSelect"><b>Metric:</b></label>
+
+    <select id="metricSelect">
+        <option value="beds">Hospital Beds</option>
+        <option value="doctors">Family Doctors</option>
+        <option value="unmet">Unmet Health Needs</option>
+        <option value="wait">Wait Time</option>
+    </select>
+</div>
+
+<div id="canadaMap" style="height:600px;"></div>
 
 <script src="{{ '/assets/js/chs_dash.js' | relative_url }}"></script>
