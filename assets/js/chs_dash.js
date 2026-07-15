@@ -1,6 +1,7 @@
 const BEDS_URL = "/assets/data/health/beds.json";
 const DOCTORS_URL = "/assets/data/health/DPF.json";
 const UNMET_URL = "/assets/data/health/unmet.json";
+const WAIT_URL = "/assets/data/health/wait.json";
 
 
 const provinceNames = {
@@ -18,20 +19,28 @@ const provinceNames = {
 };
 
 
+
 async function loadDashboard() {
 
     try {
 
-        const [bedsResponse, doctorsResponse, unmetResponse] = await Promise.all([
+        const [
+            bedsResponse,
+            doctorsResponse,
+            unmetResponse,
+            waitResponse
+        ] = await Promise.all([
             fetch(BEDS_URL),
             fetch(DOCTORS_URL),
-            fetch(UNMET_URL)
+            fetch(UNMET_URL),
+            fetch(WAIT_URL)
         ]);
 
 
         const bedsData = await bedsResponse.json();
         const doctorsData = await doctorsResponse.json();
         const unmetData = await unmetResponse.json();
+        const waitData = await waitResponse.json();
 
 
 
@@ -39,6 +48,7 @@ async function loadDashboard() {
         // Hospital Beds
         // 2024 per 100,000
         // ==========================
+
         const beds2024 = bedsData.filter(
             d =>
                 Number(d.fiscal_yr) === 2024 &&
@@ -51,6 +61,7 @@ async function loadDashboard() {
         // Family Doctors
         // 2024 per 100,000
         // ==========================
+
         const doctors2024 = doctorsData.filter(
             d =>
                 Number(d.year) === 2024 &&
@@ -63,9 +74,27 @@ async function loadDashboard() {
         // Unmet Health Needs
         // 2024
         // ==========================
+
         const unmet2024 = unmetData.filter(
             d =>
                 Number(d.year) === 2024
+        );
+
+
+
+        // ==========================
+        // Wait Time
+        // 2024
+        // ED Physician Initial Assessment
+        // 90th percentile
+        // ==========================
+
+        const wait2024 = waitData.filter(
+            d =>
+                Number(d.year) === 2024 &&
+                d["item 2"] === 
+                "Emergency Department Wait Time for Physician Initial Assessment" &&
+                d["item "] === "90th percentile"
         );
 
 
@@ -75,6 +104,7 @@ async function loadDashboard() {
 
 
         // Populate dropdown
+
         if (select.options.length === 0) {
 
             Object.entries(provinceNames).forEach(([code, name]) => {
@@ -148,8 +178,25 @@ async function loadDashboard() {
                     ? unmetRow.unmet.toFixed(1) + "%"
                     : "N/A";
 
-        }
 
+
+
+
+            // ==========================
+            // Wait Time
+            // ==========================
+
+            const waitRow = wait2024.find(
+                d => d.prov_cd.toUpperCase() === province
+            );
+
+
+            document.getElementById("waitValue").textContent =
+                waitRow
+                    ? waitRow["wait time"].toFixed(1)
+                    : "N/A";
+
+        }
 
 
 
@@ -162,8 +209,8 @@ async function loadDashboard() {
 
 
         // Default province
-        select.value = "BC";
 
+        select.value = "BC";
 
         updateCards();
 
@@ -172,12 +219,16 @@ async function loadDashboard() {
     } catch (error) {
 
 
-        console.error("Dashboard loading error:", error);
+        console.error(
+            "Dashboard loading error:",
+            error
+        );
 
 
         document.getElementById("bedsValue").textContent = "Error";
         document.getElementById("doctorValue").textContent = "Error";
         document.getElementById("unmetValue").textContent = "Error";
+        document.getElementById("waitValue").textContent = "Error";
 
     }
 
