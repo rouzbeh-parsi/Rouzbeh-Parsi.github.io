@@ -90,7 +90,7 @@ author_profile: true
         </div>
 
         <div class="kpi-subtitle">
-            Days (90th percentile physician assessment, 2024)
+            Hours (90th percentile physician assessment, 2024)
         </div>
 
     </div>
