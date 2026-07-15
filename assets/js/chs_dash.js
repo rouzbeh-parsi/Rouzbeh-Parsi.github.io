@@ -756,27 +756,39 @@ async function loadMap(
 
 }
 
-// =================================
-// Population vs Healthcare Growth
-// =================================
-
-// =================================
-// Population vs Healthcare Growth
-// =================================
-
 function loadGrowthChart(
     bedsData,
     doctorsData,
     popData
 ){
 
-
     const select =
         document.getElementById("provinceSelect");
 
 
 
-    function drawGrowthChart(){
+    function calculateGrowth(values){
+
+        let result=[];
+
+        for(let i=1;i<values.length;i++){
+
+            result.push(
+                ((values[i]-values[i-1])
+                /
+                values[i-1]) * 100
+            );
+
+        }
+
+        return result;
+
+    }
+
+
+
+
+    function createChart(){
 
 
         const province =
@@ -788,44 +800,48 @@ function loadGrowthChart(
         // Population
         // ==========================
 
-        const popRow = popData.find(
-            d => d.Geography === province
-        );
+        const popRow =
+            popData.find(
+                d=>d.Geography===province
+            );
 
 
-        if(!popRow){
-            console.log("No population data:", province);
-            return;
-        }
+        if(!popRow) return;
 
 
-        const years = Object.keys(popRow)
-            .filter(
-                d => !isNaN(d)
-            )
-            .map(
-                d => Number(d)
-            )
+
+        const popYears =
+            Object.keys(popRow)
+            .filter(y=>!isNaN(y))
+            .map(Number)
             .sort();
 
 
 
-        const population = years.map(
-            y => Number(popRow[y])
-        );
+        const population =
+            popYears.map(
+                y=>Number(popRow[y])
+            );
+
+
+
+        const populationGrowth =
+            calculateGrowth(population);
+
 
 
 
 
         // ==========================
-        // Hospital Beds (TOTAL)
+        // Beds TOTAL
         // ==========================
 
-        const beds = bedsData
+        const beds =
+            bedsData
             .filter(
                 d =>
-                d.prov_cd === province &&
-                d.alias === "Total"
+                d.prov_cd===province &&
+                d.alias==="Total"
             )
             .sort(
                 (a,b)=>
@@ -834,28 +850,38 @@ function loadGrowthChart(
 
 
 
-        const bedYears = beds.map(
-            d => Number(d.fiscal_yr)
-        );
+        const bedYears =
+            beds.map(
+                d=>Number(d.fiscal_yr)
+            );
 
 
-        const bedValues = beds.map(
-            d => Number(d.Total_hosp_bed)
-        );
+        const bedValues =
+            beds.map(
+                d=>Number(d.Total_hosp_bed)
+            );
+
+
+
+        const bedGrowth =
+            calculateGrowth(
+                bedValues
+            );
 
 
 
 
 
         // ==========================
-        // Family Doctors (TOTAL)
+        // Doctors TOTAL
         // ==========================
 
-        const doctors = doctorsData
+        const doctors =
+            doctorsData
             .filter(
                 d =>
-                d.prov_cd === province &&
-                d.alias === "Total"
+                d.prov_cd===province &&
+                d.alias==="Total"
             )
             .sort(
                 (a,b)=>
@@ -864,199 +890,216 @@ function loadGrowthChart(
 
 
 
-        const doctorYears = doctors.map(
-            d => Number(d.year)
-        );
+        const doctorYears =
+            doctors.map(
+                d=>Number(d.year)
+            );
 
 
-        const doctorValues = doctors.map(
-            d => Number(d.fdp)
-        );
+        const doctorValues =
+            doctors.map(
+                d=>Number(d.fdp)
+            );
 
-
-
-
-
-        function calculateGrowth(
-            values
-        ){
-
-            let growth=[];
-
-
-            for(
-                let i=1;
-                i<values.length;
-                i++
-            ){
-
-                growth.push(
-                    (
-                        (values[i]-values[i-1])
-                        /
-                        values[i-1]
-                    )*100
-                );
-
-            }
-
-
-            return growth;
-
-        }
-
-
-
-
-        const popGrowth =
-            calculateGrowth(population);
-
-
-        const bedGrowth =
-            calculateGrowth(bedValues);
 
 
         const doctorGrowth =
-            calculateGrowth(doctorValues);
-
-
-
-
-
-        const traces = [
-
-
-
-            {
-
-                x: years.slice(1),
-
-                y: popGrowth,
-
-                name:
-                "Population",
-
-                mode:
-                "lines+markers",
-
-                type:
-                "scatter"
-
-            },
-
-
-            {
-
-                x: bedYears.slice(1),
-
-                y: bedGrowth,
-
-                name:
-                "Hospital Beds",
-
-                mode:
-                "lines+markers",
-
-                type:
-                "scatter"
-
-            },
-
-
-            {
-
-                x: doctorYears.slice(1),
-
-                y: doctorGrowth,
-
-                name:
-                "Family Doctors",
-
-                mode:
-                "lines+markers",
-
-                type:
-                "scatter"
-
-            }
-
-
-
-        ];
+            calculateGrowth(
+                doctorValues
+            );
 
 
 
 
 
 
-        const layout = {
+        // ==========================
+        // BED GAP CHART
+        // ==========================
 
 
-            title:
-            "Population vs Healthcare Capacity Growth - "
-            +
-            province,
-
-
-            yaxis:{
-
-                title:
-                "Annual Growth (%)"
-
-            },
-
-
-            xaxis:{
-
-                title:
-                "Year"
-
-            },
-
-
-            hovermode:
-            "x unified"
-
-
-        };
-
+        const bedGap =
+            populationGrowth.map(
+                (x,i)=>
+                x - bedGrowth[i]
+            );
 
 
 
         Plotly.react(
 
-            "growthChart",
+            "bedGrowthChart",
 
-            traces,
+            [
 
-            layout,
+                {
+                    x: bedYears.slice(1),
+
+                    y: populationGrowth,
+
+                    name:"Population Growth",
+
+                    mode:"lines+markers",
+
+                    type:"scatter"
+
+                },
+
+
+                {
+                    x: bedYears.slice(1),
+
+                    y: bedGrowth,
+
+                    name:"Hospital Bed Growth",
+
+                    mode:"lines+markers",
+
+                    type:"scatter"
+
+                },
+
+
+                {
+                    x: bedYears.slice(1),
+
+                    y: bedGap,
+
+                    name:"Capacity Gap",
+
+                    mode:"lines+markers",
+
+                    type:"scatter"
+
+                }
+
+            ],
+
 
             {
-                responsive:true
+
+                title:
+                "Population Growth vs Hospital Bed Growth",
+
+
+                yaxis:{
+                    title:
+                    "Annual Growth (%)"
+                },
+
+
+                hovermode:
+                "x unified"
+
+
             }
 
         );
+
+
+
+
+
+
+
+        // ==========================
+        // DOCTOR GAP CHART
+        // ==========================
+
+
+        const doctorGap =
+            populationGrowth.map(
+                (x,i)=>
+                x - doctorGrowth[i]
+            );
+
+
+
+        Plotly.react(
+
+            "doctorGrowthChart",
+
+            [
+
+                {
+                    x: doctorYears.slice(1),
+
+                    y: populationGrowth,
+
+                    name:"Population Growth",
+
+                    mode:"lines+markers",
+
+                    type:"scatter"
+
+                },
+
+
+                {
+                    x: doctorYears.slice(1),
+
+                    y: doctorGrowth,
+
+                    name:"Family Doctor Growth",
+
+                    mode:"lines+markers",
+
+                    type:"scatter"
+
+                },
+
+
+                {
+                    x: doctorYears.slice(1),
+
+                    y: doctorGap,
+
+                    name:"Capacity Gap",
+
+                    mode:"lines+markers",
+
+                    type:"scatter"
+
+                }
+
+
+            ],
+
+
+            {
+
+                title:
+                "Population Growth vs Family Doctor Growth",
+
+
+                yaxis:{
+                    title:
+                    "Annual Growth (%)"
+                },
+
+
+                hovermode:
+                "x unified"
+
+            }
+
+        );
+
 
 
     }
 
 
 
-
-    // Initial chart
-
-    drawGrowthChart();
+    createChart();
 
 
-
-    // Update chart when province changes
 
     select.addEventListener(
         "change",
-        drawGrowthChart
+        createChart
     );
 
 
 }
-
 loadDashboard();
