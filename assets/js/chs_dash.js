@@ -58,8 +58,8 @@ async function loadBeds(){
 
         if(row){
 
-            document.getElementById("bedsValue").textContent =
-                row.Total_hosp_bed.toFixed(1);
+document.getElementById("bedsValue").textContent =
+    Math.round(row.Total_hosp_bed).toLocaleString();
 
         }
         else{
