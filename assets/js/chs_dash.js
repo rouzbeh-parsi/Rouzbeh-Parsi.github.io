@@ -1,5 +1,5 @@
 const provinceNames = {
-    "zz": "Canada",
+    "ZZ": "Canada",
     "NL": "Newfoundland and Labrador",
     "PE": "Prince Edward Island",
     "NS": "Nova Scotia",
