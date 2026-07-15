@@ -98,6 +98,23 @@ layout: splash
 
 <div class="dashboard-section">
 
+<h2>Population Growth vs Healthcare Capacity Growth</h2>
+
+<p>
+Comparison of annual growth rates. Healthcare capacity is measured using total hospital beds and total family doctors.
+</p>
+
+
+<div id="growthChart" style="width:100%; height:500px;"></div>
+
+
+</div>
+
+
+
+
+<div class="dashboard-section">
+
 <h2>Healthcare Capacity Across Canada</h2>
 
 
