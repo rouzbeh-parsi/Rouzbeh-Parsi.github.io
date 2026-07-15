@@ -94,6 +94,7 @@ layout: splash
 
     </div>
 
+</div>   <!-- CLOSE KPI GRID HERE -->
 
 <div class="dashboard-section">
 
