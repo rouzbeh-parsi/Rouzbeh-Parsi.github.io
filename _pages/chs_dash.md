@@ -100,36 +100,87 @@ layout: splash
 
 <h2>Healthcare Capacity Across Canada</h2>
 
-<label>
-<b>Select Indicator:</b>
-</label>
 
-<select id="mapMetric">
-    <option value="beds">Hospital Beds</option>
-    <option value="doctors">Family Doctors</option>
-    <option value="unmet">Unmet Health Needs</option>
-    <option value="wait">Wait Time</option>
-</select>
+<div class="map-controls">
 
 
-<label>
-<b>Year:</b>
-</label>
+    <div class="control-item">
 
-<input 
-    type="range" 
-    id="mapYearSlider"
-    min="2019"
-    max="2024"
-    value="2024"
->
+        <label>
+            <b>Select Indicator:</b>
+        </label>
 
-<span id="selectedYear">2024</span>
+        <select id="mapMetric">
+
+            <option value="beds">
+                🏥 Hospital Beds
+            </option>
+
+            <option value="doctors">
+                👨‍⚕️ Family Doctors
+            </option>
+
+            <option value="unmet">
+                🚑 Unmet Health Needs
+            </option>
+
+            <option value="wait">
+                ⏳ Emergency Department Wait Time
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <div class="control-item">
+
+        <label>
+            <b>Year:</b>
+            <span id="selectedYear">
+                2024
+            </span>
+        </label>
+
+
+        <input 
+            type="range"
+            id="mapYearSlider"
+            min="2019"
+            max="2024"
+            step="1"
+            value="2024"
+            list="yearTicks"
+        >
+
+
+        <datalist id="yearTicks">
+
+            <option value="2019" label="2019"></option>
+
+            <option value="2020" label="2020"></option>
+
+            <option value="2021" label="2021"></option>
+
+            <option value="2022" label="2022"></option>
+
+            <option value="2023" label="2023"></option>
+
+            <option value="2024" label="2024"></option>
+
+        </datalist>
+
+
+    </div>
+
+
+</div>
+
 
 
 <div id="healthMap"></div>
 
-<div id="healthMap" style="width:100%; height:650px;"></div>
 
 </div>
 
