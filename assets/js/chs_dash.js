@@ -244,7 +244,6 @@ loadMap(
 }
 
 
-
 // ==========================
 // Healthcare Capacity Map
 // ==========================
@@ -268,55 +267,91 @@ async function loadMap(
     let selectedMetric = "beds";
 
 
-    function prepareData(metric){
+    function cleanValue(value){
 
+        if(
+            value === "" ||
+            value === null ||
+            value === undefined ||
+            isNaN(Number(value))
+        ){
+            return null;
+        }
+
+        return Number(value);
+
+    }
+
+
+
+    function prepareData(metric){
 
         let data = [];
 
 
-        // Hospital beds
+        // ==========================
+        // Hospital Beds
+        // ==========================
+
         if(metric === "beds"){
 
-            data = beds2024.map(d => ({
-                prov_cd: d.prov_cd.toUpperCase(),
-                value: Number(d.Total_hosp_bed)
-            }));
+            data = beds2024
+                .map(d => ({
+                    prov_cd: d.prov_cd.toUpperCase(),
+                    value: cleanValue(d.Total_hosp_bed)
+                }))
+                .filter(d => d.value !== null);
 
         }
 
 
 
-        // Family doctors
+        // ==========================
+        // Family Doctors
+        // ==========================
+
         if(metric === "doctors"){
 
-            data = doctors2024.map(d => ({
-                prov_cd: d.prov_cd.toUpperCase(),
-                value: Number(d.fdp)
-            }));
+            data = doctors2024
+                .map(d => ({
+                    prov_cd: d.prov_cd.toUpperCase(),
+                    value: cleanValue(d.fdp)
+                }))
+                .filter(d => d.value !== null);
 
         }
 
 
 
-        // Unmet healthcare needs
+        // ==========================
+        // Unmet Health Needs
+        // ==========================
+
         if(metric === "unmet"){
 
-            data = unmet2024.map(d => ({
-                prov_cd: d["loc-a"].toUpperCase(),
-                value: Number(d.unmet)
-            }));
+            data = unmet2024
+                .map(d => ({
+                    prov_cd: d["loc-a"].toUpperCase(),
+                    value: cleanValue(d.unmet)
+                }))
+                .filter(d => d.value !== null);
 
         }
 
 
 
-        // Emergency wait time
+        // ==========================
+        // Wait Time
+        // ==========================
+
         if(metric === "wait"){
 
-            data = wait2024.map(d => ({
-                prov_cd: d.prov_cd.toUpperCase(),
-                value: Number(d["wait time"])
-            }));
+            data = wait2024
+                .map(d => ({
+                    prov_cd: d.prov_cd.toUpperCase(),
+                    value: cleanValue(d["wait time"])
+                }))
+                .filter(d => d.value !== null);
 
         }
 
@@ -328,6 +363,7 @@ async function loadMap(
 
 
 
+
     function drawMap(){
 
 
@@ -335,23 +371,19 @@ async function loadMap(
 
 
 
-        const values = {};
-
-        mapData.forEach(d => {
-
-            values[d.prov_cd] = d.value;
-
-        });
+        const locations = mapData.map(
+            d => d.prov_cd
+        );
 
 
-
-        const locations = Object.keys(values);
-
-        const zValues = Object.values(values);
+        const values = mapData.map(
+            d => d.value
+        );
 
 
 
-        // Higher is better
+
+        // Higher value = better
         let colorScale;
 
 
@@ -361,21 +393,28 @@ async function loadMap(
         ){
 
             colorScale = [
+
                 [0, "#d73027"],
+
                 [0.5, "#fee08b"],
+
                 [1, "#1a9850"]
+
             ];
 
         }
 
-
-        // Lower is better
+        // Lower value = better
         else{
 
             colorScale = [
+
                 [0, "#1a9850"],
+
                 [0.5, "#fee08b"],
+
                 [1, "#d73027"]
+
             ];
 
         }
@@ -386,7 +425,7 @@ async function loadMap(
         const trace = {
 
 
-            type:"choroplethmapbox",
+            type: "choroplethmapbox",
 
 
             geojson: canadaGeo,
@@ -395,7 +434,7 @@ async function loadMap(
             locations: locations,
 
 
-            z: zValues,
+            z: values,
 
 
             featureidkey:
@@ -405,6 +444,7 @@ async function loadMap(
 
             colorscale:
                 colorScale,
+
 
 
             marker:{
@@ -420,12 +460,13 @@ async function loadMap(
             },
 
 
+
             colorbar:{
 
-                title:
-                    selectedMetric
+                title:selectedMetric
 
             },
+
 
 
             hovertemplate:
@@ -436,8 +477,8 @@ async function loadMap(
 
                 "<extra></extra>"
 
-
         };
+
 
 
 
@@ -501,39 +542,36 @@ async function loadMap(
         );
 
 
-
     }
 
 
 
 
-
-    // Initial map
+    // Initial display
 
     drawMap();
 
 
 
 
+    // Change metric
 
-    // Change indicator
-
-    document
-        .getElementById("mapMetric")
-        .addEventListener(
-            "change",
-            function(){
+    const metricSelector =
+        document.getElementById("mapMetric");
 
 
-                selectedMetric =
-                    this.value;
+    metricSelector.addEventListener(
+        "change",
+        function(){
 
+            selectedMetric =
+                this.value;
 
-                drawMap();
+            drawMap();
 
+        }
+    );
 
-            }
-        );
 
 }
 loadDashboard();
