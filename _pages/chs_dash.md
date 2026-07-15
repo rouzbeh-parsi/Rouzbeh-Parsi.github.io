@@ -111,6 +111,24 @@ layout: splash
     <option value="wait">Wait Time</option>
 </select>
 
+
+<label>
+<b>Year:</b>
+</label>
+
+<input 
+    type="range" 
+    id="mapYearSlider"
+    min="2019"
+    max="2024"
+    value="2024"
+>
+
+<span id="selectedYear">2024</span>
+
+
+<div id="healthMap"></div>
+
 <div id="healthMap" style="width:100%; height:650px;"></div>
 
 </div>
