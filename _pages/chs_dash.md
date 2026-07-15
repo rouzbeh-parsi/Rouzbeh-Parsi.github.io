@@ -98,18 +98,25 @@ layout: splash
 
 <div class="dashboard-section">
 
-<h2>Population Growth vs Healthcare Capacity Growth</h2>
-
-<p>
-Comparison of annual growth rates. Healthcare capacity is measured using total hospital beds and total family doctors.
-</p>
+<h2>Healthcare Capacity Growth Gap</h2>
 
 
-<div id="growthChart" style="width:100%; height:500px;"></div>
+<h3>🏥 Hospital Beds</h3>
+
+<div id="bedGrowthChart"
+     style="width:100%;height:450px;">
+</div>
+
+
+
+<h3>👨‍⚕️ Family Doctors</h3>
+
+<div id="doctorGrowthChart"
+     style="width:100%;height:450px;">
+</div>
 
 
 </div>
-
 
 
 
