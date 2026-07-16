@@ -5,7 +5,7 @@ permalink: /portfolio/
 author_profile: true
 ---
 
-## Canadian Healthcare System Dashboard (July 2026)
+## Data Visualization: Canadian Healthcare System Dashboard (July 2026)
 
 An interactive dashboard exploring healthcare access and capacity across Canada. The dashboard combines multiple public health datasets to compare provinces on hospital bed availability, family doctor supply, unmet healthcare needs, and emergency department wait times. Interactive maps and visualizations allow users to examine provincial differences, track changes over time, and assess whether healthcare capacity is keeping pace with population growth.
 
