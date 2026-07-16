@@ -118,7 +118,19 @@ layout: splash
 
 </div>
 
+<div class="dashboard-section">
 
+    <h2>Healthcare Performance Matrix</h2>
+
+    <p>
+        Bubble size represents family doctors per 100,000 population.
+    </p>
+
+    <div id="performanceMatrix"
+         style="width:100%; height:700px;">
+    </div>
+
+</div>
 
 <div class="dashboard-section">
 
