@@ -837,77 +837,6 @@ function loadGrowthChart(
 
 
 
-
-    function createGapAreas(
-        years,
-        population,
-        capacity
-    ){
-
-        let redX = [];
-        let redPop = [];
-        let redCap = [];
-
-
-        let greenX = [];
-        let greenPop = [];
-        let greenCap = [];
-
-
-
-        for(let i=0;i<years.length;i++){
-
-
-            if(population[i] >= capacity[i]){
-
-
-                redX.push(years[i]);
-
-                redPop.push(population[i]);
-
-                redCap.push(capacity[i]);
-
-
-            }
-            else{
-
-
-                greenX.push(years[i]);
-
-                greenPop.push(population[i]);
-
-                greenCap.push(capacity[i]);
-
-
-            }
-
-        }
-
-
-        return {
-
-            red:{
-                x:redX,
-                pop:redPop,
-                cap:redCap
-            },
-
-
-            green:{
-                x:greenX,
-                pop:greenPop,
-                cap:greenCap
-            }
-
-        };
-
-    }
-
-
-
-
-
-
     function drawCharts(){
 
 
@@ -1080,18 +1009,64 @@ const bedGap = validBeds.map(
 );
 
 
-const bedTrend = bedGap.map((_,i) => {
+// ==========================
+// Linear Regression Trendline
+// ==========================
 
-    const first = bedGap[0];
-    const last = bedGap[bedGap.length-1];
+function regressionTrend(x, y){
 
-    return first +
-        (last-first) *
-        i /
-        Math.max(1, bedGap.length-1);
+    const n = x.length;
 
-});
+    const xMean =
+        x.reduce((a,b)=>a+b,0) / n;
 
+    const yMean =
+        y.reduce((a,b)=>a+b,0) / n;
+
+
+    let numerator = 0;
+    let denominator = 0;
+
+
+    for(let i = 0; i < n; i++){
+
+        numerator +=
+            (x[i] - xMean) *
+            (y[i] - yMean);
+
+        denominator +=
+            Math.pow(x[i] - xMean, 2);
+
+    }
+
+
+    const slope =
+        numerator / denominator;
+
+
+    const intercept =
+        yMean - slope * xMean;
+
+
+    return x.map(
+        value =>
+            intercept + slope * value
+    );
+
+}
+
+
+// Create bed gap
+const bedGap = validBeds.map(
+    d => d.pop - d.bed
+);
+
+
+// Regression trend
+const bedTrend = regressionTrend(
+    validBeds.map(d=>d.year),
+    bedGap
+);
 
 Plotly.react(
     "bedGrowthChart",
@@ -1172,18 +1147,10 @@ const doctorGap = validDoctors.map(
 );
 
 
-const doctorTrend = doctorGap.map((_,i) => {
-
-    const first = doctorGap[0];
-    const last = doctorGap[doctorGap.length-1];
-
-    return first +
-        (last-first) *
-        i /
-        Math.max(1, doctorGap.length-1);
-
-});
-
+const doctorTrend = regressionTrend(
+    validDoctors.map(d=>d.year),
+    doctorGap
+);
 
 Plotly.react(
     "doctorGrowthChart",
