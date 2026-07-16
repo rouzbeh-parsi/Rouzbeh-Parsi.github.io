@@ -1056,11 +1056,6 @@ function regressionTrend(x, y){
 }
 
 
-// Create bed gap
-const bedGap = validBeds.map(
-    d => d.pop - d.bed
-);
-
 
 // Regression trend
 const bedTrend = regressionTrend(
