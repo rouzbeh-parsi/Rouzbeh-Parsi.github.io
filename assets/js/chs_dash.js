@@ -276,6 +276,13 @@ loadGrowthChart(
     doctorsData,
     popData
 );
+
+// Performance matrix
+loadPerformanceMatrix(
+    doctorsData,
+    unmetData,
+    waitData
+);
         
     } catch (error) {
 
