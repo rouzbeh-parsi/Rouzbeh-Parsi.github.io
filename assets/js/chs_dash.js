@@ -1223,223 +1223,243 @@ Plotly.react(
 // ==========================
 
     
-   function loadPerformanceMatrix(
+function loadPerformanceMatrix(
     doctorsData,
     unmetData,
     waitData
 ){
 
-    function drawMatrix(year = 2024){
+    const year = 2024;
 
-        const doctors = doctorsData
-            .filter(d =>
-                Number(d.year) === year &&
-                d.alias === "per 100,000"
-            );
 
-        const unmet = unmetData
-            .filter(d =>
-                Number(d.year) === year
-            );
+    // ==========================
+    // Filter data
+    // ==========================
 
-        const wait = waitData
-            .filter(d =>
-                Number(d.year) === year &&
-                d["item 2"] ===
-                "Emergency Department Wait Time for Physician Initial Assessment" &&
-                d["item "] === "90th percentile" &&
-                d["wait time"] !== ""
-            );
+    const doctors = doctorsData.filter(
+        d =>
+            Number(d.year) === year &&
+            d.alias === "per 100,000"
+    );
 
-        const points = [];
 
-        Object.keys(provinceNames).forEach(prov => {
+    const unmet = unmetData.filter(
+        d =>
+            Number(d.year) === year
+    );
 
-            if(prov === "ZZ") return;
 
-            const doctorRow = doctors.find(
-                d => d.prov_cd === prov
-            );
+    const wait = waitData.filter(
+        d =>
+            Number(d.year) === year &&
+            d["item 2"] === 
+            "Emergency Department Wait Time for Physician Initial Assessment" &&
+            d["item "] === "90th percentile"
+    );
 
-            const unmetRow = unmet.find(
-                d => d["loc-a"] === prov
-            );
 
-            const waitRow = wait.find(
-                d => d.prov_cd === prov
-            );
 
-            if(
-                doctorRow &&
-                unmetRow &&
-                waitRow
-            ){
+    // ==========================
+    // Combine datasets
+    // ==========================
 
-                points.push({
+    let matrixData = [];
 
-                    province: prov,
 
-                    doctors: Number(doctorRow.fdp),
+    Object.keys(provinceNames).forEach(code => {
 
-                    unmet: Number(unmetRow.unmet),
 
-                    wait: Number(waitRow["wait time"])
+        const doctorRow = doctors.find(
+            d => d.prov_cd.toUpperCase() === code
+        );
 
-                });
 
-            }
+        const unmetRow = unmet.find(
+            d => d["loc-a"].toUpperCase() === code
+        );
 
-        });
 
-        const selectedProvince =
-            document.getElementById(
-                "provinceSelect"
-            ).value;
+        const waitRow = wait.find(
+            d => d.prov_cd.toUpperCase() === code
+        );
 
-        const trace = {
 
-            x: points.map(d => d.wait),
 
-            y: points.map(d => d.unmet),
+        if(
+            doctorRow &&
+            unmetRow &&
+            waitRow &&
+            waitRow["wait time"] !== ""
+        ){
 
-            text: points.map(d => d.province),
+            matrixData.push({
 
-            mode: "markers+text",
+                province: provinceNames[code],
 
-            type: "scatter",
+                code: code,
 
-            textposition: "top center",
+                doctors:
+                    Number(doctorRow.fdp),
 
-            marker: {
+                unmet:
+                    Number(unmetRow.unmet),
 
-                size: points.map(
-                    d => d.doctors * 0.35
-                ),
+                wait:
+                    Number(waitRow["wait time"])
 
-                sizemode: "area",
+            });
 
-                opacity: 0.7,
+        }
 
-                line: {
 
-                    width: points.map(
-                        d =>
-                        d.province === selectedProvince
-                        ? 4
-                        : 1
-                    ),
+    });
 
-                    color: points.map(
-                        d =>
-                        d.province === selectedProvince
-                        ? "black"
-                        : "gray"
-                    )
-                }
-            },
 
-            hovertemplate:
-                "<b>%{text}</b><br>" +
-                "Wait Time: %{x:.1f} hrs<br>" +
-                "Unmet Needs: %{y:.1f}%<br>" +
-                "<extra></extra>"
-        };
 
-        Plotly.react(
+    // ==========================
+    // Bubble scaling
+    // ==========================
 
-            "performanceMatrix",
+    const minDoctor = Math.min(
+        ...matrixData.map(d=>d.doctors)
+    );
 
-            [trace],
 
-            {
+    const bubbleSizes = matrixData.map(d => {
+
+        return 10 +
+            (
+                (d.doctors - minDoctor)
+                /
+                minDoctor
+            )
+            * 40;
+
+    });
+
+
+
+    // ==========================
+    // Create chart
+    // ==========================
+
+
+    const trace = {
+
+
+        x:
+            matrixData.map(
+                d=>d.wait
+            ),
+
+
+        y:
+            matrixData.map(
+                d=>d.unmet
+            ),
+
+
+        text:
+            matrixData.map(
+                d=>d.province
+            ),
+
+
+        mode:
+            "markers+text",
+
+
+        textposition:
+            "top center",
+
+
+        type:
+            "scatter",
+
+
+        marker:{
+
+
+            size:
+                bubbleSizes,
+
+
+            sizemode:
+                "diameter",
+
+
+            opacity:
+                0.75
+
+
+        },
+
+
+        hovertemplate:
+
+
+            "<b>%{text}</b><br>" +
+
+            "Wait Time: %{x:.1f} hours<br>" +
+
+            "Unmet Need: %{y:.1f}%<br>" +
+
+            "<extra></extra>"
+
+    };
+
+
+
+
+    Plotly.react(
+
+        "performanceMatrix",
+
+        [trace],
+
+        {
+
+
+            title:
+                "Healthcare Performance Matrix (2024)",
+
+
+            xaxis:{
 
                 title:
-                    "Healthcare Performance Matrix",
-
-                xaxis: {
-
-                    title:
-                        "Emergency Department Wait Time (Hours)",
-
-                    zeroline: false
-                },
-
-                yaxis: {
-
-                    title:
-                        "Unmet Health Needs (%)",
-
-                    zeroline: false
-                },
-
-                hovermode: "closest",
-
-                annotations: [
-
-                    {
-                        xref: "paper",
-                        yref: "paper",
-                        x: 0,
-                        y: 1.08,
-                        showarrow: false,
-                        text:
-                            "← Better"
-                    },
-
-                    {
-                        xref: "paper",
-                        yref: "paper",
-                        x: 1,
-                        y: 1.08,
-                        showarrow: false,
-                        text:
-                            "Worse →"
-                    },
-
-                    {
-                        xref: "paper",
-                        yref: "paper",
-                        x: -0.06,
-                        y: 0,
-                        showarrow: false,
-                        text:
-                            "Better ↓"
-                    },
-
-                    {
-                        xref: "paper",
-                        yref: "paper",
-                        x: -0.06,
-                        y: 1,
-                        showarrow: false,
-                        text:
-                            "Worse ↑"
-                    }
-
-                ],
-
-                margin: {
-                    t: 70
-                }
+                    "Emergency Department Wait Time (hours)"
 
             },
 
-            {
-                responsive: true
+
+            yaxis:{
+
+                title:
+                    "Unmet Healthcare Needs (%)"
+
+            },
+
+
+            hovermode:
+                "closest",
+
+
+            margin:{
+
+                t:60
+
             }
 
-        );
+        },
 
-    }
 
-    drawMatrix();
+        {
 
-    document
-        .getElementById("provinceSelect")
-        .addEventListener(
-            "change",
-            () => drawMatrix()
-        );
+            responsive:true
 
-} 
+        }
+
+    );
+
+}
 loadDashboard();
