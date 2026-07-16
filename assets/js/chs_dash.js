@@ -1208,6 +1208,231 @@ Plotly.react(
     );
 
 
+// ==========================
+// PERFORMANCE CHART
+// ==========================
+
+    
+   function loadPerformanceMatrix(
+    doctorsData,
+    unmetData,
+    waitData
+){
+
+    function drawMatrix(year = 2024){
+
+        const doctors = doctorsData
+            .filter(d =>
+                Number(d.year) === year &&
+                d.alias === "per 100,000"
+            );
+
+        const unmet = unmetData
+            .filter(d =>
+                Number(d.year) === year
+            );
+
+        const wait = waitData
+            .filter(d =>
+                Number(d.year) === year &&
+                d["item 2"] ===
+                "Emergency Department Wait Time for Physician Initial Assessment" &&
+                d["item "] === "90th percentile" &&
+                d["wait time"] !== ""
+            );
+
+        const points = [];
+
+        Object.keys(provinceNames).forEach(prov => {
+
+            if(prov === "ZZ") return;
+
+            const doctorRow = doctors.find(
+                d => d.prov_cd === prov
+            );
+
+            const unmetRow = unmet.find(
+                d => d["loc-a"] === prov
+            );
+
+            const waitRow = wait.find(
+                d => d.prov_cd === prov
+            );
+
+            if(
+                doctorRow &&
+                unmetRow &&
+                waitRow
+            ){
+
+                points.push({
+
+                    province: prov,
+
+                    doctors: Number(doctorRow.fdp),
+
+                    unmet: Number(unmetRow.unmet),
+
+                    wait: Number(waitRow["wait time"])
+
+                });
+
+            }
+
+        });
+
+        const selectedProvince =
+            document.getElementById(
+                "provinceSelect"
+            ).value;
+
+        const trace = {
+
+            x: points.map(d => d.wait),
+
+            y: points.map(d => d.unmet),
+
+            text: points.map(d => d.province),
+
+            mode: "markers+text",
+
+            type: "scatter",
+
+            textposition: "top center",
+
+            marker: {
+
+                size: points.map(
+                    d => d.doctors * 0.35
+                ),
+
+                sizemode: "area",
+
+                opacity: 0.7,
+
+                line: {
+
+                    width: points.map(
+                        d =>
+                        d.province === selectedProvince
+                        ? 4
+                        : 1
+                    ),
+
+                    color: points.map(
+                        d =>
+                        d.province === selectedProvince
+                        ? "black"
+                        : "gray"
+                    )
+                }
+            },
+
+            hovertemplate:
+                "<b>%{text}</b><br>" +
+                "Wait Time: %{x:.1f} hrs<br>" +
+                "Unmet Needs: %{y:.1f}%<br>" +
+                "<extra></extra>"
+        };
+
+        Plotly.react(
+
+            "performanceMatrix",
+
+            [trace],
+
+            {
+
+                title:
+                    "Healthcare Performance Matrix",
+
+                xaxis: {
+
+                    title:
+                        "Emergency Department Wait Time (Hours)",
+
+                    zeroline: false
+                },
+
+                yaxis: {
+
+                    title:
+                        "Unmet Health Needs (%)",
+
+                    zeroline: false
+                },
+
+                hovermode: "closest",
+
+                annotations: [
+
+                    {
+                        xref: "paper",
+                        yref: "paper",
+                        x: 0,
+                        y: 1.08,
+                        showarrow: false,
+                        text:
+                            "← Better"
+                    },
+
+                    {
+                        xref: "paper",
+                        yref: "paper",
+                        x: 1,
+                        y: 1.08,
+                        showarrow: false,
+                        text:
+                            "Worse →"
+                    },
+
+                    {
+                        xref: "paper",
+                        yref: "paper",
+                        x: -0.06,
+                        y: 0,
+                        showarrow: false,
+                        text:
+                            "Better ↓"
+                    },
+
+                    {
+                        xref: "paper",
+                        yref: "paper",
+                        x: -0.06,
+                        y: 1,
+                        showarrow: false,
+                        text:
+                            "Worse ↑"
+                    }
+
+                ],
+
+                margin: {
+                    t: 70
+                }
+
+            },
+
+            {
+                responsive: true
+            }
+
+        );
+
+    }
+
+    drawMatrix();
+
+    document
+        .getElementById("provinceSelect")
+        .addEventListener(
+            "change",
+            () => drawMatrix()
+        );
+
+} 
+
 }
 
 loadDashboard();
