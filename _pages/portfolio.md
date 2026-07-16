@@ -9,7 +9,7 @@ author_profile: true
 
 An interactive dashboard exploring healthcare access and capacity across Canada. The dashboard combines multiple public health datasets to compare provinces on hospital bed availability, family doctor supply, unmet healthcare needs, and emergency department wait times. Interactive maps and visualizations allow users to examine provincial differences, track changes over time, and assess whether healthcare capacity is keeping pace with population growth.
 
-**Tools:** JavaScript, Plotly, GeoJSON, GitHub Pages, Public Health Data
+**Tools:** JavaScript, Plotly, GeoJSON, Heatmap, Public Health Data
 
 ➡️ **[View Project]({{ "/chs-dashboard/" | relative_url }})**
 
@@ -26,7 +26,7 @@ An interrupted time-series analysis **(ITS)** of monthly unregulated drug toxici
 
 An interactive forecasting project that compares **ETS**, **ARIMA**, and **SARIMAX** models to predict British Columbia Personal Income Tax (PIT) revenue.
 
-**Tools:** Python, Statsmodels, Plotly, Jupyter Notebook, GitHub Pages
+**Tools:** Python, Statsmodels, Plotly, Jupyter Notebook, ARIMA
 
 ➡️ **[View Project]({{ "/bc/" | relative_url }})**
 
