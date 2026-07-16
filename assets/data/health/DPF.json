@@ -39,37 +39,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "AB",
-    "fdp": "5,599"
+    "fdp": 5599
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "AB",
-    "fdp": "5,496"
+    "fdp": 5496
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "AB",
-    "fdp": "5,423"
+    "fdp": 5423
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "AB",
-    "fdp": "5,417"
+    "fdp": 5417
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "AB",
-    "fdp": "5,452"
+    "fdp": 5452
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "AB",
-    "fdp": "5,744"
+    "fdp": 5744
   },
   {
     "alias": "per 100,000",
@@ -111,37 +111,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "BC",
-    "fdp": "6,148"
+    "fdp": 6148
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "BC",
-    "fdp": "6,154"
+    "fdp": 6154
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "BC",
-    "fdp": "6,188"
+    "fdp": 6188
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "BC",
-    "fdp": "6,176"
+    "fdp": 6176
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "BC",
-    "fdp": "6,292"
+    "fdp": 6292
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "BC",
-    "fdp": "7,826"
+    "fdp": 7826
   },
   {
     "alias": "per 100,000",
@@ -189,37 +189,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "MB",
-    "fdp": "1,491"
+    "fdp": 1491
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "MB",
-    "fdp": "1,494"
+    "fdp": 1494
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "MB",
-    "fdp": "1,505"
+    "fdp": 1505
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "MB",
-    "fdp": "1,570"
+    "fdp": 1570
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "MB",
-    "fdp": "1,562"
+    "fdp": 1562
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "MB",
-    "fdp": "1,671"
+    "fdp": 1671
   },
   {
     "alias": "per 100,000",
@@ -261,37 +261,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "NB",
-    "fdp": "1,058"
+    "fdp": 1058
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "NB",
-    "fdp": "1,072"
+    "fdp": 1072
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "NB",
-    "fdp": "1,103"
+    "fdp": 1103
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "NB",
-    "fdp": "1,124"
+    "fdp": 1124
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "NB",
-    "fdp": "1,181"
+    "fdp": 1181
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "NB",
-    "fdp": "1,184"
+    "fdp": 1184
   },
   {
     "alias": "per 100,000",
@@ -405,37 +405,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "NS",
-    "fdp": "1,295"
+    "fdp": 1295
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "NS",
-    "fdp": "1,365"
+    "fdp": 1365
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "NS",
-    "fdp": "1,374"
+    "fdp": 1374
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "NS",
-    "fdp": "1,346"
+    "fdp": 1346
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "NS",
-    "fdp": "1,279"
+    "fdp": 1279
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "NS",
-    "fdp": "1,332"
+    "fdp": 1332
   },
   {
     "alias": "per 100,000",
@@ -477,37 +477,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "ON",
-    "fdp": "16,863"
+    "fdp": 16863
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "ON",
-    "fdp": "16,990"
+    "fdp": 16990
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "ON",
-    "fdp": "17,220"
+    "fdp": 17220
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "ON",
-    "fdp": "17,416"
+    "fdp": 17416
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "ON",
-    "fdp": "17,178"
+    "fdp": 17178
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "ON",
-    "fdp": "17,275"
+    "fdp": 17275
   },
   {
     "alias": "per 100,000",
@@ -621,37 +621,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "QC",
-    "fdp": "10,786"
+    "fdp": 10786
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "QC",
-    "fdp": "11,098"
+    "fdp": 11098
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "QC",
-    "fdp": "11,334"
+    "fdp": 11334
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "QC",
-    "fdp": "11,449"
+    "fdp": 11449
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "QC",
-    "fdp": "11,549"
+    "fdp": 11549
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "QC",
-    "fdp": "11,604"
+    "fdp": 11604
   },
   {
     "alias": "per 100,000",
@@ -693,37 +693,37 @@
     "alias": "Total",
     "year": 2019,
     "prov_cd": "SK",
-    "fdp": "1,363"
+    "fdp": 1363
   },
   {
     "alias": "Total",
     "year": 2020,
     "prov_cd": "SK",
-    "fdp": "1,407"
+    "fdp": 1407
   },
   {
     "alias": "Total",
     "year": 2021,
     "prov_cd": "SK",
-    "fdp": "1,248"
+    "fdp": 1248
   },
   {
     "alias": "Total",
     "year": 2022,
     "prov_cd": "SK",
-    "fdp": "1,406"
+    "fdp": 1406
   },
   {
     "alias": "Total",
     "year": 2023,
     "prov_cd": "SK",
-    "fdp": "1,431"
+    "fdp": 1431
   },
   {
     "alias": "Total",
     "year": 2024,
     "prov_cd": "SK",
-    "fdp": "1,435"
+    "fdp": 1435
   },
 {
     "alias": "Total",
