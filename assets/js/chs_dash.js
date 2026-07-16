@@ -40,11 +40,56 @@ async function loadDashboard() {
 ]);
 
 
-        const bedsData = await bedsResponse.json();
-        const doctorsData = await doctorsResponse.json();
-        const unmetData = await unmetResponse.json();
-        const waitData = await waitResponse.json();
-        const popData = await popResponse.json();
+let bedsData;
+let doctorsData;
+let unmetData;
+let waitData;
+let popData;
+
+
+try {
+    bedsData = await bedsResponse.json();
+    console.log("✅ Beds JSON loaded");
+}
+catch(e){
+    console.error("❌ Beds JSON failed", e);
+}
+
+
+try {
+    doctorsData = await doctorsResponse.json();
+    console.log("✅ Doctors JSON loaded");
+}
+catch(e){
+    console.error("❌ Doctors JSON failed", e);
+}
+
+
+try {
+    unmetData = await unmetResponse.json();
+    console.log("✅ Unmet JSON loaded");
+}
+catch(e){
+    console.error("❌ Unmet JSON failed", e);
+}
+
+
+try {
+    waitData = await waitResponse.json();
+    console.log("✅ Wait JSON loaded");
+}
+catch(e){
+    console.error("❌ Wait JSON failed", e);
+}
+
+
+try {
+    popData = await popResponse.json();
+    console.log("✅ Population JSON loaded");
+}
+catch(e){
+    console.error("❌ Population JSON failed", e);
+}
 
 
         // ==========================
