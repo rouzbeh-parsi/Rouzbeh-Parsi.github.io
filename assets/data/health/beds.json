@@ -1912,11 +1912,11 @@
     "Pediatrics": 2310,
     "Other_Acute": 53728,
     "Total_acute_bed": 65009,
-    "Mental_Health_and_Addictions": "12,376**",
-    "rehabilitation": "4,800**",
+    "Mental_Health_and_Addictions": 12376,
+    "rehabilitation": 4800,
     "Long_Term_Care": 13682,
-    "rbc_inst": "397**",
-    "Total_hosp_bed": "96,264**",
+    "rbc_inst": 397,
+    "Total_hosp_bed": 96,264,
     "Bassinate": 1686
   },
   {
@@ -2060,7 +2060,7 @@
     "rehabilitation": "x",
     "Long_Term_Care": 1368,
     "rbc_inst": "x",
-    "Total_hosp_bed": "3,928**",
+    "Total_hosp_bed": 3928,
     "Bassinate": 81
   },
   {
@@ -4200,11 +4200,11 @@
     "Pediatrics": 5.8,
     "Other_Acute": 135.3,
     "Total_acute_bed": 163.7,
-    "Mental_Health_and_Addictions": "32**",
-    "rehabilitation": "12**",
+    "Mental_Health_and_Addictions": 32,
+    "rehabilitation": 12,
     "Long_Term_Care": 34.5,
-    "rbc_inst": "1**",
-    "Total_hosp_bed": "242**",
+    "rbc_inst": 1,
+    "Total_hosp_bed": 242,
     "Bassinate": 4.2
   },
   {
@@ -4348,7 +4348,7 @@
     "rehabilitation": "x",
     "Long_Term_Care": 113.9,
     "rbc_inst": "x",
-    "Total_hosp_bed": "327**",
+    "Total_hosp_bed": 327,
     "Bassinate": 6.7
   },
   {
