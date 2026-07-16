@@ -692,7 +692,7 @@ async function loadMap(
 
 
                 zoom:
-                    3.2,
+                    3.1,
 
 
                 center:{
