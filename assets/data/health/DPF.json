@@ -725,4 +725,76 @@
     "prov_cd": "SK",
     "fdp": "1,435"
   }
+  {
+    "alias": "per 100,000",
+    "year": 2019,
+    "prov_cd": "ZZ",
+    "fdp": 45538
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2020,
+    "prov_cd": "ZZ",
+    "fdp": 46006
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2021,
+    "prov_cd": "ZZ",
+    "fdp": 46347
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2022,
+    "prov_cd": "ZZ",
+    "fdp": 46875
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2023,
+    "prov_cd": "ZZ",
+    "fdp": 46870
+  },
+  {
+    "alias": "per 100,000",
+    "year": 2024,
+    "prov_cd": "ZZ",
+    "fdp": 48945.06447
+  },
+  {
+    "alias": "Total",
+    "year": 2019,
+    "prov_cd": "ZZ",
+    "fdp": 120.3812123
+  },
+  {
+    "alias": "Total",
+    "year": 2020,
+    "prov_cd": "ZZ",
+    "fdp": 120.9811682
+  },
+  {
+    "alias": "Total",
+    "year": 2021,
+    "prov_cd": "ZZ",
+    "fdp": 120.506215
+  },
+  {
+    "alias": "Total",
+    "year": 2022,
+    "prov_cd": "ZZ",
+    "fdp": 119.3218973
+  },
+  {
+    "alias": "Total",
+    "year": 2023,
+    "prov_cd": "ZZ",
+    "fdp": 115.8207027
+  },
+  {
+    "alias": "Total",
+    "year": 2024,
+    "prov_cd": "ZZ",
+    "fdp": 117.9565932
+  }
 ]
