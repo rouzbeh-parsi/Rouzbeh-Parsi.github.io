@@ -1001,175 +1001,190 @@ function loadGrowthChart(
 
 
 
-    // ==========================
-// BED GAP CHART
+// ==========================
+// BED CHART
 // ==========================
 
-const bedGap = populationGrowth.map(
-    (x, i) => x - (bedGrowth[i] ?? 0)
+const bedYearsGrowth = bedYears.slice(1);
+
+const popGrowthBed = bedYearsGrowth.map(year => {
+
+    const idx = popYears.indexOf(year);
+
+    return idx > 0
+        ? populationGrowth[idx - 1]
+        : null;
+
+});
+
+
+const validBeds = bedYearsGrowth
+    .map((year,i) => ({
+        year,
+        pop: popGrowthBed[i],
+        bed: bedGrowth[i]
+    }))
+    .filter(d =>
+        d.pop !== null &&
+        d.bed !== undefined
+    );
+
+
+const bedGap = validBeds.map(
+    d => d.pop - d.bed
 );
 
 
-// Simple linear trendline
-const bedTrend = [];
+const bedTrend = bedGap.map((_,i) => {
 
-const bedAvg =
-    bedGap.reduce((a,b)=>a+b,0)
-    / bedGap.length;
+    const first = bedGap[0];
+    const last = bedGap[bedGap.length-1];
 
-for(let i=0;i<bedGap.length;i++){
+    return first +
+        (last-first) *
+        i /
+        Math.max(1, bedGap.length-1);
 
-    bedTrend.push(
-        bedAvg +
-        (i - bedGap.length/2) *
-        (
-            (bedGap[bedGap.length-1] - bedGap[0])
-            /
-            (bedGap.length-1)
-        )
-    );
-
-}
+});
 
 
 Plotly.react(
-
     "bedGrowthChart",
-
     [
-
         {
-            x: bedYears.slice(1),
-            y: populationGrowth,
-            name: "Population Growth",
-            mode: "lines+markers",
-            type: "scatter"
+            x: validBeds.map(d=>d.year),
+            y: validBeds.map(d=>d.pop),
+            name:"Population Growth",
+            mode:"lines+markers",
+            type:"scatter"
         },
 
         {
-            x: bedYears.slice(1),
-            y: bedGrowth,
-            name: "Hospital Bed Growth",
-            mode: "lines+markers",
-            type: "scatter"
+            x: validBeds.map(d=>d.year),
+            y: validBeds.map(d=>d.bed),
+            name:"Hospital Bed Growth",
+            mode:"lines+markers",
+            type:"scatter"
         },
 
         {
-            x: bedYears.slice(1),
+            x: validBeds.map(d=>d.year),
             y: bedTrend,
-            name: "Gap Trend",
-            mode: "lines",
-            line: {
-                dash: "dash",
-                width: 3
-            },
-            type: "scatter"
-        }
-
-    ],
-
-    {
-
-        title:
-        "Population Growth vs Hospital Bed Growth",
-
-        yaxis:{
-            title:"Annual Growth (%)"
-        },
-
-        hovermode:"x unified"
-
-    }
-
-);
-
-
-// ==========================
-// DOCTOR GAP CHART
-// ==========================
-
-const doctorGap = populationGrowth.map(
-    (x, i) => x - (doctorGrowth[i] ?? 0)
-);
-
-
-const doctorTrend = [];
-
-const doctorAvg =
-    doctorGap.reduce((a,b)=>a+b,0)
-    / doctorGap.length;
-
-for(let i=0;i<doctorGap.length;i++){
-
-    doctorTrend.push(
-        doctorAvg +
-        (i - doctorGap.length/2) *
-        (
-            (doctorGap[doctorGap.length-1] - doctorGap[0])
-            /
-            (doctorGap.length-1)
-        )
-    );
-
-}
-
-
-Plotly.react(
-
-    "doctorGrowthChart",
-
-    [
-
-        {
-            x: doctorYears.slice(1),
-            y: populationGrowth,
-            name: "Population Growth",
-            mode: "lines+markers",
-            type: "scatter"
-        },
-
-        {
-            x: doctorYears.slice(1),
-            y: doctorGrowth,
-            name: "Family Doctor Growth",
-            mode: "lines+markers",
-            type: "scatter"
-        },
-
-        {
-            x: doctorYears.slice(1),
-            y: doctorTrend,
-            name: "Gap Trend",
-            mode: "lines",
+            name:"Gap Trend",
+            mode:"lines",
             line:{
                 dash:"dash",
                 width:3
             },
             type:"scatter"
         }
-
     ],
-
     {
-
         title:
-        "Population Growth vs Family Doctor Growth",
+        `Population Growth vs Hospital Bed Growth (${province})`,
 
         yaxis:{
             title:"Annual Growth (%)"
         },
 
         hovermode:"x unified"
-
+    },
+    {
+        responsive:true
     }
+);
+// ==========================
+// DOCTOR CHART
+// ==========================
 
+const doctorYearsGrowth = doctorYears.slice(1);
+
+const popGrowthDoctor = doctorYearsGrowth.map(year => {
+
+    const idx = popYears.indexOf(year);
+
+    return idx > 0
+        ? populationGrowth[idx - 1]
+        : null;
+
+});
+
+
+const validDoctors = doctorYearsGrowth
+    .map((year,i) => ({
+        year,
+        pop: popGrowthDoctor[i],
+        doctor: doctorGrowth[i]
+    }))
+    .filter(d =>
+        d.pop !== null &&
+        d.doctor !== undefined
+    );
+
+
+const doctorGap = validDoctors.map(
+    d => d.pop - d.doctor
 );
 
 
+const doctorTrend = doctorGap.map((_,i) => {
+
+    const first = doctorGap[0];
+    const last = doctorGap[doctorGap.length-1];
+
+    return first +
+        (last-first) *
+        i /
+        Math.max(1, doctorGap.length-1);
+
+});
+
+
+Plotly.react(
+    "doctorGrowthChart",
+    [
+        {
+            x: validDoctors.map(d=>d.year),
+            y: validDoctors.map(d=>d.pop),
+            name:"Population Growth",
+            mode:"lines+markers",
+            type:"scatter"
+        },
+
+        {
+            x: validDoctors.map(d=>d.year),
+            y: validDoctors.map(d=>d.doctor),
+            name:"Family Doctor Growth",
+            mode:"lines+markers",
+            type:"scatter"
+        },
+
+        {
+            x: validDoctors.map(d=>d.year),
+            y: doctorTrend,
+            name:"Gap Trend",
+            mode:"lines",
+            line:{
+                dash:"dash",
+                width:3
+            },
+            type:"scatter"
+        }
+    ],
+    {
+        title:
+        `Population Growth vs Family Doctor Growth (${province})`,
+
+        yaxis:{
+            title:"Annual Growth (%)"
+        },
+
+        hovermode:"x unified"
+    },
+    {
+        responsive:true
     }
-
-
-
+);
     // initial load
 
     drawCharts();
