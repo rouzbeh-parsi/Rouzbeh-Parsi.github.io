@@ -1230,8 +1230,10 @@ Plotly.react(
         responsive:true
     }
 );
-    // initial load
 
+    }
+    // initial load
+    
     drawCharts();
 
 
