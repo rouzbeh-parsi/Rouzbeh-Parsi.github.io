@@ -1215,6 +1215,9 @@ Plotly.react(
     );
 
 
+
+}
+
 // ==========================
 // PERFORMANCE CHART
 // ==========================
@@ -1439,7 +1442,4 @@ Plotly.react(
         );
 
 } 
-
-}
-
 loadDashboard();
