@@ -1104,6 +1104,11 @@ Plotly.react(
     {
         title:
         `Population Growth vs Hospital Bed Growth (${province})`,
+        xaxis: {
+           tickmode: "linear",
+           dtick: 1,
+           tickformat: "d"
+      }
 
         yaxis:{
             title:"Annual Growth (%)"
@@ -1188,6 +1193,12 @@ Plotly.react(
     {
         title:
         `Population Growth vs Family Doctor Growth (${province})`,
+
+        xaxis: {
+             tickmode: "linear",
+             dtick: 1,
+             tickformat: "d"
+}
 
         yaxis:{
             title:"Annual Growth (%)"
