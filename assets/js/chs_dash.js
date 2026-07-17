@@ -1078,7 +1078,10 @@ Plotly.react(
             y: validBeds.map(d=>d.pop),
             name:"Population Growth",
             mode:"lines+markers",
-            type:"scatter"
+            type:"scatter",
+            hovertemplate:
+    "<b>%{x}</b><br>" +
+    "%{y:.1f}%<extra></extra>"
         },
 
         {
@@ -1086,7 +1089,10 @@ Plotly.react(
             y: validBeds.map(d=>d.bed),
             name:"Hospital Bed Growth",
             mode:"lines+markers",
-            type:"scatter"
+            type:"scatter",
+            hovertemplate:
+    "<b>%{x}</b><br>" +
+    "%{y:.1f}%<extra></extra>"
         },
 
         {
@@ -1167,7 +1173,10 @@ Plotly.react(
             y: validDoctors.map(d=>d.pop),
             name:"Population Growth",
             mode:"lines+markers",
-            type:"scatter"
+            type:"scatter",
+            hovertemplate:
+    "<b>%{x}</b><br>" +
+    "%{y:.1f}%<extra></extra>"
         },
 
         {
