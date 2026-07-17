@@ -1114,7 +1114,7 @@ Plotly.react(
            tickmode: "linear",
            dtick: 1,
            tickformat: "d"
-      }
+      },
 
         yaxis:{
             title:"Annual Growth (%)"
@@ -1207,7 +1207,7 @@ Plotly.react(
              tickmode: "linear",
              dtick: 1,
              tickformat: "d"
-}
+},
 
         yaxis:{
             title:"Annual Growth (%)"
