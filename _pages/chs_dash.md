@@ -10,6 +10,25 @@ layout: splash
 
 # Canadian Healthcare System Dashboard
 
+## About the Dashboard
+
+The objective of this dashboard is to provide an accessible overview of healthcare capacity and access across Canada. Rather than focusing on a single indicator, the dashboard combines multiple measures to help identify regions where healthcare resources may be keeping pace with population growth and where potential capacity pressures may be emerging.
+
+## Data Sources
+
+This dashboard combines data from two national sources:
+
+### Statistics Canada
+- Population estimates by province and territory
+- Self-reported unmet healthcare needs
+
+### Canadian Institute for Health Information (CIHI)
+- Hospital beds
+- Family physicians
+- Emergency department wait times
+
+Data are presented at the provincial and territorial level and are updated according to the latest publicly available releases from each organization.
+
 <div class="controls">
 
     <label for="provinceSelect">
