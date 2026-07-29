@@ -20,7 +20,7 @@ This analysis extends the approach by comparing British Columbia with Alberta as
 - **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
   [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports)
 
-- **Alberta:** Substance Use Surveillance Data  fuck
+- **Alberta:** Substance Use Surveillance Data
   [https://www.alberta.ca/substance-use-surveillance-data](https://www.alberta.ca/substance-use-surveillance-data)
 
 <div id="bc_ab_chart" style="width:100%;height:600px;"></div>
@@ -219,3 +219,15 @@ window.addEventListener("load", function(){
 
 }); 
 </script>
+
+## Next Step: Difference-in-Differences Event Study
+
+The descriptive comparison above shows the evolution of drug-related mortality rates in British Columbia and Alberta before and after BC's decriminalization pilot.
+
+The next step estimates a difference-in-differences event-study model. This approach compares the change in British Columbia relative to Alberta while controlling for:
+
+- permanent differences between provinces;
+- common time trends affecting both provinces;
+- changes occurring around the policy implementation period.
+
+The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
