@@ -41,14 +41,15 @@ window.addEventListener("load", function(){
     );
 
 
+    // Policy period
     const policyStart = new Date(2023,0,1); // Jan 2023
     const policyEnd = new Date(2026,0,1);   // Jan 2026
 
 
-    Plotly.newPlot(
+ Plotly.newPlot(
         "bc_ab_chart",
-        [
 
+        [
             {
                 x: dates,
                 y: bc,
@@ -68,8 +69,8 @@ window.addEventListener("load", function(){
                     width:3
                 }
             }
-
         ],
+
 
         {
 
@@ -96,89 +97,101 @@ window.addEventListener("load", function(){
             hovermode:"x unified",
 
 
-           shapes:[
-    {
-        type:"rect",
-        x0:policyStart,
-        x1:policyEnd,
-        y0:0,
-        y1:1,
-        xref:"x",
-        yref:"paper",
-        fillcolor:"rgba(255,0,0,0.08)",
-        line:{
-            width:0
-        }
-    },
+            shapes:[
 
-    {
-        type:"line",
-        x0:policyStart,
-        x1:policyStart,
-        y0:0,
-        y1:1,
-        xref:"x",
-        yref:"paper",
-        line:{
-            color:"red",
-            dash:"dash",
-            width:2
-        }
-    },
-
-    {
-        type:"line",
-        x0:policyEnd,
-        x1:policyEnd,
-        y0:0,
-        y1:1,
-        xref:"x",
-        yref:"paper",
-        line:{
-            color:"red",
-            dash:"dash",
-            width:2
-        }
-    }
-],
+                // Policy period shading
+                {
+                    type:"rect",
+                    x0:policyStart,
+                    x1:policyEnd,
+                    y0:0,
+                    y1:1,
+                    xref:"x",
+                    yref:"paper",
+                    fillcolor:"rgba(255,0,0,0.08)",
+                    line:{
+                        width:0
+                    }
+                },
 
 
-annotations:[
-    {
-        x:policyStart,
-        y:1,
-        xref:"x",
-        yref:"paper",
-        text:"Policy Start<br>Jan 2023",
-        showarrow:false,
-        yanchor:"bottom",
-        font:{
-            color:"red"
-        }
-    },
+                // Policy start line
+                {
+                    type:"line",
+                    x0:policyStart,
+                    x1:policyStart,
+                    y0:0,
+                    y1:1,
+                    xref:"x",
+                    yref:"paper",
+                    line:{
+                        color:"red",
+                        dash:"dash",
+                        width:2
+                    }
+                },
 
-    {
-        x:policyEnd,
-        y:1,
-        xref:"x",
-        yref:"paper",
-        text:"Policy End<br>Jan 2026",
-        showarrow:false,
-        yanchor:"bottom",
-        font:{
-            color:"red"
-        }
-    }
-],
+
+                // Policy end line
+                {
+                    type:"line",
+                    x0:policyEnd,
+                    x1:policyEnd,
+                    y0:0,
+                    y1:1,
+                    xref:"x",
+                    yref:"paper",
+                    line:{
+                        color:"red",
+                        dash:"dash",
+                        width:2
+                    }
+                }
+
+            ],
+
+
+            annotations:[
+
+                {
+                    x:policyStart,
+                    y:1,
+                    xref:"x",
+                    yref:"paper",
+                    text:"Policy Start<br>Jan 2023",
+                    showarrow:false,
+                    yanchor:"bottom",
+                    font:{
+                        color:"red"
+                    }
+                },
+
+
+                {
+                    x:policyEnd,
+                    y:1,
+                    xref:"x",
+                    yref:"paper",
+                    text:"Policy End<br>Jan 2026",
+                    showarrow:false,
+                    yanchor:"bottom",
+                    font:{
+                        color:"red"
+                    }
+                }
+
+            ],
+
 
             margin:{
                 l:80,
                 r:40,
-                t:90,
+                t:100,
                 b:80
             }
 
         },
+
 
         {
             responsive:true
