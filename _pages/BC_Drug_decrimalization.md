@@ -91,7 +91,7 @@ Plotly.newPlot(
             {
                 type: "buttons",
                 direction: "left",
-                x: 0.5,
+                x: 0,
                 y: 1.15,
                 xanchor: "center",
                 yanchor: "top",
