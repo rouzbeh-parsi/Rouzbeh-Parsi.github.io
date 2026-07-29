@@ -12,13 +12,6 @@ The previous analysis examined changes in drug-related mortality in British Colu
 
 This analysis extends the approach by comparing British Columbia with Alberta as a control province. The first step is to compare mortality rates per 100,000 population between the two provinces before estimating a difference-in-differences event-study model.
 
-## Data Sources
-
-- **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
-  [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports)
-
-- **Alberta:** Substance Use Surveillance Data  
-  [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www.alberta.ca/substance-use-surveillance-data)
 
 <div id="bc_ab_chart" style="width:100%;height:600px;"></div>
 
@@ -204,4 +197,11 @@ The next step estimates a difference-in-differences event-study model. This appr
 
 The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
 
-fuck you all 223qreqerasd234451
+## Data Sources
+
+- **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
+  [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports)
+
+- **Alberta:** Substance Use Surveillance Data  
+  [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www.alberta.ca/substance-use-surveillance-data)
+
