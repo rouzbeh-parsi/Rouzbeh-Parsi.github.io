@@ -137,31 +137,6 @@ const policyEnd = new Date(2026,0,1);   // Jan 2026
 ],
 
 
-           annotations:[
-    {
-        x:policyStart,
-        y:1,
-        xref:"x",
-        yref:"paper",
-        text:"Policy Start Jan 2023",
-        showarrow:false,
-        font:{
-            color:"red"
-        }
-    },
-
-    {
-        x:policyEnd,
-        y:1,
-        xref:"x",
-        yref:"paper",
-        text:"Policy End Jan 2026",
-        showarrow:false,
-        font:{
-            color:"red"
-        }
-    }
-],
 
             margin:{
                 l:80,
