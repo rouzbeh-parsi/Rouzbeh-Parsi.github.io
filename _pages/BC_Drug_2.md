@@ -176,99 +176,6 @@ window.addEventListener("load", function(){
             hovermode:"x unified",
 
 
-
-            shapes:[
-
-
-                // Policy period shading
-                {
-                    type:"rect",
-                    x0:policyStart,
-                    x1:policyEnd,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    fillcolor:"rgba(255,0,0,0.08)",
-                    line:{
-                        width:0
-                    }
-                },
-
-
-                // Policy start
-                {
-                    type:"line",
-                    x0:policyStart,
-                    x1:policyStart,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"red",
-                        dash:"dash",
-                        width:2
-                    }
-                },
-
-
-                // Policy end
-                {
-                    type:"line",
-                    x0:policyEnd,
-                    x1:policyEnd,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"red",
-                        dash:"dash",
-                        width:2
-                    }
-                }
-
-
-            ],
-
-
-
-            annotations:[
-
-
-                {
-                    x:policyStart,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy Start - Jan 2023",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                },
-
-
-                {
-                    x:policyEnd,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy End - Jan 2026",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                }
-
-
-            ],
-
-
-
             margin:{
                 l:80,
                 r:40,
@@ -303,4 +210,4 @@ The next step estimates a difference-in-differences event-study model. This appr
 
 The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
 
-fuck you all 2
+fuck you all 223
