@@ -197,8 +197,10 @@ Plotly.newPlot(
     },
     {
         responsive: true
-    }
+}
 );
+
+});   // <--- MISSING
 </script>
 
 ## Methodology: Interrupted Time Series Regression
