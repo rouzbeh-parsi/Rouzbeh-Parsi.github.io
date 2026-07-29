@@ -25,7 +25,6 @@ This analysis extends the approach by comparing British Columbia with Alberta as
 
 <script>
 window.BCAB_DATA = {{ site.data.BCABDRUG | jsonify }};
-console.log("DATA LOADED:", window.BCAB_DATA);
 </script>
 
 
@@ -36,16 +35,7 @@ console.log("DATA LOADED:", window.BCAB_DATA);
 
 window.addEventListener("load", function(){
 
-
-    // Check Plotly
-    if (typeof Plotly === "undefined") {
-        console.log("Plotly not loaded");
-        return;
-    }
-
-
-    // Load data
-    let data = window.BCAB_DATA;
+    const data = window.BCAB_DATA;
 
 
     if (!data || data.length === 0) {
@@ -54,41 +44,8 @@ window.addEventListener("load", function(){
     }
 
 
-    // ----------------------------------
-    // Restrict study period
-    // Jan 2016 - Mar 2026
-    // ----------------------------------
-
-    data = data.filter(d => {
-
-        const date = new Date(
-            d.DeathYear,
-            d.Month - 1,
-            1
-        );
-
-        return (
-            date >= new Date(2016,0,1) &&
-            date <= new Date(2026,2,1)
-        );
-
-    });
-
-
-    console.log("FILTERED DATA:", data);
-
-
-
-    // ----------------------------------
-    // Create series
-    // ----------------------------------
-
     const dates = data.map(d =>
-        new Date(
-            d.DeathYear,
-            d.Month - 1,
-            1
-        )
+        new Date(d.DeathYear, d.Month - 1, 1)
     );
 
 
@@ -98,30 +55,16 @@ window.addEventListener("load", function(){
 
 
     const ab = data.map(d =>
-        (d.fpcab === "" || d.fpcab == null)
+        d.fpcab === "" || d.fpcab == null
         ? null
         : Number(d.fpcab)
     );
 
 
 
-    // ----------------------------------
-    // Policy period
-    // ----------------------------------
-
-    const policyStart = new Date(2023,0,1);
-    const policyEnd   = new Date(2026,0,1);
-
-
-
-    // ----------------------------------
-    // Plot
-    // ----------------------------------
-
     Plotly.newPlot(
 
         "bc_ab_chart",
-
 
         [
 
@@ -139,8 +82,8 @@ window.addEventListener("load", function(){
             {
                 x: dates,
                 y: ab,
-                mode:"lines",
-                name:"Alberta",
+                mode: "lines",
+                name: "Alberta",
                 line:{
                     width:3
                 }
@@ -151,10 +94,8 @@ window.addEventListener("load", function(){
 
         {
 
-
             title:{
-                text:
-                "Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
+                text:"Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
                 x:0.5,
                 font:{
                     size:22
@@ -179,10 +120,9 @@ window.addEventListener("load", function(){
             margin:{
                 l:80,
                 r:40,
-                t:110,
+                t:90,
                 b:80
             }
-
 
         },
 
@@ -190,7 +130,6 @@ window.addEventListener("load", function(){
         {
             responsive:true
         }
-
 
     );
 
