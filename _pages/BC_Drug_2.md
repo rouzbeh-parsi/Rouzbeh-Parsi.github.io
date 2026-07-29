@@ -41,7 +41,8 @@ window.addEventListener("load", function(){
     );
 
 
-    const policyDate = new Date(2023,0,1);
+    const policyStart = new Date(2023,0,1); // Jan 2023
+    const policyEnd = new Date(2026,0,1);   // Jan 2026
 
 
     Plotly.newPlot(
@@ -95,38 +96,80 @@ window.addEventListener("load", function(){
             hovermode:"x unified",
 
 
-            shapes:[
-                {
-                    type:"line",
-                    x0:policyDate,
-                    x1:policyDate,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"red",
-                        dash:"dash",
-                        width:2
-                    }
-                }
-            ],
+           shapes:[
+    {
+        type:"rect",
+        x0:policyStart,
+        x1:policyEnd,
+        y0:0,
+        y1:1,
+        xref:"x",
+        yref:"paper",
+        fillcolor:"rgba(255,0,0,0.08)",
+        line:{
+            width:0
+        }
+    },
+
+    {
+        type:"line",
+        x0:policyStart,
+        x1:policyStart,
+        y0:0,
+        y1:1,
+        xref:"x",
+        yref:"paper",
+        line:{
+            color:"red",
+            dash:"dash",
+            width:2
+        }
+    },
+
+    {
+        type:"line",
+        x0:policyEnd,
+        x1:policyEnd,
+        y0:0,
+        y1:1,
+        xref:"x",
+        yref:"paper",
+        line:{
+            color:"red",
+            dash:"dash",
+            width:2
+        }
+    }
+],
 
 
-            annotations:[
-                {
-                    x:policyDate,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"BC Decriminalization (Jan 2023)",
-                    showarrow:false,
-                    font:{
-                        color:"red"
-                    }
-                }
-            ],
+annotations:[
+    {
+        x:policyStart,
+        y:1,
+        xref:"x",
+        yref:"paper",
+        text:"Policy Start<br>Jan 2023",
+        showarrow:false,
+        yanchor:"bottom",
+        font:{
+            color:"red"
+        }
+    },
 
+    {
+        x:policyEnd,
+        y:1,
+        xref:"x",
+        yref:"paper",
+        text:"Policy End<br>Jan 2026",
+        showarrow:false,
+        yanchor:"bottom",
+        font:{
+            color:"red"
+        }
+    }
+],
 
             margin:{
                 l:80,
