@@ -169,4 +169,4 @@ The next step estimates a difference-in-differences event-study model. This appr
 
 The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
 
-fuck you all 223wetr
+fuck you all 223asd
