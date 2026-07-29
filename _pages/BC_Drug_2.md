@@ -49,7 +49,7 @@ window.addEventListener("load", function(){
     );
 
 
-    const policyDate = new Date(2023,0,1);
+    const policyStart = new Date(2023,0,1);
 
 
     Plotly.newPlot(
@@ -106,8 +106,8 @@ window.addEventListener("load", function(){
             shapes:[
                 {
                     type:"line",
-                    x0:policyDate,
-                    x1:policyDate,
+                    x0:policyStart,
+                    x1:policyStart,
                     y0:0,
                     y1:1,
                     xref:"x",
@@ -123,7 +123,7 @@ window.addEventListener("load", function(){
 
             annotations:[
                 {
-                    x:policyDate,
+                    x:policyStart,
                     y:1,
                     xref:"x",
                     yref:"paper",
@@ -168,4 +168,4 @@ The next step estimates a difference-in-differences event-study model. This appr
 
 The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
 
-fuck you all 223asd
+fuck you all 223qreqerasd
