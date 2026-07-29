@@ -18,36 +18,50 @@ This analysis extends the approach by comparing British Columbia with Alberta as
   [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports)
 
 - **Alberta:** Substance Use Surveillance Data  
-  [https://www.alberta.ca/substance-use-surveillance-data](https://www.alberta.ca/substance-use-surveillance-data)
+  [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www.alberta.ca/substance-use-surveillance-data)
 
 <div id="bc_ab_chart" style="width:100%;height:600px;"></div>
+
+<!-- Safe data injection into HTML DOM -->
+<script id="bcab-data-payload" type="application/json">
+  {% if site.data.BCABDRUG %}{{ site.data.BCABDRUG | jsonify }}{% else %}[]{% endif %}
+</script>
+
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Safely assign data from Liquid
-    const rawData = {{ site.data.BCABDRUG | jsonify }};
-    console.log("DATA LOADED:", rawData);
-
-    if (!rawData || !Array.isArray(rawData) || rawData.length === 0) {
-        console.error("No valid data found in site.data.BCABDRUG");
+    let data = [];
+    
+    // Safely parse JSON from HTML element to prevent inline syntax crashes
+    try {
+        const payloadElement = document.getElementById("bcab-data-payload");
+        data = JSON.parse(payloadElement.textContent || "[]");
+        console.log("DATA LOADED SUCCESSFULLY:", data);
+    } catch (e) {
+        console.error("Syntax Error parsing _data/BCABDRUG.json:", e);
         return;
     }
 
-    // Format dates to ISO String YYYY-MM-01 for clean Plotly parsing
-    const dates = rawData.map(d => {
+    if (!Array.isArray(data) || data.length === 0) {
+        console.warn("No data points found in site.data.BCABDRUG.");
+        return;
+    }
+
+    // Format dates cleanly into ISO YYYY-MM-01 format for Plotly
+    const dates = data.map(d => {
         const month = String(d.Month).padStart(2, '0');
         return `${d.DeathYear}-${month}-01`;
     });
 
-    const bc = rawData.map(d => (d.fpcbc !== undefined && d.fpcbc !== null && d.fpcbc !== "") ? Number(d.fpcbc) : null);
-    const ab = rawData.map(d => (d.fpcab !== undefined && d.fpcab !== null && d.fpcab !== "") ? Number(d.fpcab) : null);
+    const bc = data.map(d => (d.fpcbc !== undefined && d.fpcbc !== null && d.fpcbc !== "") ? Number(d.fpcbc) : null);
+    const ab = data.map(d => (d.fpcab !== undefined && d.fpcab !== null && d.fpcab !== "") ? Number(d.fpcab) : null);
 
-    // Policy period definition (ISO format)
+    // Policy start and end boundaries (Jan 2023 - Jan 2026)
     const policyStart = "2023-01-01";
     const policyEnd = "2026-01-01";
 
-    const plotTraces = [
+    const traces = [
         {
             x: dates,
             y: bc,
@@ -64,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     ];
 
-    const plotLayout = {
+    const layout = {
         title: {
             text: "Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
             x: 0.5,
@@ -138,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
         margin: { l: 80, r: 40, t: 100, b: 80 }
     };
 
-    Plotly.newPlot("bc_ab_chart", plotTraces, plotLayout, { responsive: true });
+    Plotly.newPlot("bc_ab_chart", traces, layout, { responsive: true });
 });
 </script>
 
@@ -153,3 +167,5 @@ The next step estimates a difference-in-differences event-study model. This appr
 - changes occurring around the policy implementation period.
 
 The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
+
+fuck you all
