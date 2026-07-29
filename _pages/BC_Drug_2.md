@@ -22,11 +22,9 @@ This analysis extends the approach by comparing British Columbia with Alberta as
 
 <div id="bc_ab_chart" style="width:100%;height:600px;"></div>
 
-
 <script>
 window.BCAB_DATA = {{ site.data.BCABDRUG | jsonify }};
 </script>
-
 
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
@@ -37,13 +35,6 @@ window.addEventListener("load", function(){
 
     const data = window.BCAB_DATA;
 
-
-    if (!data || data.length === 0) {
-        console.log("No data found");
-        return;
-    }
-
-
     const dates = data.map(d =>
         new Date(d.DeathYear, d.Month - 1, 1)
     );
@@ -53,163 +44,115 @@ window.addEventListener("load", function(){
         Number(d.fpcbc)
     );
 
-
     const ab = data.map(d =>
-        d.fpcab === "" || d.fpcab == null 
-        ? null 
-        : Number(d.fpcab)
+        d.fpcab === "" ? null : Number(d.fpcab)
     );
 
 
-    // Policy dates
-    const policyStart = new Date(2023,0,1);
-    const policyEnd   = new Date(2026,0,1);
-
-
-
-    const traces = [
-
-        {
-            x: dates,
-            y: bc,
-            mode: "lines",
-            name: "British Columbia",
-            line:{
-                width:3
-            }
-        },
-
-
-        {
-            x: dates,
-            y: ab,
-            mode:"lines",
-            name:"Alberta",
-            line:{
-                width:3
-            }
-        }
-
-    ];
-
-
-
-    const layout = {
-
-
-        title:{
-            text:"Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
-            x:0.5
-        },
-
-
-        xaxis:{
-            title:"Date",
-            type:"date"
-        },
-
-
-        yaxis:{
-            title:"Deaths per 100,000 Population"
-        },
-
-
-        hovermode:"x unified",
-
-
-
-        shapes:[
-
-            {
-                type:"line",
-                x0:policyStart,
-                x1:policyStart,
-                y0:0,
-                y1:1,
-                xref:"x",
-                yref:"paper",
-                line:{
-                    color:"red",
-                    dash:"dash",
-                    width:2
-                }
-            },
-
-
-            {
-                type:"line",
-                x0:policyEnd,
-                x1:policyEnd,
-                y0:0,
-                y1:1,
-                xref:"x",
-                yref:"paper",
-                line:{
-                    color:"red",
-                    dash:"dash",
-                    width:2
-                }
-            }
-
-        ],
-
-
-
-        annotations:[
-
-            {
-                x:policyStart,
-                y:1,
-                xref:"x",
-                yref:"paper",
-                text:"Policy Start<br>Jan 2023",
-                showarrow:false,
-                yanchor:"bottom",
-                font:{
-                    color:"red"
-                }
-            },
-
-
-            {
-                x:policyEnd,
-                y:1,
-                xref:"x",
-                yref:"paper",
-                text:"Policy End<br>Jan 2026",
-                showarrow:false,
-                yanchor:"bottom",
-                font:{
-                    color:"red"
-                }
-            }
-
-        ],
-
-
-        margin:{
-            l:80,
-            r:40,
-            t:100,
-            b:80
-        }
-
-    };
-
+    const policyDate = new Date(2023,0,1);
 
 
     Plotly.newPlot(
         "bc_ab_chart",
-        traces,
-        layout,
+        [
+
+            {
+                x: dates,
+                y: bc,
+                mode: "lines",
+                name: "British Columbia",
+                line:{
+                    width:3
+                }
+            },
+
+            {
+                x: dates,
+                y: ab,
+                mode:"lines",
+                name:"Alberta",
+                line:{
+                    width:3
+                }
+            }
+
+        ],
+
+        {
+
+            title:{
+                text:"Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
+                x:0.5,
+                font:{
+                    size:22
+                }
+            },
+
+
+            xaxis:{
+                title:"Date",
+                type:"date"
+            },
+
+
+            yaxis:{
+                title:"Deaths per 100,000 Population"
+            },
+
+
+            hovermode:"x unified",
+
+
+            shapes:[
+                {
+                    type:"line",
+                    x0:policyDate,
+                    x1:policyDate,
+                    y0:0,
+                    y1:1,
+                    xref:"x",
+                    yref:"paper",
+                    line:{
+                        color:"red",
+                        dash:"dash",
+                        width:2
+                    }
+                }
+            ],
+
+
+            annotations:[
+                {
+                    x:policyDate,
+                    y:1,
+                    xref:"x",
+                    yref:"paper",
+                    text:"BC Decriminalization (Jan 2023)",
+                    showarrow:false,
+                    font:{
+                        color:"red"
+                    }
+                }
+            ],
+
+
+            margin:{
+                l:80,
+                r:40,
+                t:90,
+                b:80
+            }
+
+        },
+
         {
             responsive:true
         }
+
     );
 
 
 });
-
 
 </script>
 
