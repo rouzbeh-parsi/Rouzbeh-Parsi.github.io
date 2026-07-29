@@ -171,36 +171,7 @@ window.addEventListener("load", function(){
             ],
 
 
-            annotations:[
-
-                {
-                    x:policyStart,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy Start - Jan 2023",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                },
-
-
-                {
-                    x:policyEnd,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy End - Jan 2026",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                }
-
-            ],
+            annotations:[],
 
 
             margin:{
