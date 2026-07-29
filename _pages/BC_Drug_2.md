@@ -50,7 +50,7 @@ window.addEventListener("load", function(){
 
 
     const policyStart = new Date(2023,0,1);
-
+    const policyEnd = new Date(2026,0,1);
 
     Plotly.newPlot(
         "bc_ab_chart",
@@ -117,6 +117,20 @@ window.addEventListener("load", function(){
                         dash:"dash",
                         width:2
                     }
+                },
+                              {
+                    type:"line",
+                    x0:policyEnd,
+                    x1:policyEnd,
+                    y0:0,
+                    y1:1,
+                    xref:"x",
+                    yref:"paper",
+                    line:{
+                        color:"red",
+                        dash:"dash",
+                        width:2
+                    }
                 }
             ],
 
@@ -124,6 +138,17 @@ window.addEventListener("load", function(){
             annotations:[
                 {
                     x:policyStart,
+                    y:1,
+                    xref:"x",
+                    yref:"paper",
+                    text:"BC Decriminalization (Jan 2023)",
+                    showarrow:false,
+                    font:{
+                        color:"red"
+                    }
+                },
+                {
+                    x:policyEnd,
                     y:1,
                     xref:"x",
                     yref:"paper",
@@ -168,4 +193,4 @@ The next step estimates a difference-in-differences event-study model. This appr
 
 The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
 
-fuck you all 223qreqerasd
+fuck you all 223qreqerasd234451
