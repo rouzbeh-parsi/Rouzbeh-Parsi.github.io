@@ -164,36 +164,36 @@ window.addEventListener("load", function(){
             ],
 
 
-            annotations:[
+          annotations:[
 
-                {
-                    x:policyStart,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy Start<br>Jan 2023",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                },
+    {
+        x:policyStart,
+        y:1,
+        xref:"x",
+        yref:"paper",
+        text:"Policy Start - Jan 2023",
+        showarrow:false,
+        yanchor:"bottom",
+        font:{
+            color:"red"
+        }
+    },
 
 
-                {
-                    x:policyEnd,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy End<br>Jan 2026",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                }
+    {
+        x:policyEnd,
+        y:1,
+        xref:"x",
+        yref:"paper",
+        text:"Policy End - Jan 2026",
+        showarrow:false,
+        yanchor:"bottom",
+        font:{
+            color:"red"
+        }
+    }
 
-            ],
+],
 
 
             margin:{
