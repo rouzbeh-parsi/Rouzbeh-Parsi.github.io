@@ -204,6 +204,8 @@ window.addEventListener("load", function(){
         }
 
     );
+});
+
 </script>
 ## Next Step: Difference-in-Differences Event Study
 
