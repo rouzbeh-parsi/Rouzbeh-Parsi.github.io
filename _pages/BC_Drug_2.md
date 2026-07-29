@@ -24,18 +24,23 @@ This analysis extends the approach by comparing British Columbia with Alberta as
   [https://www.alberta.ca/substance-use-surveillance-data](https://www.alberta.ca/substance-use-surveillance-data)
 
 <div id="bc_ab_chart" style="width:100%;height:600px;"></div>
+
+<script>
 window.BCAB_DATA = {{ site.data.BCABDRUG | jsonify }};
+console.log("DATA LOADED:", window.BCAB_DATA);
+</script>
+
 
 <script>
 console.log("SCRIPT START");
 
 window.addEventListener("load", function(){
 
-console.log("PAGE LOADED");
+    console.log("PAGE LOADED");
 
-const data = window.BCAB_DATA;
+    const data = window.BCAB_DATA;
 
-console.log(data);
+    console.log(data);
 
 });
 </script>
