@@ -14,18 +14,26 @@ This analysis extends the approach by comparing British Columbia with Alberta as
 
 <div id="bc_ab_chart" style="width:100%;height:600px;"></div>
 
-<script>
-window.BCAB_DATA = {{ site.data.BCABDRUG | jsonify }};
-</script>
 
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+## Data Sources
 
+- **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
+  [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports)
+
+- **Alberta:** Substance Use Surveillance Data  
+  [https://www.alberta.ca/substance-use-surveillance-data](https://www.alberta.ca/substance-use-surveillance-data)
 
 <script>
 
 window.addEventListener("load", function(){
 
     const data = window.BCAB_DATA;
+
+    if (!data || data.length === 0) {
+        console.log("No data found");
+        return;
+    }
+
 
     const dates = data.map(d =>
         new Date(d.DeathYear, d.Month - 1, 1)
@@ -36,8 +44,11 @@ window.addEventListener("load", function(){
         Number(d.fpcbc)
     );
 
+
     const ab = data.map(d =>
-        d.fpcab === "" ? null : Number(d.fpcab)
+        d.fpcab === "" || d.fpcab == null 
+        ? null 
+        : Number(d.fpcab)
     );
 
 
@@ -46,7 +57,8 @@ window.addEventListener("load", function(){
     const policyEnd = new Date(2026,0,1);   // Jan 2026
 
 
- Plotly.newPlot(
+
+    Plotly.newPlot(
         "bc_ab_chart",
 
         [
@@ -59,6 +71,7 @@ window.addEventListener("load", function(){
                     width:3
                 }
             },
+
 
             {
                 x: dates,
@@ -99,7 +112,7 @@ window.addEventListener("load", function(){
 
             shapes:[
 
-                // Policy period shading
+                // Policy period
                 {
                     type:"rect",
                     x0:policyStart,
@@ -115,7 +128,7 @@ window.addEventListener("load", function(){
                 },
 
 
-                // Policy start line
+                // Policy start
                 {
                     type:"line",
                     x0:policyStart,
@@ -132,7 +145,7 @@ window.addEventListener("load", function(){
                 },
 
 
-                // Policy end line
+                // Policy end
                 {
                     type:"line",
                     x0:policyEnd,
@@ -186,7 +199,7 @@ window.addEventListener("load", function(){
             margin:{
                 l:80,
                 r:40,
-                t:100,
+                t:110,
                 b:80
             }
 
