@@ -20,7 +20,7 @@ This analysis extends the approach by comparing British Columbia with Alberta as
 - **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
   [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports)
 
-- **Alberta:** Substance Use Surveillance Data  
+- **Alberta:** Substance Use Surveillance Data  fuck
   [https://www.alberta.ca/substance-use-surveillance-data](https://www.alberta.ca/substance-use-surveillance-data)
 
 <script>
