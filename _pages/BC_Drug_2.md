@@ -104,6 +104,17 @@ window.addEventListener("load", function(){
 
 
             shapes:[
+                  {
+                type: "rect",
+                xref: "x",
+                yref: "paper",
+                x0: policyStart,
+                x1: policyEnd,
+                y0: 0,
+                y1: 1,
+                fillcolor: "rgba(255,0,0,0.08)",
+                line: { width: 0 }
+            },
                 {
                     type:"line",
                     x0:policyStart,
