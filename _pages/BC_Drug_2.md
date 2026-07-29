@@ -26,7 +26,7 @@ This analysis extends the approach by comparing British Columbia with Alberta as
 <div id="bc_ab_chart" style="width:100%;height:600px;"></div>
 
 <script>
-window.BCAB_DATA = {{ site.data.BCABDRUG | jsonify }};
+window.BCAB_DATA = {{ site.data.BCABDRUG.json | jsonify }};
 console.log("DATA LOADED:", window.BCAB_DATA);
 </script>
 
