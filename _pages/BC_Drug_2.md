@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Evaluation of Drug Decriminalization Pilot Program in BC "
+title: "BC Drug Decriminalization Pilot Evaluation: Step 2 — Did BC change differently from a comparable province? "
 permalink: /BC-drug-policy2/
 author_profile: true
 mathjax: false
