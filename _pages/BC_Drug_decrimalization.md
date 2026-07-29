@@ -41,62 +41,94 @@ window.addEventListener("load", function () {
     }
 
 
-    const x = rawData.map(function (d) {
-        return new Date(d.DeathYear, d.Month - 1, 1);
-    });
+const x = rawData.map(d => new Date(d.DeathYear, d.Month - 1, 1));
 
-    const y = rawData.map(function (d) {
-        return Number(d.Frequency);
-    });
+const deaths = rawData.map(d => Number(d.Frequency));
+
+const rates = rawData.map(d => Number(d.fpc));
 
     const policyStart = new Date(2023, 0, 1);
     const policyEnd = new Date(2026, 0, 1);
 
-    Plotly.newPlot("drug_chart", [
+Plotly.newPlot(
+    "drug_chart",
+    [
         {
             x: x,
-            y: y,
+            y: deaths,
             mode: "lines+markers",
-            name: "Observed deaths",
+            name: "Drug Toxicity Deaths",
             line: { color: "#2563eb", width: 2 },
             marker: { size: 6 }
         }
-    ], {
+    ],
+    {
         title: {
             text: "Drug-related Deaths in BC",
-            font: { size: 22, color: "#222" },
+            font: { size: 22 },
             x: 0.5
-        },
-
-        font: {
-            color: "#222"
         },
 
         margin: {
             l: 80,
             r: 40,
-            t: 90,
+            t: 100,
             b: 80
         },
 
         xaxis: {
-            title: {
-                text: "Date",
-                font: { size: 16, color: "#222" }
-            },
-            type: "date",
-            tickfont: { color: "#222" }
+            title: "Date",
+            type: "date"
         },
 
         yaxis: {
-            title: {
-                text: "Deaths",
-                font: { size: 16, color: "#222" }
-            },
-            tickfont: { color: "#222" }
+            title: "Deaths"
         },
 
         hovermode: "x unified",
+
+        updatemenus: [
+            {
+                type: "buttons",
+                direction: "left",
+                x: 0.5,
+                y: 1.15,
+                xanchor: "center",
+                yanchor: "top",
+                buttons: [
+                    {
+                        label: "Count",
+                        method: "update",
+                        args: [
+                            {
+                                y: [deaths]
+                            },
+                            {
+                                title: "Drug-related Deaths in BC",
+                                yaxis: {
+                                    title: "Deaths"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        label: "Per 100,000",
+                        method: "update",
+                        args: [
+                            {
+                                y: [rates]
+                            },
+                            {
+                                title: "Drug-related Deaths in BC (Per 100,000 Population)",
+                                yaxis: {
+                                    title: "Deaths per 100,000"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
 
         shapes: [
             {
@@ -107,7 +139,7 @@ window.addEventListener("load", function () {
                 x1: policyEnd,
                 y0: 0,
                 y1: 1,
-                fillcolor: "rgba(255, 0, 0, 0.08)",
+                fillcolor: "rgba(255,0,0,0.08)",
                 line: { width: 0 }
             },
             {
@@ -118,7 +150,11 @@ window.addEventListener("load", function () {
                 y1: 1,
                 xref: "x",
                 yref: "paper",
-                line: { color: "red", width: 2, dash: "dash" }
+                line: {
+                    color: "red",
+                    width: 2,
+                    dash: "dash"
+                }
             },
             {
                 type: "line",
@@ -128,7 +164,11 @@ window.addEventListener("load", function () {
                 y1: 1,
                 xref: "x",
                 yref: "paper",
-                line: { color: "red", width: 2, dash: "dash" }
+                line: {
+                    color: "red",
+                    width: 2,
+                    dash: "dash"
+                }
             }
         ],
 
@@ -154,10 +194,11 @@ window.addEventListener("load", function () {
                 font: { color: "red" }
             }
         ]
-    }, {
+    },
+    {
         responsive: true
-    });
-});
+    }
+);
 </script>
 
 ## Methodology: Interrupted Time Series Regression
