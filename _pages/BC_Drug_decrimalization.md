@@ -231,15 +231,15 @@ The interrupted time-series regression model was estimated using RStudio. Data p
 
 <div id="policy_model_chart" style="width:108%;height:650px;"></div>
 
-The primary analysis assumes a 6-month implementation lag, with the policy effect beginning in July 2023. This specification was selected because changes in drug-related mortality are unlikely to occur immediately following implementation, as behavioral adaptation, service uptake, and changes in the unregulated drug supply may require time before measurable effects are observed.
+The primary analysis uses a 6-month implementation lag, with the estimated policy effect beginning in July 2023. This specification was selected because changes in population-level drug toxicity mortality rates are unlikely to occur immediately following implementation. Behavioral adaptation, changes in service access, policy awareness, and shifts in the unregulated drug supply may require time before measurable effects appear in mortality rates.
 
-The interrupted time-series model indicates that, prior to the policy period, monthly drug-related deaths were increasing at an average rate of 1.16% per month (p < 0.001), reflecting a statistically significant upward trend.
+The interrupted time-series model indicates that, prior to the policy period, the monthly drug-related death rate per 100,000 population was increasing at an average rate of 1.03% per month (p < 0.001). This represents a statistically significant upward trend in mortality rates before the intervention.
 
-The estimated immediate level change following the assumed policy effect was an increase of 12.8%. However, this effect was not statistically significant, suggesting insufficient evidence of an immediate change in mortality levels when the policy began to influence outcomes.
+The estimated immediate level change following the assumed policy effect was an increase of 10.15% in the drug-related death rate per 100,000 population. However, this change was not statistically significant, suggesting insufficient evidence of an immediate shift in mortality rates when the policy began affecting outcomes.
 
-More importantly, the estimated trend change during the policy period was −2.83% per month (p < 0.001). This indicates that the monthly growth rate in drug-related deaths slowed significantly following the intervention. Although deaths did not immediately decline, the rate at which they were increasing became substantially lower than during the pre-policy period.
+The most important finding is the estimated change in the monthly trend following the intervention. During the policy period, the growth rate of drug-related mortality declined by 2.79 percentage points per month (p < 0.001). Combining this with the pre-policy trend, the estimated post-policy trajectory was approximately −1.80% per month, indicating that the previously increasing mortality rate shifted toward a declining trend following the intervention.
 
-Overall, the model estimates an average reduction of approximately 23.2% in drug-related deaths over the policy period relative to the counterfactual trend that would have been expected in the absence of the intervention. While this finding suggests that the policy may have contributed to moderating the upward trajectory of mortality, it should be interpreted as an observational association rather than definitive evidence of causality
+Overall, the model estimates that the observed drug-related death rate per 100,000 population was approximately 24.7% lower over the policy period compared with the counterfactual trend expected in the absence of the intervention. While this suggests that the policy period was associated with a substantial moderation in the growth of drug-related mortality rates, the findings should be interpreted as an observational association rather than definitive evidence of a causal policy effect.
 
 <div id="sensitivity_table"></div>
 
