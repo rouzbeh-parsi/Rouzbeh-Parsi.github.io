@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Drug Policy Analysis Dashboard"
+title: "Evaluation of Drug Decriminalization Pilot Program in BC"
 permalink: /BC-drug-policy/
 author_profile: true
 mathjax: false
