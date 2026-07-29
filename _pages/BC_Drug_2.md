@@ -55,158 +55,165 @@ window.addEventListener("load", function(){
 
 
     const ab = data.map(d =>
-        d.fpcab === "" || d.fpcab == null
-        ? null
+        d.fpcab === "" || d.fpcab == null 
+        ? null 
         : Number(d.fpcab)
     );
 
 
+    // Policy dates
+    const policyStart = new Date(2023,0,1);
+    const policyEnd   = new Date(2026,0,1);
 
-     const policyStart = new Date(2023,0,1); // Jan 2023
-    const policyEnd = new Date(2026,0,1);   // Jan 2026
 
 
-    Plotly.newPlot(
+    const traces = [
 
-        "bc_ab_chart",
+        {
+            x: dates,
+            y: bc,
+            mode: "lines",
+            name: "British Columbia",
+            line:{
+                width:3
+            }
+        },
 
-        [
+
+        {
+            x: dates,
+            y: ab,
+            mode:"lines",
+            name:"Alberta",
+            line:{
+                width:3
+            }
+        }
+
+    ];
+
+
+
+    const layout = {
+
+
+        title:{
+            text:"Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
+            x:0.5
+        },
+
+
+        xaxis:{
+            title:"Date",
+            type:"date"
+        },
+
+
+        yaxis:{
+            title:"Deaths per 100,000 Population"
+        },
+
+
+        hovermode:"x unified",
+
+
+
+        shapes:[
 
             {
-                x: dates,
-                y: bc,
-                mode: "lines",
-                name: "British Columbia",
+                type:"line",
+                x0:policyStart,
+                x1:policyStart,
+                y0:0,
+                y1:1,
+                xref:"x",
+                yref:"paper",
                 line:{
-                    width:3
+                    color:"red",
+                    dash:"dash",
+                    width:2
                 }
             },
 
 
             {
-                x: dates,
-                y: ab,
-                mode: "lines",
-                name: "Alberta",
+                type:"line",
+                x0:policyEnd,
+                x1:policyEnd,
+                y0:0,
+                y1:1,
+                xref:"x",
+                yref:"paper",
                 line:{
-                    width:3
+                    color:"red",
+                    dash:"dash",
+                    width:2
                 }
             }
 
         ],
 
 
-        {
 
-            title:{
-                text:"Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
-                x:0.5,
+        annotations:[
+
+            {
+                x:policyStart,
+                y:1,
+                xref:"x",
+                yref:"paper",
+                text:"Policy Start<br>Jan 2023",
+                showarrow:false,
+                yanchor:"bottom",
                 font:{
-                    size:22
+                    color:"red"
                 }
             },
 
 
-            xaxis:{
-                title:"Date",
-                type:"date"
-            },
-
-
-            yaxis:{
-                title:"Deaths per 100,000 Population"
-            },
-
-
-            hovermode:"x unified",
-
-
-            shapes:[
-
-                {
-                    type:"line",
-                    x0:policyStart,
-                    x1:policyStart,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"red",
-                        dash:"dash",
-                        width:2
-                    }
-                },
-
-
-                {
-                    type:"line",
-                    x0:policyEnd,
-                    x1:policyEnd,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"red",
-                        dash:"dash",
-                        width:2
-                    }
+            {
+                x:policyEnd,
+                y:1,
+                xref:"x",
+                yref:"paper",
+                text:"Policy End<br>Jan 2026",
+                showarrow:false,
+                yanchor:"bottom",
+                font:{
+                    color:"red"
                 }
-
-            ],
-
-
-            annotations:[
-
-                {
-                    x:policyStart,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy Start<br>Jan 2023",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                },
-
-
-                {
-                    x:policyEnd,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"Policy End<br>Jan 2026",
-                    showarrow:false,
-                    yanchor:"bottom",
-                    font:{
-                        color:"red"
-                    }
-                }
-
-            ],
-
-
-            margin:{
-                l:80,
-                r:40,
-                t:110,
-                b:80
             }
 
-        },
+        ],
 
 
+        margin:{
+            l:80,
+            r:40,
+            t:100,
+            b:80
+        }
+
+    };
+
+
+
+    Plotly.newPlot(
+        "bc_ab_chart",
+        traces,
+        layout,
         {
             responsive:true
         }
-
     );
+
+
 });
 
+
 </script>
+
+
 ## Next Step: Difference-in-Differences Event Study
 
 The descriptive comparison above shows the evolution of drug-related mortality rates in British Columbia and Alberta before and after BC's decriminalization pilot.
@@ -219,4 +226,4 @@ The next step estimates a difference-in-differences event-study model. This appr
 
 The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
 
-fuck you all 223
+fuck you all 223wetr
