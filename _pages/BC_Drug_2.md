@@ -141,7 +141,7 @@ window.addEventListener("load", function(){
                     y:1,
                     xref:"x",
                     yref:"paper",
-                    text:"BC Decriminalization (Jan 2023)",
+                    text:"Policy Start",
                     showarrow:false,
                     font:{
                         color:"red"
@@ -152,7 +152,7 @@ window.addEventListener("load", function(){
                     y:1,
                     xref:"x",
                     yref:"paper",
-                    text:"BC Decriminalization (Jan 2023)",
+                    text:"Policy End",
                     showarrow:false,
                     font:{
                         color:"red"
