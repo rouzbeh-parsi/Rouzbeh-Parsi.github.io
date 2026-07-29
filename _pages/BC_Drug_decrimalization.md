@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Evaluation of Drug Decriminalization Pilot Program in BC"
+title: "BC Drug Decriminalization Pilot Evaluation: Step 1 — Did Mortality Trends Change After Policy Implementation?"
 permalink: /BC-drug-policy/
 author_profile: true
 mathjax: false
