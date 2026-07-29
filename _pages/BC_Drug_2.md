@@ -118,25 +118,10 @@ const policyEnd = new Date(2026,0,1);   // Jan 2026
             dash:"dash",
             width:2
         }
-    },
-
-    {
-        type:"line",
-        x0:policyEnd,
-        x1:policyEnd,
-        y0:0,
-        y1:1,
-        xref:"x",
-        yref:"paper",
-        line:{
-            color:"red",
-            dash:"dash",
-            width:2
-        }
     }
 ],
 
-
+annotations:[ { x:policyStart, y:1, xref:"x", yref:"paper", text:"BC Decriminalization (Jan 2023)", showarrow:false, font:{ color:"red" } } ],
 
             margin:{
                 l:80,
