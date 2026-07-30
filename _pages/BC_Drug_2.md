@@ -220,9 +220,9 @@ A six-month lag is considered because policy effects may not appear immediately.
 
 
 <script>
+
 window.EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
-console.log("EVENT DATA:", window.EVENT_DATA);
-console.log("First observation:", window.EVENT_DATA[0]);
+
 </script>
 
 
@@ -233,28 +233,73 @@ console.log("First observation:", window.EVENT_DATA[0]);
 
 window.addEventListener("load", function(){
 
+
     const data = window.EVENT_DATA;
 
 
+    console.log("EVENT DATA:", data);
+
+
     if (!data || data.length === 0){
-        console.log("No event data found");
+
+        console.log("No event study data found");
         return;
+
     }
 
 
-    const event_time = data.map(d => d.event_time);
 
-    const estimates = data.map(d => d.estimate);
+    const eventTime = data.map(d => d.event_time);
+
+
+    const estimate = data.map(d => d.estimate);
+
+
+    const lower = data.map(d => d["conf.low"]);
+
+
+    const upper = data.map(d => d["conf.high"]);
+
 
 
     Plotly.newPlot(
 
         "event_chart",
 
+
         [
+
+            // Upper confidence bound
             {
-                x:event_time,
-                y:estimates,
+                x:eventTime,
+                y:upper,
+                mode:"lines",
+                line:{
+                    width:0
+                },
+                showlegend:false,
+                hoverinfo:"skip"
+            },
+
+
+            // Lower confidence bound + fill
+            {
+                x:eventTime,
+                y:lower,
+                mode:"lines",
+                fill:"tonexty",
+                fillcolor:"rgba(0,100,200,0.15)",
+                line:{
+                    width:0
+                },
+                name:"95% Confidence Interval"
+            },
+
+
+            // Point estimates
+            {
+                x:eventTime,
+                y:estimate,
                 mode:"lines+markers",
                 name:"Estimated Effect",
                 line:{
@@ -264,10 +309,14 @@ window.addEventListener("load", function(){
                     size:7
                 }
             }
+
+
         ],
 
 
+
         {
+
 
             title:{
                 text:"Difference-in-Differences Event Study: Effect of BC Decriminalization",
@@ -278,33 +327,115 @@ window.addEventListener("load", function(){
             },
 
 
+
             xaxis:{
+
                 title:"Months Relative to July 2023",
+
                 zeroline:true
+
             },
+
 
 
             yaxis:{
+
                 title:"Estimated Effect on Drug Mortality Rate"
+
             },
+
+
+
+            shapes:[
+
+                // zero effect line
+                {
+                    type:"line",
+                    x0:Math.min(...eventTime),
+                    x1:Math.max(...eventTime),
+                    y0:0,
+                    y1:0,
+                    line:{
+                        color:"black",
+                        dash:"dash",
+                        width:2
+                    }
+                },
+
+
+                // policy implementation marker
+                {
+                    type:"line",
+                    x0:0,
+                    x1:0,
+                    y0:0,
+                    y1:1,
+                    xref:"x",
+                    yref:"paper",
+                    line:{
+                        color:"red",
+                        dash:"dash",
+                        width:2
+                    }
+                }
+
+            ],
+
+
+
+            annotations:[
+
+                {
+
+                    x:0,
+
+                    y:1,
+
+                    xref:"x",
+
+                    yref:"paper",
+
+                    text:"July 2023<br>(6-month lag)",
+
+                    showarrow:false,
+
+                    font:{
+                        color:"red"
+                    }
+
+                }
+
+            ],
+
 
 
             hovermode:"x unified",
 
 
+
             margin:{
+
                 l:80,
+
                 r:40,
-                t:100,
+
+                t:110,
+
                 b:80
+
             }
+
 
         },
 
 
+
         {
+
             responsive:true
+
         }
+
 
     );
 
