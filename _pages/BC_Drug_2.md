@@ -304,59 +304,6 @@ window.addEventListener("load", function(){
             },
 
 
-            shapes:[
-
-                // Reference line at zero effect
-                {
-                    type:"line",
-                    x0:-12,
-                    x1:18,
-                    y0:0,
-                    y1:0,
-                    line:{
-                        color:"black",
-                        dash:"dash",
-                        width:2
-                    }
-                },
-
-
-                // Policy implementation
-                {
-                    type:"line",
-                    x0:0,
-                    x1:0,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"red",
-                        dash:"dash",
-                        width:2
-                    }
-                }
-
-            ],
-
-
-            annotations:[
-
-                {
-                    x:0,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"BC Decriminalization<br>July 2023",
-                    showarrow:false,
-                    font:{
-                        color:"red"
-                    }
-                }
-
-            ],
-
-
             hovermode:"x unified",
 
 
