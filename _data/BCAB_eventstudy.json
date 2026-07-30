@@ -1,0 +1,246 @@
+[
+  {
+    "event_time": -12,
+    "estimate": -0.2983,
+    "std.error": 0.2342,
+    "conf.low": -0.7615,
+    "conf.high": 0.165,
+    "p.value": 0.2051
+  },
+  {
+    "event_time": -11,
+    "estimate": 0.0826,
+    "std.error": 0.0323,
+    "conf.low": 0.0188,
+    "conf.high": 0.1465,
+    "p.value": 0.0116
+  },
+  {
+    "event_time": -10,
+    "estimate": 0.064,
+    "std.error": 0.029,
+    "conf.low": 0.0067,
+    "conf.high": 0.1214,
+    "p.value": 0.029
+  },
+  {
+    "event_time": -9,
+    "estimate": 0.346,
+    "std.error": 0.0258,
+    "conf.low": 0.2949,
+    "conf.high": 0.3971,
+    "p.value": 1.4398e-26
+  },
+  {
+    "event_time": -8,
+    "estimate": 0.2274,
+    "std.error": 0.0225,
+    "conf.low": 0.1828,
+    "conf.high": 0.2719,
+    "p.value": 3.408e-18
+  },
+  {
+    "event_time": -7,
+    "estimate": 0.7093,
+    "std.error": 0.0193,
+    "conf.low": 0.6711,
+    "conf.high": 0.7476,
+    "p.value": 4.5076e-72
+  },
+  {
+    "event_time": -6,
+    "estimate": 0.6907,
+    "std.error": 0.016,
+    "conf.low": 0.659,
+    "conf.high": 0.7225,
+    "p.value": 1.0061e-80
+  },
+  {
+    "event_time": -5,
+    "estimate": -0.0279,
+    "std.error": 0.0128,
+    "conf.low": -0.0531,
+    "conf.high": -0.0027,
+    "p.value": 0.0304
+  },
+  {
+    "event_time": -4,
+    "estimate": 0.3553,
+    "std.error": 0.0098,
+    "conf.low": 0.3359,
+    "conf.high": 0.3746,
+    "p.value": 1.3997e-71
+  },
+  {
+    "event_time": -3,
+    "estimate": 0.7366,
+    "std.error": 0.0065,
+    "conf.low": 0.7238,
+    "conf.high": 0.7495,
+    "p.value": 6.7572e-136
+  },
+  {
+    "event_time": -2,
+    "estimate": 0.0186,
+    "std.error": 0.0033,
+    "conf.low": 0.0121,
+    "conf.high": 0.0251,
+    "p.value": 8.9499e-08
+  },
+  {
+    "event_time": -1,
+    "estimate": 0
+  },
+  {
+    "event_time": 0,
+    "estimate": 0.382,
+    "std.error": 0.0032,
+    "conf.low": 0.3757,
+    "conf.high": 0.3883,
+    "p.value": 5.7185e-139
+  },
+  {
+    "event_time": 1,
+    "estimate": -0.1366,
+    "std.error": 0.0065,
+    "conf.low": -0.1495,
+    "conf.high": -0.1238,
+    "p.value": 1.5366e-44
+  },
+  {
+    "event_time": 2,
+    "estimate": -0.2553,
+    "std.error": 0.0098,
+    "conf.low": -0.2746,
+    "conf.high": -0.2359,
+    "p.value": 1.2633e-54
+  },
+  {
+    "event_time": 3,
+    "estimate": 0.1267,
+    "std.error": 0.013,
+    "conf.low": 0.1011,
+    "conf.high": 0.1523,
+    "p.value": 2.1743e-17
+  },
+  {
+    "event_time": 4,
+    "estimate": 0.3081,
+    "std.error": 0.0163,
+    "conf.low": 0.2759,
+    "conf.high": 0.3402,
+    "p.value": 7.4132e-40
+  },
+  {
+    "event_time": 5,
+    "estimate": 0.4901,
+    "std.error": 0.0194,
+    "conf.low": 0.4516,
+    "conf.high": 0.5285,
+    "p.value": 6.8001e-53
+  },
+  {
+    "event_time": 6,
+    "estimate": 0.0714,
+    "std.error": 0.0227,
+    "conf.low": 0.0265,
+    "conf.high": 0.1164,
+    "p.value": 0.0021
+  },
+  {
+    "event_time": 7,
+    "estimate": -0.2472,
+    "std.error": 0.026,
+    "conf.low": -0.2987,
+    "conf.high": -0.1957,
+    "p.value": 1.0816e-16
+  },
+  {
+    "event_time": 8,
+    "estimate": 0.0354,
+    "std.error": 0.0291,
+    "conf.low": -0.0222,
+    "conf.high": 0.093,
+    "p.value": 0.2265
+  },
+  {
+    "event_time": 9,
+    "estimate": -0.3832,
+    "std.error": 0.0324,
+    "conf.low": -0.4473,
+    "conf.high": -0.3192,
+    "p.value": 1.3788e-22
+  },
+  {
+    "event_time": 10,
+    "estimate": -0.4013,
+    "std.error": 0.0356,
+    "conf.low": -0.4717,
+    "conf.high": -0.3309,
+    "p.value": 3.4979e-21
+  },
+  {
+    "event_time": 11,
+    "estimate": -0.3199,
+    "std.error": 0.0389,
+    "conf.low": -0.3968,
+    "conf.high": -0.243,
+    "p.value": 1.4418e-13
+  },
+  {
+    "event_time": 12,
+    "estimate": -0.5379,
+    "std.error": 0.0421,
+    "conf.low": -0.6211,
+    "conf.high": -0.4547,
+    "p.value": 5.134e-25
+  },
+  {
+    "event_time": 13,
+    "estimate": -0.2565,
+    "std.error": 0.0454,
+    "conf.low": -0.3463,
+    "conf.high": -0.1668,
+    "p.value": 8.9499e-08
+  },
+  {
+    "event_time": 14,
+    "estimate": -0.5752,
+    "std.error": 0.0487,
+    "conf.low": -0.6714,
+    "conf.high": -0.4789,
+    "p.value": 1.4342e-22
+  },
+  {
+    "event_time": 15,
+    "estimate": -1.0932,
+    "std.error": 0.0519,
+    "conf.low": -1.1957,
+    "conf.high": -0.9906,
+    "p.value": 1.5366e-44
+  },
+  {
+    "event_time": 16,
+    "estimate": -1.2118,
+    "std.error": 0.0551,
+    "conf.low": -1.3209,
+    "conf.high": -1.1028,
+    "p.value": 2.0032e-46
+  },
+  {
+    "event_time": 17,
+    "estimate": -1.1298,
+    "std.error": 0.0583,
+    "conf.low": -1.2452,
+    "conf.high": -1.0145,
+    "p.value": 8.5455e-41
+  },
+  {
+    "event_time": 18,
+    "estimate": -1.6038,
+    "std.error": 0.1446,
+    "conf.low": -1.8898,
+    "conf.high": -1.3179,
+    "p.value": 1.0056e-20
+  }
+]
