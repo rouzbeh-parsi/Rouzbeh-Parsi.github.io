@@ -6,11 +6,10 @@ author_profile: true
 ---
 ## Evaluation of BC Drug Decriminalization Policy Using Difference-in-Differences Event Study (July 2026)
 
-A causal policy evaluation extending the interrupted time-series analysis by comparing British Columbia with Alberta as a control province. The project applies a **Difference-in-Differences (DiD) event-study model** to estimate whether drug-related mortality trends in BC changed differently after decriminalization compared with a similar province.
+A causal policy evaluation extending the interrupted time-series analysis by comparing British Columbia with Alberta as a control province. The project applies a **Difference-in-Differences (DiD) event-study model** to estimate whether drug-related mortality trends in BC changed differently after decriminalization compared with Alberta.
 
-The analysis uses monthly provincial panel data and estimates dynamic treatment effects before and after policy implementation, including confidence intervals and a six-month lag period to account for potential delays between policy adoption and observable outcomes.
 
-**Methods:** Difference-in-Differences, Event Study, Panel Data Regression, Fixed Effects Models, Newey-West Standard Errors
+**Methods:** Difference-in-Differences, Event Study
 
 **Tools:** R, Fixest, Plotly, JSON Data Visualization
 
