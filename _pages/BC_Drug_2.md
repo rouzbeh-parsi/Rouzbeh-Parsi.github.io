@@ -216,7 +216,6 @@ Following decriminalization, the estimated effects initially fluctuate, but the 
 
 A six-month lag is considered because policy effects may not appear immediately. Changes in behaviour, access to services, and implementation processes can take time to influence mortality outcomes. Therefore, short-term estimates should be interpreted cautiously, while longer-term post-policy estimates provide a better indication of potential changes associated with the intervention.
 
-
 <div id="eventstudy_chart" style="width:100%;height:600px;"></div>
 
 
@@ -250,7 +249,7 @@ window.addEventListener("load", function(){
 
         [
 
-            // Confidence interval area
+            // Confidence interval
             {
                 x: event_time.concat(event_time.slice().reverse()),
                 y: upper.concat(lower.slice().reverse()),
@@ -259,12 +258,11 @@ window.addEventListener("load", function(){
                 line:{
                     color:"transparent"
                 },
-                name:"95% Confidence Interval",
-                showlegend:true
+                name:"95% Confidence Interval"
             },
 
 
-            // Point estimates
+            // Event-study coefficients
             {
                 x:event_time,
                 y:estimate,
@@ -277,7 +275,6 @@ window.addEventListener("load", function(){
                     size:7
                 }
             }
-
 
         ],
 
@@ -294,13 +291,12 @@ window.addEventListener("load", function(){
 
 
             xaxis:{
-                title:"Months Relative to July 2023",
-                zeroline:true
+                title:"Months Relative to July 2023"
             },
 
 
             yaxis:{
-                title:"Estimated Change in Drug Mortality Rate (per 100,000)"
+                title:"Estimated Effect on Drug Mortality Rate (per 100,000)"
             },
 
 
@@ -326,9 +322,8 @@ window.addEventListener("load", function(){
 
 });
 
-
 </script>
-fuck fuch
+fuck fuch adsaf
 ## Data Sources
 
 - **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
