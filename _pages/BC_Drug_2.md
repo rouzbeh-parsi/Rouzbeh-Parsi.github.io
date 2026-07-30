@@ -245,12 +245,12 @@ window.addEventListener("load", function(){
 
 
     const lower = data.map(d =>
-        Number(d["conf.low"])
+        Number(d.conf_low)
     );
 
 
     const upper = data.map(d =>
-        Number(d["conf.high"])
+        Number(d.conf_high)
     );
 
 console.log("LOWER CI:", lower);
