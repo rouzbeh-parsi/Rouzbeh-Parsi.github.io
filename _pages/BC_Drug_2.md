@@ -321,59 +321,7 @@ Plotly.newPlot(
         },
 
 
-        shapes:[
-
-            // Policy implementation
-            {
-                type:"line",
-                x0:0,
-                x1:0,
-                y0:0,
-                y1:1,
-                xref:"x",
-                yref:"paper",
-                line:{
-                    color:"red",
-                    dash:"dash",
-                    width:2
-                }
-            },
-
-
-            // No effect line
-            {
-                type:"line",
-                x0:-12,
-                x1:18,
-                y0:0,
-                y1:0,
-                xref:"x",
-                yref:"y",
-                line:{
-                    color:"gray",
-                    width:1
-                }
-            }
-
-        ],
-
-
-        annotations:[
-
-            {
-                x:0,
-                y:1,
-                xref:"x",
-                yref:"paper",
-                text:"BC Decriminalization (July 2023)",
-                showarrow:false,
-                font:{
-                    color:"red"
-                }
-            }
-
-        ],
-
+     
 
         hovermode:"x unified",
 
