@@ -269,11 +269,11 @@ Plotly.newPlot(
             name:"Estimated Effect",
 
             line:{
-                width:3,
-                color:"red"
+                width:3
             },
             marker:{
-                size:7
+                size:7,
+                color:"red"
                 
             },
 
