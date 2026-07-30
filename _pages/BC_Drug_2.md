@@ -268,11 +268,11 @@ Plotly.newPlot(
 
             line:{
                 width:3,
-                color:"red"
+                color:"blue"
            },
             marker:{
                 size:7,
-                color:"blue"
+                color:"red"
                 
             },
 
