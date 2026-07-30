@@ -202,7 +202,7 @@ where:
 - **α(i)** represents province fixed effects, controlling for time-invariant differences between BC and Alberta.
 - **λ(t)** represents month fixed effects, controlling for factors affecting both provinces over time.
 
-The month immediately before implementation (k = -1) is used as the reference period. Coefficients before the policy show whether BC and Alberta followed similar trends before decriminalization, while coefficients after implementation estimate the relative change in BC compared with Alberta.
+The month immediately before implementation (k = -1) is used as the reference period. Coefficients before the policy show whether BC and Alberta followed similar trends before decriminalization, while coefficients after implementation estimate the relative change in BC compared with Alberta. A 6-month lag is also considered to account for delayed policy effects, recognizing that changes in drug-related mortality may take time to appear after implementation.
 
 A positive coefficient indicates that mortality increased in BC relative to Alberta compared with the pre-policy period. A negative coefficient indicates a relative decrease.
 
