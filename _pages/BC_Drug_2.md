@@ -269,7 +269,8 @@ Plotly.newPlot(
             name:"Estimated Effect",
 
             marker:{
-                size:7
+                size:7,
+                color = "red"
             },
 
 
