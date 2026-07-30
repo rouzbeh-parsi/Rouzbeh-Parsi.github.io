@@ -145,7 +145,7 @@ window.addEventListener("load", function(){
                     y:1,
                     xref:"x",
                     yref:"paper",
-                    text:"Policy Start",
+                    text:"Policy Start (Jan 2023)",
                     showarrow:false,
                     font:{
                         color:"red"
@@ -156,7 +156,7 @@ window.addEventListener("load", function(){
                     y:1,
                     xref:"x",
                     yref:"paper",
-                    text:"Policy End",
+                    text:"Policy End (Jan 2026)",
                     showarrow:false,
                     font:{
                         color:"red"
