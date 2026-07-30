@@ -3,7 +3,7 @@ layout: archive
 title: "BC Drug Decriminalization Pilot Evaluation: Step 2 — Did BC change differently from a comparable province? "
 permalink: /BC-drug-policy2/
 author_profile: true
-mathjax: false
+mathjax: true
 ---
 
 ## Comparing BC and Alberta
