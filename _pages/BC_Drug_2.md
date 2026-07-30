@@ -304,7 +304,7 @@ Plotly.newPlot(
     {
 
         title:{
-            text:"Difference-in-Differences Event Study: BC Decriminalization Effect",
+            text:"Event Study: BC Decriminalization Policy Effect",
             x:0.5,
             font:{
                 size:22
