@@ -255,12 +255,12 @@ window.addEventListener("load", function(){
 
 
     const lower = data.map(d =>
-        Number(d["conf.low"])
+        Number(d.conf_low)
     );
 
 
     const upper = data.map(d =>
-        Number(d["conf.high"])
+        Number(d.conf_high)
     );
 
 
@@ -446,7 +446,7 @@ window.addEventListener("load", function(){
 
 </script>
 ## Data Sources
-
+fuck az hame rang
 - **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
   [https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports](https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports)
 
