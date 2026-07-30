@@ -216,114 +216,17 @@ Following decriminalization, the estimated effects initially fluctuate, but the 
 
 A six-month lag is considered because policy effects may not appear immediately. Changes in behaviour, access to services, and implementation processes can take time to influence mortality outcomes. Therefore, short-term estimates should be interpreted cautiously, while longer-term post-policy estimates provide a better indication of potential changes associated with the intervention.
 
-<div id="eventstudy_chart" style="width:100%;height:600px;"></div>
-
-
 <script>
+
 window.EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
-</script>
 
+console.log("EVENT DATA:");
+console.log(window.EVENT_DATA);
 
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-
-
-<script>
-
-window.addEventListener("load", function(){
-
-    const data = window.EVENT_DATA;
-
-
-    const event_time = data.map(d => d.event_time);
-
-    const estimate = data.map(d => d.estimate);
-
-    const lower = data.map(d => d["conf.low"]);
-
-    const upper = data.map(d => d["conf.high"]);
-
-
-
-    Plotly.newPlot(
-        "eventstudy_chart",
-
-        [
-
-            // Confidence interval
-            {
-                x: event_time.concat(event_time.slice().reverse()),
-                y: upper.concat(lower.slice().reverse()),
-                fill: "toself",
-                fillcolor: "rgba(0,0,255,0.15)",
-                line:{
-                    color:"transparent"
-                },
-                name:"95% Confidence Interval"
-            },
-
-
-            // Event-study coefficients
-            {
-                x:event_time,
-                y:estimate,
-                mode:"lines+markers",
-                name:"Estimated Effect",
-                line:{
-                    width:3
-                },
-                marker:{
-                    size:7
-                }
-            }
-
-        ],
-
-
-        {
-
-            title:{
-                text:"Event Study: Effect of BC Drug Decriminalization Relative to Alberta",
-                x:0.5,
-                font:{
-                    size:22
-                }
-            },
-
-
-            xaxis:{
-                title:"Months Relative to July 2023"
-            },
-
-
-            yaxis:{
-                title:"Estimated Effect on Drug Mortality Rate (per 100,000)"
-            },
-
-
-            hovermode:"x unified",
-
-
-            margin:{
-                l:90,
-                r:40,
-                t:100,
-                b:80
-            }
-
-        },
-
-
-        {
-            responsive:true
-        }
-
-    );
-
-
-});
+console.log("First observation:");
+console.log(window.EVENT_DATA[0]);
 
 </script>
-fuck fuch adsaf
 ## Data Sources
 
 - **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
