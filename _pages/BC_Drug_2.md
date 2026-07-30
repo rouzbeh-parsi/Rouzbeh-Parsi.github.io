@@ -344,6 +344,17 @@ Plotly.newPlot(
 });
 
 </script>
+
+---
+
+## Appendix
+
+### Reproducibility
+
+The complete R script used for data preparation, Difference-in-Differences event-study estimation, and exporting model results is available below.
+
+➡️ **[Download R Code: BC Event Study Analysis]({{ "/files/BCeventstudy.R" | relative_url }})**
+
 ## Data Sources
 
 - **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
