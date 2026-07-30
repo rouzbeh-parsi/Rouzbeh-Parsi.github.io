@@ -221,7 +221,6 @@ A six-month lag is considered because policy effects may not appear immediately.
 
 <script>
 window.BCAB_EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
-console.log("EVENT DATA LOADED:", window.BCAB_EVENT_DATA);
 </script>
 
 
@@ -235,15 +234,6 @@ window.addEventListener("load", function(){
     const data = window.BCAB_EVENT_DATA;
 
 
-    if (!data || data.length === 0){
-        console.log("No event data found");
-        return;
-    }
-
-
-    console.log("FIRST OBSERVATION:", data[0]);
-
-
     const eventTime = data.map(d =>
         Number(d.event_time)
     );
@@ -254,8 +244,14 @@ window.addEventListener("load", function(){
     );
 
 
-    console.log("EVENT TIME:", eventTime);
-    console.log("ESTIMATE:", estimate);
+    const lower = data.map(d =>
+        Number(d["conf.low"])
+    );
+
+
+    const upper = data.map(d =>
+        Number(d["conf.high"])
+    );
 
 
 
@@ -264,6 +260,18 @@ window.addEventListener("load", function(){
         "event_chart",
 
         [
+
+            {
+                x:eventTime.concat(eventTime.slice().reverse()),
+                y:upper.concat(lower.slice().reverse()),
+                fill:"toself",
+                fillcolor:"rgba(0,0,255,0.15)",
+                line:{
+                    color:"rgba(0,0,0,0)"
+                },
+                name:"95% Confidence Interval"
+            },
+
 
             {
                 x:eventTime,
@@ -284,7 +292,7 @@ window.addEventListener("load", function(){
         {
 
             title:{
-                text:"Difference-in-Differences Event Study",
+                text:"Difference-in-Differences Event Study: BC Decriminalization Effect",
                 x:0.5,
                 font:{
                     size:22
@@ -298,7 +306,7 @@ window.addEventListener("load", function(){
 
 
             yaxis:{
-                title:"Estimated Effect"
+                title:"Change in Drug Mortality Rate per 100,000"
             },
 
 
@@ -316,16 +324,13 @@ window.addEventListener("load", function(){
 
 
         {
-
             responsive:true
-
         }
 
     );
 
 
 });
-
 
 </script>
 ## Data Sources
