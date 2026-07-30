@@ -253,7 +253,8 @@ window.addEventListener("load", function(){
         Number(d["conf.high"])
     );
 
-
+console.log("LOWER CI:", lower);
+console.log("UPPER CI:", upper);
 
     Plotly.newPlot(
 
