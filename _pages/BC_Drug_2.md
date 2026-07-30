@@ -271,7 +271,7 @@ Plotly.newPlot(
  //           line:{
 //                width:3,
  //               color:"blue"
-            },
+//            },
             marker:{
                 size:7,
                 color:"red"
