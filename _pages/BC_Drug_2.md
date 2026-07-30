@@ -220,9 +220,7 @@ A six-month lag is considered because policy effects may not appear immediately.
 
 
 <script>
-
-window.EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
-
+window.BCAB_EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
 </script>
 
 
@@ -233,32 +231,37 @@ window.EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
 
 window.addEventListener("load", function(){
 
+    const data = window.BCAB_EVENT_DATA;
 
-    const data = window.EVENT_DATA;
+
+    if (!data || data.length === 0) {
+        console.log("No event data found");
+        return;
+    }
 
 
     console.log("EVENT DATA:", data);
 
 
-    if (!data || data.length === 0){
 
-        console.log("No event study data found");
-        return;
-
-    }
+    const eventTime = data.map(d =>
+        Number(d.event_time)
+    );
 
 
-
-    const eventTime = data.map(d => d.event_time);
-
-
-    const estimate = data.map(d => d.estimate);
+    const estimate = data.map(d =>
+        Number(d.estimate)
+    );
 
 
-    const lower = data.map(d => d["conf.low"]);
+    const lower = data.map(d =>
+        Number(d["conf.low"])
+    );
 
 
-    const upper = data.map(d => d["conf.high"]);
+    const upper = data.map(d =>
+        Number(d["conf.high"])
+    );
 
 
 
@@ -266,37 +269,8 @@ window.addEventListener("load", function(){
 
         "event_chart",
 
-
         [
 
-            // Upper confidence bound
-            {
-                x:eventTime,
-                y:upper,
-                mode:"lines",
-                line:{
-                    width:0
-                },
-                showlegend:false,
-                hoverinfo:"skip"
-            },
-
-
-            // Lower confidence bound + fill
-            {
-                x:eventTime,
-                y:lower,
-                mode:"lines",
-                fill:"tonexty",
-                fillcolor:"rgba(0,100,200,0.15)",
-                line:{
-                    width:0
-                },
-                name:"95% Confidence Interval"
-            },
-
-
-            // Point estimates
             {
                 x:eventTime,
                 y:estimate,
@@ -308,18 +282,40 @@ window.addEventListener("load", function(){
                 marker:{
                     size:7
                 }
+            },
+
+
+            {
+                x:eventTime,
+                y:upper,
+                mode:"lines",
+                name:"Upper 95% CI",
+                line:{
+                    width:1,
+                    dash:"dot"
+                }
+            },
+
+
+            {
+                x:eventTime,
+                y:lower,
+                mode:"lines",
+                name:"Lower 95% CI",
+                line:{
+                    width:1,
+                    dash:"dot"
+                }
             }
 
-
         ],
-
 
 
         {
 
 
             title:{
-                text:"Difference-in-Differences Event Study: Effect of BC Decriminalization",
+                text:"Difference-in-Differences Event Study: BC Decriminalization Effect",
                 x:0.5,
                 font:{
                     size:22
@@ -327,43 +323,22 @@ window.addEventListener("load", function(){
             },
 
 
-
             xaxis:{
-
-                title:"Months Relative to July 2023",
-
-                zeroline:true
-
+                title:"Months Relative to July 2023"
             },
-
 
 
             yaxis:{
-
-                title:"Estimated Effect on Drug Mortality Rate"
-
+                title:"Change in Drug Mortality Rate per 100,000"
             },
 
+
+            hovermode:"x unified",
 
 
             shapes:[
 
-                // zero effect line
-                {
-                    type:"line",
-                    x0:Math.min(...eventTime),
-                    x1:Math.max(...eventTime),
-                    y0:0,
-                    y1:0,
-                    line:{
-                        color:"black",
-                        dash:"dash",
-                        width:2
-                    }
-                },
-
-
-                // policy implementation marker
+                // Policy implementation point
                 {
                     type:"line",
                     x0:0,
@@ -377,6 +352,39 @@ window.addEventListener("load", function(){
                         dash:"dash",
                         width:2
                     }
+                },
+
+
+                // Reference month (-1)
+                {
+                    type:"line",
+                    x0:-1,
+                    x1:-1,
+                    y0:0,
+                    y1:1,
+                    xref:"x",
+                    yref:"paper",
+                    line:{
+                        color:"black",
+                        dash:"dot",
+                        width:1
+                    }
+                },
+
+
+                // Zero effect line
+                {
+                    type:"line",
+                    x0:-12,
+                    x1:18,
+                    y0:0,
+                    y1:0,
+                    xref:"x",
+                    yref:"y",
+                    line:{
+                        color:"gray",
+                        width:1
+                    }
                 }
 
             ],
@@ -386,48 +394,42 @@ window.addEventListener("load", function(){
             annotations:[
 
                 {
-
                     x:0,
-
                     y:1,
-
                     xref:"x",
-
                     yref:"paper",
-
-                    text:"July 2023 (6-month lag)",
-
+                    text:"BC Decriminalization (July 2023)",
                     showarrow:false,
-
                     font:{
                         color:"red"
                     }
+                },
 
+                {
+                    x:-1,
+                    y:0,
+                    xref:"x",
+                    yref:"y",
+                    text:"Reference Month",
+                    showarrow:false,
+                    yshift:-25,
+                    font:{
+                        color:"black"
+                    }
                 }
 
             ],
 
 
 
-            hovermode:"x unified",
-
-
-
             margin:{
-
                 l:80,
-
                 r:40,
-
-                t:110,
-
+                t:100,
                 b:80
-
             }
 
-
         },
-
 
 
         {
@@ -436,11 +438,11 @@ window.addEventListener("load", function(){
 
         }
 
-
     );
 
 
 });
+
 
 </script>
 ## Data Sources
