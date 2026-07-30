@@ -6,8 +6,7 @@ author_profile: true
 mathjax: false
 ---
 
-## Comparing British Columbia
- and Alberta
+## Comparing British Columbia and Alberta
 
 The previous analysis examined changes in drug-related mortality in British Columbia using an interrupted time-series model. While this approach identifies changes in trends after decriminalization, it cannot fully separate policy effects from broader changes over time.
 
