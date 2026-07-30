@@ -6,7 +6,8 @@ author_profile: true
 mathjax: false
 ---
 
-## Comparing BC and Alberta
+## Comparing British Columbia
+ and Alberta
 
 The previous analysis examined changes in drug-related mortality in British Columbia using an interrupted time-series model. While this approach identifies changes in trends after decriminalization, it cannot fully separate policy effects from broader changes over time.
 
@@ -74,7 +75,7 @@ window.addEventListener("load", function(){
         {
 
             title:{
-                text:"Drug-Related Mortality Rate per 100,000 Population: BC vs Alberta",
+                text:"Drug-Related Mortality Rate per 100,000 Population: British Columbia vs Alberta",
                 x:0.5,
                 font:{
                     size:22
