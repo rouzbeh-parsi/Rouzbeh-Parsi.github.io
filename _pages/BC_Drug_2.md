@@ -216,15 +216,100 @@ Following decriminalization, the estimated effects initially fluctuate, but the 
 
 A six-month lag is considered because policy effects may not appear immediately. Changes in behaviour, access to services, and implementation processes can take time to influence mortality outcomes. Therefore, short-term estimates should be interpreted cautiously, while longer-term post-policy estimates provide a better indication of potential changes associated with the intervention.
 
+<div id="event_chart" style="width:100%;height:600px;"></div>
+
+
+<script>
+window.EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
+console.log("EVENT DATA:", window.EVENT_DATA);
+console.log("First observation:", window.EVENT_DATA[0]);
+</script>
+
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+
 <script>
 
-window.EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
+window.addEventListener("load", function(){
 
-console.log("EVENT DATA:");
-console.log(window.EVENT_DATA);
+    const data = window.EVENT_DATA;
 
-console.log("First observation:");
-console.log(window.EVENT_DATA[0]);
+
+    if (!data || data.length === 0){
+        console.log("No event data found");
+        return;
+    }
+
+
+    const event_time = data.map(d => d.event_time);
+
+    const estimates = data.map(d => d.estimate);
+
+
+    Plotly.newPlot(
+
+        "event_chart",
+
+        [
+            {
+                x:event_time,
+                y:estimates,
+                mode:"lines+markers",
+                name:"Estimated Effect",
+                line:{
+                    width:3
+                },
+                marker:{
+                    size:7
+                }
+            }
+        ],
+
+
+        {
+
+            title:{
+                text:"Difference-in-Differences Event Study: Effect of BC Decriminalization",
+                x:0.5,
+                font:{
+                    size:22
+                }
+            },
+
+
+            xaxis:{
+                title:"Months Relative to July 2023",
+                zeroline:true
+            },
+
+
+            yaxis:{
+                title:"Estimated Effect on Drug Mortality Rate"
+            },
+
+
+            hovermode:"x unified",
+
+
+            margin:{
+                l:80,
+                r:40,
+                t:100,
+                b:80
+            }
+
+        },
+
+
+        {
+            responsive:true
+        }
+
+    );
+
+
+});
 
 </script>
 ## Data Sources
