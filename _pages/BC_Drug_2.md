@@ -263,16 +263,16 @@ Plotly.newPlot(
         {
             x:eventTime,
             y:estimate,
-            mode:"markers",
+            mode:"line+markers",
             name:"Estimated Effect",
 
             line:{
                 width:3,
-                color:"blue"
+                color:"red"
            },
             marker:{
                 size:7,
-                color:"red"
+                color:"blue"
                 
             },
 
