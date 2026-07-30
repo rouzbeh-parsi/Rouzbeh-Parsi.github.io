@@ -395,7 +395,7 @@ window.addEventListener("load", function(){
 
                     yref:"paper",
 
-                    text:"July 2023<br>(6-month lag)",
+                    text:"July 2023 (6-month lag)",
 
                     showarrow:false,
 
