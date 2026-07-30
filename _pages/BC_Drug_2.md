@@ -270,7 +270,7 @@ Plotly.newPlot(
 
             marker:{
                 size:7,
-                color = "red"
+                color:"red"
             },
 
 
