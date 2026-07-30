@@ -328,7 +328,7 @@ window.addEventListener("load", function(){
 
 
 </script>
-
+fuck fuch
 ## Data Sources
 
 - **British Columbia:** BC Coroners Service — Statistical Reports on Deaths  
