@@ -221,6 +221,7 @@ A six-month lag is considered because policy effects may not appear immediately.
 
 <script>
 window.BCAB_EVENT_DATA = {{ site.data.BCAB_eventstudy | jsonify }};
+console.log("EVENT DATA LOADED:", window.BCAB_EVENT_DATA);
 </script>
 
 
@@ -234,14 +235,13 @@ window.addEventListener("load", function(){
     const data = window.BCAB_EVENT_DATA;
 
 
-    if (!data || data.length === 0) {
+    if (!data || data.length === 0){
         console.log("No event data found");
         return;
     }
 
 
-    console.log("EVENT DATA:", data);
-
+    console.log("FIRST OBSERVATION:", data[0]);
 
 
     const eventTime = data.map(d =>
@@ -254,14 +254,8 @@ window.addEventListener("load", function(){
     );
 
 
-    const lower = data.map(d =>
-        Number(d.conf_low)
-    );
-
-
-    const upper = data.map(d =>
-        Number(d.conf_high)
-    );
+    console.log("EVENT TIME:", eventTime);
+    console.log("ESTIMATE:", estimate);
 
 
 
@@ -282,30 +276,6 @@ window.addEventListener("load", function(){
                 marker:{
                     size:7
                 }
-            },
-
-
-            {
-                x:eventTime,
-                y:upper,
-                mode:"lines",
-                name:"Upper 95% CI",
-                line:{
-                    width:1,
-                    dash:"dot"
-                }
-            },
-
-
-            {
-                x:eventTime,
-                y:lower,
-                mode:"lines",
-                name:"Lower 95% CI",
-                line:{
-                    width:1,
-                    dash:"dot"
-                }
             }
 
         ],
@@ -313,9 +283,8 @@ window.addEventListener("load", function(){
 
         {
 
-
             title:{
-                text:"Difference-in-Differences Event Study: BC Decriminalization Effect",
+                text:"Difference-in-Differences Event Study",
                 x:0.5,
                 font:{
                     size:22
@@ -329,103 +298,17 @@ window.addEventListener("load", function(){
 
 
             yaxis:{
-                title:"Change in Drug Mortality Rate per 100,000"
+                title:"Estimated Effect"
             },
 
 
             hovermode:"x unified",
 
 
-            shapes:[
-
-                // Policy implementation point
-                {
-                    type:"line",
-                    x0:0,
-                    x1:0,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"red",
-                        dash:"dash",
-                        width:2
-                    }
-                },
-
-
-                // Reference month (-1)
-                {
-                    type:"line",
-                    x0:-1,
-                    x1:-1,
-                    y0:0,
-                    y1:1,
-                    xref:"x",
-                    yref:"paper",
-                    line:{
-                        color:"black",
-                        dash:"dot",
-                        width:1
-                    }
-                },
-
-
-                // Zero effect line
-                {
-                    type:"line",
-                    x0:-12,
-                    x1:18,
-                    y0:0,
-                    y1:0,
-                    xref:"x",
-                    yref:"y",
-                    line:{
-                        color:"gray",
-                        width:1
-                    }
-                }
-
-            ],
-
-
-
-            annotations:[
-
-                {
-                    x:0,
-                    y:1,
-                    xref:"x",
-                    yref:"paper",
-                    text:"BC Decriminalization (July 2023)",
-                    showarrow:false,
-                    font:{
-                        color:"red"
-                    }
-                },
-
-                {
-                    x:-1,
-                    y:0,
-                    xref:"x",
-                    yref:"y",
-                    text:"Reference Month",
-                    showarrow:false,
-                    yshift:-25,
-                    font:{
-                        color:"black"
-                    }
-                }
-
-            ],
-
-
-
             margin:{
                 l:80,
                 r:40,
-                t:100,
+                t:90,
                 b:80
             }
 
