@@ -256,81 +256,143 @@ window.addEventListener("load", function(){
 console.log("LOWER CI:", lower);
 console.log("UPPER CI:", upper);
 
-    Plotly.newPlot(
+Plotly.newPlot(
 
-        "event_chart",
+    "event_chart",
 
-        [
+    [
 
-            {
-                x:eventTime.concat(eventTime.slice().reverse()),
-                y:upper.concat(lower.slice().reverse()),
-                fill:"toself",
-                fillcolor:"rgba(0,0,255,0.15)",
-                line:{
-                    color:"rgba(0,0,0,0)"
-                },
-                name:"95% Confidence Interval"
+        {
+            x:eventTime,
+            y:estimate,
+            mode:"lines+markers",
+            name:"Estimated Effect",
+
+            line:{
+                width:3
+            },
+
+            marker:{
+                size:7
             },
 
 
+            error_y:{
+                type:"data",
+                symmetric:false,
+
+                array: upper.map((u,i) =>
+                    u - estimate[i]
+                ),
+
+                arrayminus: lower.map((l,i) =>
+                    estimate[i] - l
+                ),
+
+                visible:true,
+
+                thickness:1.5,
+                width:5
+            }
+        }
+
+    ],
+
+
+    {
+
+        title:{
+            text:"Difference-in-Differences Event Study: BC Decriminalization Effect",
+            x:0.5,
+            font:{
+                size:22
+            }
+        },
+
+
+        xaxis:{
+            title:"Months Relative to July 2023",
+            zeroline:false
+        },
+
+
+        yaxis:{
+            title:"Change in Drug Mortality Rate per 100,000"
+        },
+
+
+        shapes:[
+
+            // Policy implementation
             {
-                x:eventTime,
-                y:estimate,
-                mode:"lines+markers",
-                name:"Estimated Effect",
+                type:"line",
+                x0:0,
+                x1:0,
+                y0:0,
+                y1:1,
+                xref:"x",
+                yref:"paper",
                 line:{
-                    width:3
-                },
-                marker:{
-                    size:7
+                    color:"red",
+                    dash:"dash",
+                    width:2
+                }
+            },
+
+
+            // No effect line
+            {
+                type:"line",
+                x0:-12,
+                x1:18,
+                y0:0,
+                y1:0,
+                xref:"x",
+                yref:"y",
+                line:{
+                    color:"gray",
+                    width:1
                 }
             }
 
         ],
 
 
-        {
+        annotations:[
 
-            title:{
-                text:"Difference-in-Differences Event Study: BC Decriminalization Effect",
-                x:0.5,
+            {
+                x:0,
+                y:1,
+                xref:"x",
+                yref:"paper",
+                text:"BC Decriminalization (July 2023)",
+                showarrow:false,
                 font:{
-                    size:22
+                    color:"red"
                 }
-            },
-
-
-            xaxis:{
-                title:"Months Relative to July 2023"
-            },
-
-
-            yaxis:{
-                title:"Change in Drug Mortality Rate per 100,000"
-            },
-
-
-            hovermode:"x unified",
-
-
-            margin:{
-                l:80,
-                r:40,
-                t:90,
-                b:80
             }
 
-        },
+        ],
 
 
-        {
-            responsive:true
+        hovermode:"x unified",
+
+
+        margin:{
+            l:80,
+            r:40,
+            t:100,
+            b:80
         }
 
-    );
+    },
 
 
+    {
+        responsive:true
+    }
+
+);
 });
 
 </script>
