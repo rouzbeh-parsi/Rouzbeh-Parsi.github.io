@@ -185,17 +185,31 @@ window.addEventListener("load", function(){
 
 </script>
 
-## Next Step: Difference-in-Differences Event Study
+## Difference-in-Differences Event Study
 
-The descriptive comparison above shows the evolution of drug-related mortality rates in British Columbia and Alberta before and after BC's decriminalization pilot.
+To estimate whether drug-related mortality changed differently in British Columbia after decriminalization, a **difference-in-differences (DiD) event-study model** is applied. This approach compares changes in BC with changes in Alberta, while controlling for permanent differences between provinces and common time trends.
 
-The next step estimates a difference-in-differences event-study model. This approach compares the change in British Columbia relative to Alberta while controlling for:
+The model is:
 
-- permanent differences between provinces;
-- common time trends affecting both provinces;
-- changes occurring around the policy implementation period.
+\[
+Y_{it} =
+\alpha_i + \lambda_t +
+\sum_{k \neq -1}\beta_k(BC_i \times EventTime_{k,t})
++\epsilon_{it}
+\]
 
-The model estimates how the difference between BC and Alberta evolved each month relative to January 2023, allowing us to examine whether mortality trends changed after decriminalization.
+where:
+
+- \(Y_{it}\) is the drug-related mortality rate per 100,000 population for province \(i\) in month \(t\).
+- \(BC_i\) is a treatment indicator equal to 1 for British Columbia and 0 for Alberta.
+- \(EventTime_{k,t}\) represents the number of months relative to the start of decriminalization (January 2023).
+- \(\beta_k\) estimates the change in BC mortality relative to Alberta at each month before and after the policy.
+- \(\alpha_i\) represents province fixed effects, controlling for time-invariant differences between BC and Alberta.
+- \(\lambda_t\) represents month fixed effects, controlling for common changes affecting both provinces.
+
+The month immediately before implementation (\(k=-1\)) is used as the reference period. Coefficients before the policy (\(k<0\)) are used to assess whether BC and Alberta followed similar trends before decriminalization, while coefficients after implementation (\(k\geq0\)) estimate how mortality changed in BC relative to Alberta after the policy.
+
+A positive coefficient indicates that mortality increased in BC relative to Alberta compared with the pre-policy period, while a negative coefficient indicates a relative decrease.
 
 ## Data Sources
 
