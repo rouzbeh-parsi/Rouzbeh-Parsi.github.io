@@ -4,7 +4,7 @@ title: "Portfolio"
 permalink: /portfolio/
 author_profile: true
 ---
-## Evaluation of BC Drug Decriminalization Policy Using Difference-in-Differences Event Study (July 2026)
+## BC Drug Decriminalization Pilot Evaluation: Step 2 — Did BC change differently from a comparable province? (July 2026)
 
 A causal policy evaluation extending the interrupted time-series analysis by comparing British Columbia with Alberta as a control province. The project applies a **Difference-in-Differences (DiD) event-study model** to estimate whether drug-related mortality trends in BC changed differently after decriminalization compared with Alberta.
 
@@ -22,7 +22,7 @@ An interactive dashboard exploring healthcare access and capacity across Canada.
 
 ➡️ **[View Project]({{ "/chs-dashboard/" | relative_url }})**
 
-## Evaluation of Drug Decriminalization Pilot Program in BC: Interrupted Time-Series Analysis (July 2026)
+## BC Drug Decriminalization Pilot Evaluation: Step 1 — Did Mortality Trends Change After Policy Implementation?
 
 An interrupted time-series analysis **(ITS)** of monthly unregulated drug toxicity deaths in British Columbia, examining changes before and after the province’s 2023–2026 decriminalization pilot program. The study uses data from the BC Coroners Service to assess whether the policy is associated with changes in the level and trend of deaths over time, while also testing different time delays for when the policy effect may begin.
 
